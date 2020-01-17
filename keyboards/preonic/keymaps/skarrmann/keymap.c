@@ -36,6 +36,35 @@ enum preonic_keycodes {
   MOUSE
 };
 
+enum tap_dance_keycodes {
+  LSPR,
+  RSPR,
+  LSBR,
+  RSBR,
+  LSCB,
+  RSCB
+};
+
+typedef enum {
+  SINGLE_TAP,
+  SINGLE_HOLD,
+  DOUBLE_SINGLE_TAP
+} tap_dance_state_t;
+
+static tap_dance_state_t tap_dance_state;
+
+int current_tap_dance(qk_tap_dance_state_t *state);
+
+void tap_dance_finished(qk_tap_dance_state_t *state, void *user_data, uint16_t tap_keycode, uint16_t hold_keycode);
+void tap_dance_reset(qk_tap_dance_state_t *state, void *user_data, uint16_t tap_keycode, uint16_t hold_keycode);
+
+void tap_dance_finished_lspr(qk_tap_dance_state_t *state, void *user_data);
+void tap_dance_reset_rspr(qk_tap_dance_state_t *state, void *user_data);
+void tap_dance_finished_lsbr(qk_tap_dance_state_t *state, void *user_data);
+void tap_dance_reset_rsbr(qk_tap_dance_state_t *state, void *user_data);
+void tap_dance_finished_lscb(qk_tap_dance_state_t *state, void *user_data);
+void tap_dance_reset_rscb(qk_tap_dance_state_t *state, void *user_data);
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Qwerty
@@ -46,16 +75,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |Aside |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  '   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |LShift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |RShift|
+ * | ( LS |   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  | ) RS |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Esc  |LCtrl | GUI  | LAlt |Lower |Raise |Space |RCtrl | RAlt | App  | Mouse|Enter |
+ * | Esc  |LCtrl | GUI  | LAlt |Lower |Raise |Space |RCtrl | RAlt | App  |Mouse |Enter |
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_preonic_grid( \
   KC_DEL,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC, \
   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS, \
   ASIDE,   KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
-  KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, \
+  TD(LSPR),KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, TD(RSPR),\
   KC_ESC,  KC_LCTL, KC_LGUI, KC_LALT, LOWER,   RAISE,   KC_SPC,  KC_RCTL, KC_RALT, KC_APP,  MOUSE,   KC_ENT   \
 ),
 
@@ -88,7 +117,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |  5   |  6   |  7   |  8   |      |      |  %   |  ^   |  &   |  *   |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |  9   |  0   |  -   |  =   |      |      |  (   |  )   |  _   |  +   |      |
+ * | [ LS |  9   |  0   |  -   |  =   |      |      |  (   |  )   |  _   |  +   | ] RS |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
@@ -97,7 +126,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
   _______, KC_1,    KC_2,    KC_3,    KC_4,    _______, _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  _______, \
   _______, KC_5,    KC_6,    KC_7,    KC_8,    _______, _______, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, _______, \
-  _______, KC_9,    KC_0,    KC_MINS, KC_EQL,  _______, _______, KC_LPRN, KC_RPRN, KC_UNDS, KC_PLUS, _______, \
+  TD(LSBR),KC_9,    KC_0,    KC_MINS, KC_EQL,  _______, _______, KC_LPRN, KC_RPRN, KC_UNDS, KC_PLUS, TD(RSBR),\
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  \
 ),
 
@@ -109,7 +138,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |  <   |  >   |  {   |  }   |      |      |  ~   |  +   |  |   |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |      |      |      |      |      |
+ * | { LS |      |      |      |      |      |      |      |      |      |      | } RS |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
@@ -118,7 +147,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
   _______, KC_LPRN, KC_RPRN, KC_LBRC, KC_RBRC, _______, _______, KC_GRV,  KC_EQL,  KC_BSLS, _______, _______, \
   _______, KC_LABK, KC_RABK, KC_LCBR, KC_RCBR, _______, _______, KC_TILD, KC_PLUS, KC_PIPE, _______, _______, \
-  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
+  TD(LSCB),_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, TD(RSCB),\
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  \
 ),
 
@@ -185,6 +214,107 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  \
 )
 };
+
+int current_tap_dance(qk_tap_dance_state_t *state) {
+  switch (state->count) {
+    case 1:
+      if (state->interrupted || !state->pressed) {
+        return SINGLE_TAP;
+      } else {
+        return SINGLE_HOLD;
+      }
+    case 2:
+      return DOUBLE_SINGLE_TAP;
+    default:
+      return 3;
+  }
+}
+
+void tap_dance_finished(qk_tap_dance_state_t *state, void *user_data, uint16_t tap_keycode, uint16_t hold_keycode) {
+  tap_dance_state = current_tap_dance(state);
+  switch (tap_dance_state) {
+    case SINGLE_TAP:
+      register_code16(tap_keycode);
+      break;
+    case SINGLE_HOLD:
+      register_mods(MOD_BIT(hold_keycode));
+      break;
+    case DOUBLE_SINGLE_TAP:
+      tap_code16(tap_keycode);
+      register_code16(tap_keycode);
+  }
+}
+
+void tap_dance_reset(qk_tap_dance_state_t *state, void *user_data, uint16_t tap_keycode, uint16_t hold_keycode) {
+  switch (tap_dance_state) {
+    case SINGLE_TAP:
+      unregister_code16(tap_keycode);
+      break;
+    case SINGLE_HOLD:
+      unregister_mods(MOD_BIT(hold_keycode));
+      break;
+    case DOUBLE_SINGLE_TAP:
+      unregister_code16(tap_keycode);
+  }
+}
+
+void tap_dance_finished_lspr(qk_tap_dance_state_t *state, void *user_data) {
+  tap_dance_finished(state, user_data, KC_LPRN, KC_LSFT);
+}
+
+void tap_dance_reset_lspr(qk_tap_dance_state_t *state, void *user_data) {
+  tap_dance_reset(state, user_data, KC_LPRN, KC_LSFT);
+}
+
+void tap_dance_finished_rspr(qk_tap_dance_state_t *state, void *user_data) {
+  tap_dance_finished(state, user_data, KC_RPRN, KC_RSFT);
+}
+
+void tap_dance_reset_rspr(qk_tap_dance_state_t *state, void *user_data) {
+  tap_dance_reset(state, user_data, KC_RPRN, KC_RSFT);
+}
+
+void tap_dance_finished_lsbr(qk_tap_dance_state_t *state, void *user_data) {
+  tap_dance_finished(state, user_data, KC_LBRC, KC_LSFT);
+}
+
+void tap_dance_reset_lsbr(qk_tap_dance_state_t *state, void *user_data) {
+  tap_dance_reset(state, user_data, KC_LBRC, KC_LSFT);
+}
+
+void tap_dance_finished_rsbr(qk_tap_dance_state_t *state, void *user_data) {
+  tap_dance_finished(state, user_data, KC_RBRC, KC_RSFT);
+}
+
+void tap_dance_reset_rsbr(qk_tap_dance_state_t *state, void *user_data) {
+  tap_dance_reset(state, user_data, KC_RBRC, KC_RSFT);
+}
+
+void tap_dance_finished_lscb(qk_tap_dance_state_t *state, void *user_data) {
+  tap_dance_finished(state, user_data, KC_LCBR, KC_LSFT);
+}
+
+void tap_dance_reset_lscb(qk_tap_dance_state_t *state, void *user_data) {
+  tap_dance_reset(state, user_data, KC_LCBR, KC_LSFT);
+}
+
+void tap_dance_finished_rscb(qk_tap_dance_state_t *state, void *user_data) {
+  tap_dance_finished(state, user_data, KC_RCBR, KC_RSFT);
+}
+
+void tap_dance_reset_rscb(qk_tap_dance_state_t *state, void *user_data) {
+  tap_dance_reset(state, user_data, KC_RCBR, KC_RSFT);
+}
+
+qk_tap_dance_action_t tap_dance_actions[] = {
+  [LSPR] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, tap_dance_finished_lspr, tap_dance_reset_lspr),
+  [RSPR] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, tap_dance_finished_rspr, tap_dance_reset_rspr),
+  [LSBR] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, tap_dance_finished_lsbr, tap_dance_reset_lsbr),
+  [RSBR] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, tap_dance_finished_rsbr, tap_dance_reset_rsbr),
+  [LSCB] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, tap_dance_finished_lscb, tap_dance_reset_lscb),
+  [RSCB] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, tap_dance_finished_rscb, tap_dance_reset_rscb)
+};
+
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
