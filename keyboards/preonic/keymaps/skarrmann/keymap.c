@@ -22,6 +22,7 @@
 #define RA_RBRC LT(_RAISE, KC_RBRC)
 #define AS_GRV  LT(_ASIDE, KC_GRV)
 #define RC_EQL  MT(MOD_RCTL, KC_EQL)
+#define LS_CAPS MT(MOD_LSFT, KC_CAPS)
 #define RS_BSLS MT(MOD_RSFT, KC_BSLS)
 #define TG_MOUS TG(_MOUSE)
 #define TG_CLMK TG(_COLEMAK)
@@ -47,19 +48,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |  `   |      |      |      |      |      |      |      |      |      |      |      |
  * |Aside |  A   |  S   |  D   |  F   |  G   |  H   |  J   |  K   |  L   |  ;   |  '   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |      |      |      |      |  \   |
+ * | Caps |      |      |      |      |      |      |      |      |      |      |  \   |
  * |LShift|  Z   |  X   |  C   |  V   |  B   |  N   |  M   |  ,   |  .   |  /   |RShift|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |  [   |  ]   |      |  =   |      |      |      |      |
- * | Esc  |LCtrl | GUI  | LAlt |Lower |Raise |Space |RCtrl | RAlt | App  |Mouse |Enter |
+ * |      |      |      |      |  [   |  =   |      |  ]   |      |      |      |      |
+ * | Esc  |LCtrl | GUI  | LAlt |Lower |RCtrl |Space |Raise | RAlt | App  |Mouse |Enter |
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_preonic_grid( \
   KC_DEL,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC, \
   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS, \
   AS_GRV,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
-  KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, RS_BSLS, \
-  KC_ESC,  KC_LCTL, KC_LGUI, KC_LALT, LO_LBRC, RA_RBRC, KC_SPC,  RC_EQL,  KC_RALT, KC_APP,  TG_MOUS, KC_ENT   \
+  LS_CAPS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, RS_BSLS, \
+  KC_ESC,  KC_LCTL, KC_LGUI, KC_LALT, LO_LBRC, RC_EQL,  KC_SPC,  RA_RBRC,  KC_RALT, KC_APP,  TG_MOUS, KC_ENT   \
 ),
 
 /* Colemak
