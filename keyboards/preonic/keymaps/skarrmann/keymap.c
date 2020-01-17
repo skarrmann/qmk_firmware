@@ -23,6 +23,8 @@
 #define AS_GRV  LT(_ASIDE, KC_GRV)
 #define RC_EQL  MT(MOD_RCTL, KC_EQL)
 #define RS_BSLS MT(MOD_RSFT, KC_BSLS)
+#define TG_MOUS TG(_MOUSE)
+#define TG_CLMK TG(_COLEMAK)
 
 enum preonic_layers {
   _QWERTY,
@@ -32,15 +34,6 @@ enum preonic_layers {
   _ADJUST,
   _ASIDE,
   _MOUSE
-};
-
-enum preonic_keycodes {
-  QWERTY = SAFE_RANGE,
-  COLEMAK,
-  LOWER,
-  RAISE,
-  ASIDE,
-  MOUSE
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -63,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS, \
   AS_GRV,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, RS_BSLS, \
-  KC_ESC,  KC_LCTL, KC_LGUI, KC_LALT, LO_LBRC, RA_RBRC, KC_SPC,  RC_EQL,  KC_RALT, KC_APP,  MOUSE,   KC_ENT   \
+  KC_ESC,  KC_LCTL, KC_LGUI, KC_LALT, LO_LBRC, RA_RBRC, KC_SPC,  RC_EQL,  KC_RALT, KC_APP,  TG_MOUS, KC_ENT   \
 ),
 
 /* Colemak
@@ -137,7 +130,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |      |      |      |      |      |      |      |      |Insert|Pause |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |Qwerty|Colemk|      |      |      |
+ * |      |      |      |      |      |      |      |Colemk|      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
@@ -146,7 +139,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
   _______, RESET,   DEBUG,   _______, _______, _______, _______, KC_CLCK, KC_SLCK, KC_NLCK, KC_PSCR, _______, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_INS,  KC_PAUS, _______, \
-  _______, _______, _______, _______, _______, _______, _______, QWERTY,  COLEMAK, _______, _______, _______, \
+  _______, _______, _______, _______, _______, _______, _______, TG_CLMK, _______, _______, _______, _______, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  \
 ),
 
@@ -196,29 +189,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 layer_state_t layer_state_set_user(layer_state_t state) {
     return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-        case QWERTY:
-          if (record->event.pressed) {
-            set_single_persistent_default_layer(_QWERTY);
-          }
-          return false;
-          break;
-        case COLEMAK:
-          if (record->event.pressed) {
-            set_single_persistent_default_layer(_COLEMAK);
-          }
-          return false;
-          break;
-        case MOUSE:
-          if (record->event.pressed) {
-            layer_on(_MOUSE);
-          } else {
-            layer_off(_MOUSE);
-          }
-          return false;
-          break;
-      }
-    return true;
-};
