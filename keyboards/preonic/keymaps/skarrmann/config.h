@@ -1,5 +1,10 @@
 #pragma once
 
+#ifdef TAPPING_TERM
+    #undef TAPPING_TERM
+#endif
+#define TAPPING_TERM 150
+
 #ifdef AUDIO_ENABLE
     #define STARTUP_SONG SONG(PREONIC_SOUND)
     // #define STARTUP_SONG SONG(NO_SOUND)
