@@ -6,10 +6,10 @@
 #define LA_EQL  LT(_ASIDE, KC_EQL)
 #define AL_DEL  MT(MOD_LALT, KC_DEL)
 #define AR_ESC  MT(MOD_RALT, KC_ESC)
-#define CL_TAB  MT(MOD_LCTL, KC_TAB)
-#define CR_ENT  MT(MOD_RCTL, KC_ENT)
-#define SL_LBRC MT(MOD_LSFT, KC_LBRC)
-#define SR_RBRC MT(MOD_RSFT, KC_RBRC)
+#define CL_LBRC MT(MOD_LCTL, KC_LBRC)
+#define CR_RBRC MT(MOD_RCTL, KC_RBRC)
+#define SL_TAB  MT(MOD_LSFT, KC_TAB)
+#define SR_ENT  MT(MOD_RSFT, KC_ENT)
 #define TG_MOUS TG(_MOUSE)
 #define TG_CLMK TG(_COLEMAK)
 
@@ -34,10 +34,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |  =   |      |      |      |      |      |      |      |      |      |      |      |
  * |Aside |  A   |  S   |  D   |  F   |  G   |  H   |  J   |  K   |  L   |  ;   |  '   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |  [   |      |      |      |      |      |      |      |      |      |      |  ]   |
+ * | Tab  |      |      |      |      |      |      |      |      |      |      |Enter |
  * |LShift|  Z   |  X   |  C   |  V   |  B   |  N   |  M   |  ,   |  .   |  /   |RShift|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      | Del  | Tab  | Bksp |Space |Enter | Esc  |      |      |      |
+ * |      |      |      | Del  |  [   | Bksp |Space |  ]   | Esc  |      |      |      |
  * |      |      | GUI  | LAlt | LCtl |Lower |Raise | RCtl | RAlt | App  |      |      |
  * `-----------------------------------------------------------------------------------'
  */
@@ -45,8 +45,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_DEL , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , KC_BSPC, \
   KC_GRV , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_MINS, \
   LA_EQL , KC_A   , KC_S   , KC_D   , KC_F   , KC_G   , KC_H   , KC_J   , KC_K   , KC_L   , KC_SCLN, KC_QUOT, \
-  SL_LBRC, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, SR_RBRC, \
-  _______, _______, KC_LGUI, AL_DEL , CL_TAB , LL_BSPC, LR_SPC , CR_ENT , AR_ESC , KC_APP , _______, _______  \
+  SL_TAB , KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, SR_ENT , \
+  _______, _______, KC_LGUI, AL_DEL , CL_LBRC, LL_BSPC, LR_SPC , CR_RBRC, AR_ESC , KC_APP , _______, _______  \
 ),
 
 /* Colemak
