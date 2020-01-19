@@ -15,7 +15,6 @@
  */
 
 #include QMK_KEYBOARD_H
-#include "muse.h"
 
 // Custom keycode names
 #define LO_LBRC LT(_LOWER, KC_LBRC)
