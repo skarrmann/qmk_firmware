@@ -1,13 +1,13 @@
 #include QMK_KEYBOARD_H
 
 // Custom keycode names
-#define LL_BSPC LT(_LOWER, KC_BSPC)
-#define LR_SPC  LT(_RAISE, KC_SPC)
+#define LL_DEL  LT(_LOWER, KC_DEL)
+#define LR_ESC  LT(_RAISE, KC_ESC)
 #define LA_EQL  LT(_ASIDE, KC_EQL)
-#define AL_DEL  MT(MOD_LALT, KC_DEL)
-#define AR_ESC  MT(MOD_RALT, KC_ESC)
-#define CL_LBRC MT(MOD_LCTL, KC_LBRC)
-#define CR_RBRC MT(MOD_RCTL, KC_RBRC)
+#define AL_LBRC MT(MOD_LALT, KC_LBRC)
+#define AR_RBRC MT(MOD_RALT, KC_RBRC)
+#define CL_DEL  MT(MOD_LCTL, KC_DEL)
+#define CR_BSPC MT(MOD_RCTL, KC_BSPC)
 #define SL_TAB  MT(MOD_LSFT, KC_TAB)
 #define SR_ENT  MT(MOD_RSFT, KC_ENT)
 #define TG_MOUS TG(_MOUSE)
@@ -27,9 +27,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Qwerty
  * ,-----------------------------------------------------------------------------------.
- * | Del  |  1   |  2   |  3   |  4   |  5   |  6   |  7   |  8   |  9   |  0   | Bksp |
+ * |  `   |  1   |  2   |  3   |  4   |  5   |  6   |  7   |  8   |  9   |  0   | Bksp |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |  `   |  Q   |  W   |  E   |  R   |  T   |  Y   |  U   |  I   |  O   |  P   |  -   |
+ * | Del  |  Q   |  W   |  E   |  R   |  T   |  Y   |  U   |  I   |  O   |  P   |  -   |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |  =   |      |      |      |      |      |      |      |      |      |      |      |
  * |Aside |  A   |  S   |  D   |  F   |  G   |  H   |  J   |  K   |  L   |  ;   |  '   |
@@ -37,16 +37,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | Tab  |      |      |      |      |      |      |      |      |      |      |Enter |
  * |LShift|  Z   |  X   |  C   |  V   |  B   |  N   |  M   |  ,   |  .   |  /   |RShift|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      | Del  |  [   | Bksp |Space |  ]   | Esc  |      |      |      |
- * |      |      | GUI  | LAlt | LCtl |Lower |Raise | RCtl | RAlt | App  |      |      |
+ * |      |      |      |  [   | Del  | Esc  |      | Bksp |  ]   |      |      |      |
+ * | LCtl | GUI  | App  | LAlt |Lower |Raise |Space | RCtl | RAlt |Insert|  \   |Mouse |
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_preonic_grid( \
-  KC_DEL , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , KC_BSPC, \
-  KC_GRV , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_MINS, \
+  KC_GRV , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , KC_BSPC, \
+  KC_DEL , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_MINS, \
   LA_EQL , KC_A   , KC_S   , KC_D   , KC_F   , KC_G   , KC_H   , KC_J   , KC_K   , KC_L   , KC_SCLN, KC_QUOT, \
   SL_TAB , KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, SR_ENT , \
-  _______, _______, KC_LGUI, AL_DEL , CL_LBRC, LL_BSPC, LR_SPC , CR_RBRC, AR_ESC , KC_APP , _______, _______  \
+  KC_LCTL, KC_LGUI, KC_APP , AL_LBRC, LL_DEL , LR_ESC , KC_SPC , CR_BSPC, AR_RBRC, KC_INS , KC_BSLS, TG_MOUS  \
 ),
 
 /* Colemak
@@ -74,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |  1   |  2   |  3   |  4   |  5   |  6   |  7   |  8   |  9   |  0   |      |
+ * | Del  |  1   |  2   |  3   |  4   |  5   |  6   |  7   |  8   |  9   |  0   | Bksp |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |  <   |  (   |  [   |  {   |      |      |  }   |  ]   |  )   |  >   |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
@@ -85,7 +85,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_LOWER] = LAYOUT_preonic_grid( \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-  _______, KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , _______, \
+  KC_DEL , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , KC_BSPC, \
   _______, KC_LABK, KC_LPRN, KC_LBRC, KC_LCBR, _______, _______, KC_RCBR, KC_RBRC, KC_RPRN, KC_RABK, _______, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  \
@@ -95,7 +95,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |  !   |  @   |  #   |  $   |  %   |  ^   |  &   |  *   |  `   |  ~   |      |
+ * | Del  |  !   |  @   |  #   |  $   |  %   |  ^   |  &   |  *   |  `   |  ~   | Bksp |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |  =   |  +   |  -   |  _   |      |      |  '   |  "   |  \   |  |   |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
@@ -106,7 +106,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_RAISE] = LAYOUT_preonic_grid( \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-  _______, KC_EXLM, KC_AT  , KC_HASH, KC_DLR , KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_GRV , KC_TILD, _______, \
+  KC_DEL , KC_EXLM, KC_AT  , KC_HASH, KC_DLR , KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_GRV , KC_TILD, KC_BSPC, \
   _______, KC_EQL , KC_PLUS, KC_MINS, KC_UNDS, _______, _______, KC_QUOT, KC_DQUO, KC_BSLS, KC_PIPE, _______, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  \
