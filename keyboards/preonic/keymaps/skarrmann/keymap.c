@@ -2,12 +2,11 @@
 
 // Custom keycode names
 #define LL_DEL  LT(_LOWER, KC_DEL)
-#define LL_GRV  LT(_LOWER, KC_GRV)
+#define LL_EQL  LT(_LOWER, KC_EQL)
 #define LR_BSPC LT(_RAISE, KC_BSPC)
 #define LR_QUOT LT(_RAISE, KC_QUOT)
 #define AR_MINS MT(MOD_RALT, KC_MINS)
-#define CL_EQL  MT(MOD_LCTL, KC_EQL)
-#define CR_TAB  MT(MOD_RCTL, KC_TAB)
+#define CL_TAB  MT(MOD_LCTL, KC_TAB)
 #define SL_ESC  MT(MOD_LSFT, KC_ESC)
 #define SR_ENT  MT(MOD_RSFT, KC_ENT)
 #define TG_MOUS TG(_MOUSE)
@@ -30,25 +29,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |  `   |  1   |  2   |  3   |  4   |  5   |  6   |  7   |  8   |  9   |  0   | Bksp |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |  =   |      |      |      |      |      |      |      |      |      |      |  -   |
+ * | Tab  |      |      |      |      |      |      |      |      |      |      |  -   |
  * | LCtl |  Q   |  W   |  E   |  R   |  T   |  Y   |  U   |  I   |  O   |  P   | RAlt |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |  `   |      |      |      |      |      |      |      |      |      |      |  '   |
+ * |  =   |      |      |      |      |      |      |      |      |      |      |  '   |
  * |Lower |  A   |  S   |  D   |  F   |  G   |  H   |  J   |  K   |  L   |  ;   |Raise |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * | Esc  |      |      |      |      |      |      |      |      |      |      |Enter |
  * |LShift|  Z   |  X   |  C   |  V   |  B   |  N   |  M   |  ,   |  .   |  /   |RShift|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      | Del  | Bksp |      | Tab  |      |      |      |      |
+ * |      |      |      |      | Del  | Bksp |      |      |      |      |      |      |
  * | LCtl | GUI  | App  | LAlt |Lower |Raise |Space | RCtl | RAlt |Insert|Mouse |  \   |
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_preonic_grid( \
   KC_GRV , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , KC_BSPC, \
-  CL_EQL , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , AR_MINS, \
-  LL_GRV , KC_A   , KC_S   , KC_D   , KC_F   , KC_G   , KC_H   , KC_J   , KC_K   , KC_L   , KC_SCLN, LR_QUOT, \
+  CL_TAB , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , AR_MINS, \
+  LL_EQL , KC_A   , KC_S   , KC_D   , KC_F   , KC_G   , KC_H   , KC_J   , KC_K   , KC_L   , KC_SCLN, LR_QUOT, \
   SL_ESC , KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, SR_ENT , \
-  KC_LCTL, KC_LGUI, KC_APP , KC_LALT, LL_DEL , LR_BSPC, KC_SPC , CR_TAB , KC_RALT, KC_INS , TG_MOUS, KC_BSLS  \
+  KC_LCTL, KC_LGUI, KC_APP , KC_LALT, LL_DEL , LR_BSPC, KC_SPC , KC_RCTL, KC_RALT, KC_INS , TG_MOUS, KC_BSLS  \
 ),
 
 /* Colemak
@@ -108,8 +107,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_RAISE] = LAYOUT_preonic_grid( \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-  _______, KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , KC_DEL , \
-  _______, KC_EXLM, KC_AT  , KC_HASH, KC_DLR , KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_GRV , \
+  _______, KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , _______, \
+  _______, KC_EXLM, KC_AT  , KC_HASH, KC_DLR , KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______, \
   _______, KC_BSLS, KC_SCLN, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, KC_PIPE, _______, _______, _______, _______, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  \
 ),
