@@ -1,14 +1,15 @@
 #include QMK_KEYBOARD_H
 
 // Custom keycode names
-#define LL_DEL  LT(_LOWER, KC_DEL)
-#define LR_BSPC LT(_RAISE, KC_BSPC)
+#define LL_EQL  LT(_LOWER, KC_EQL)
+#define LR_QUOT LT(_RAISE, KC_QUOT)
 #define LD_D    LT(_D, KC_D)
 #define LF_F    LT(_F, KC_F)
 #define LJ_J    LT(_J, KC_J)
 #define LK_K    LT(_K, KC_K)
-#define CL_EQL  MT(MOD_LCTL, KC_EQL)
+#define CL_DEL  MT(MOD_LCTL, KC_DEL)
 #define CR_ESC  MT(MOD_RCTL, KC_ESC)
+#define SL_BSPC MT(MOD_LSFT, KC_BSPC)
 #define SR_ENT  MT(MOD_RSFT, KC_ENT)
 #define TG_MODD TG(_MODDED)
 #define TG_MOUS TG(_MOUSE)
@@ -39,21 +40,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  |        |        |        |        |        |        |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
  |   =    |   A    |   S    |   D    |   F    |   G    |   H    |   J    |   K    |   L    |   ;    |   '    |
- |  LCtl  |        |        |        |        |        |        |        |        |        |        |        |
+ | Lower  |        |        |        |        |        |        |        |        |        |        | Raise  |
  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
  |        |   Z    |   X    |   C    |   V    |   B    |   N    |   M    |   ,    |   .    |   /    | Enter  |
  | LShift |        |        |        |        |        |        |        |        |        |        | RShift |
  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- |        |        |        |        |  Del   |  Bksp  |        |  Esc   |        |        |        |        |
- |  LCtl  |  GUI   |  App   |  LAlt  | Lower  | Raise  | Space  |  RCtl  |  RAlt  | Insert | Mouse  |  Bksp  |
+ |  Del   |        |        |        |  Del   |  Bksp  | Space  |  Esc   |        | Insert |        |  Bksp  |
+ |        |  GUI   |  App   |  LAlt  |  LCtl  | LShift |        |  RCtl  |  RAlt  |        | Mouse  |        |
  `-----------------------------------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_preonic_grid( \
   KC_GRV , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , KC_BSLS, \
   KC_TAB , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_MINS, \
-  CL_EQL , KC_A   , KC_S   , KC_D   , KC_F   , KC_G   , KC_H   , KC_J   , KC_K   , KC_L   , KC_SCLN, KC_QUOT, \
+  LL_EQL , KC_A   , KC_S   , KC_D   , KC_F   , KC_G   , KC_H   , KC_J   , KC_K   , KC_L   , KC_SCLN, LR_QUOT, \
   KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, SR_ENT , \
-  KC_LCTL, KC_LGUI, KC_APP , KC_LALT, LL_DEL , LR_BSPC, KC_SPC , CR_ESC , KC_RALT, KC_INS , TG_MOUS, KC_BSPC  \
+  KC_DEL , KC_LGUI, KC_APP , KC_LALT, CL_DEL , SL_BSPC, KC_SPC , CR_ESC , KC_RALT, KC_INS , TG_MOUS, KC_BSPC  \
 ),
 
 /* Lower
