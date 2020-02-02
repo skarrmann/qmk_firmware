@@ -8,7 +8,7 @@
 #define LJ_J    LT(_J, KC_J)
 #define LK_K    LT(_K, KC_K)
 #define CL_DEL  MT(MOD_LCTL, KC_DEL)
-#define CR_ESC  MT(MOD_RCTL, KC_ESC)
+#define CR_TAB  MT(MOD_RCTL, KC_TAB)
 #define SL_BSPC MT(MOD_LSFT, KC_BSPC)
 #define SR_ENT  MT(MOD_RSFT, KC_ENT)
 #define TG_MODD TG(_MODDED)
@@ -36,7 +36,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  |   `    |   1    |   2    |   3    |   4    |   5    |   6    |   7    |   8    |   9    |   0    |   \    |
  |        |        |        |        |        |        |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- |  Tab   |   Q    |   W    |   E    |   R    |   T    |   Y    |   U    |   I    |   O    |   P    |   -    |
+ |  Esc   |   Q    |   W    |   E    |   R    |   T    |   Y    |   U    |   I    |   O    |   P    |   -    |
  |        |        |        |        |        |        |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
  |   =    |   A    |   S    |   D    |   F    |   G    |   H    |   J    |   K    |   L    |   ;    |   '    |
@@ -45,16 +45,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  |        |   Z    |   X    |   C    |   V    |   B    |   N    |   M    |   ,    |   .    |   /    | Enter  |
  | LShift |        |        |        |        |        |        |        |        |        |        | RShift |
  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- |  Del   |        |        |        |  Del   |  Bksp  | Space  |  Esc   |        | Insert |        |  Bksp  |
+ |  Del   |        |        |        |  Del   |  Bksp  | Space  |  Tab   |        | Insert |        |  Bksp  |
  |        |  GUI   |  App   |  LAlt  |  LCtl  | LShift |        |  RCtl  |  RAlt  |        | Mouse  |        |
  `-----------------------------------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_preonic_grid( \
   KC_GRV , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , KC_BSLS, \
-  KC_TAB , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_MINS, \
+  KC_ESC , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_MINS, \
   LL_EQL , KC_A   , KC_S   , LD_D   , LF_F   , KC_G   , KC_H   , LJ_J   , LK_K   , KC_L   , KC_SCLN, LR_QUOT, \
   KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, SR_ENT , \
-  KC_DEL , KC_LGUI, KC_APP , KC_LALT, CL_DEL , SL_BSPC, KC_SPC , CR_ESC , KC_RALT, KC_INS , TG_MOUS, KC_BSPC  \
+  KC_DEL , KC_LGUI, KC_APP , KC_LALT, CL_DEL , SL_BSPC, KC_SPC , CR_TAB , KC_RALT, KC_INS , TG_MOUS, KC_BSPC  \
 ),
 
 /* Lower
