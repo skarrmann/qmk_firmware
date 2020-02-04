@@ -1,8 +1,6 @@
 #include QMK_KEYBOARD_H
 
 // Custom keycode names
-#define AL_TAB  MT(MOD_LALT, KC_TAB)
-#define AR_MINS MT(MOD_RALT, KC_MINS)
 #define CL_DEL  MT(MOD_LCTL, KC_DEL)
 #define CR_TAB  MT(MOD_RCTL, KC_TAB)
 #define SL_ESC  MT(MOD_LSFT, KC_ESC)
@@ -39,7 +37,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  |        |        |        |        |        |        |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
  |  Tab   |   Q    |   W    |   E    |   R    |   T    |   Y    |   U    |   I    |   O    |   P    |   -    |
- |  LAlt  |        |        |        |        |        |        |        |        |        |        |  RAlt  |
+ |        |        |        |        |        |        |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
  |   =    |   A    |   S    |   D    |   F    |   G    |   H    |   J    |   K    |   L    |   ;    |   '    |
  |        |        |        | LayerD | LayerF |        |        | LayerJ | LayerK |        |        |        |
@@ -53,7 +51,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_QWERTY] = LAYOUT_preonic_grid( \
   KC_GRV , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , KC_BSLS, \
-  AL_TAB , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , AR_MINS, \
+  KC_TAB , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_MINS, \
   KC_EQL , KC_A   , KC_S   , LD_D   , LF_F   , KC_G   , KC_H   , LJ_J   , LK_K   , KC_L   , KC_SCLN, KC_QUOT, \
   SL_ESC , KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, SR_ENT , \
   KC_LBRC, KC_LGUI, KC_APP , KC_LALT, CL_DEL , LL_BSPC, LR_SPC , CR_TAB , KC_RALT, KC_INS , TG_MOUS, KC_RBRC  \
@@ -90,10 +88,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  |        |        |        |        |        |        |        |        |        |        |        |        |
  |        |        |        |        |        |        |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- |        |        |        |        |        |        |        |        |        |        |        |        |
+ |        |   `    |   [    |   {    |   (    |        |        |   )    |   }    |   ]    |   ~    |        |
  |        |        |        |        |        |        |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- |        |   !    |   @    |   #    |   $    |   %    |   ^    |   &    |   *    |   (    |   )    |        |
+ |        |   !    |   @    |   #    |   $    |   %    |   ^    |   &    |   *    |   \    |   |    |        |
  |        |        |        |        |        |        |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
  |        |        |        |        |        |        |        |        |        |        |        |        |
@@ -105,8 +103,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_RAISE] = LAYOUT_preonic_grid( \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-  _______, KC_EXLM, KC_AT  , KC_HASH, KC_DLR , KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______, \
+  _______, KC_GRV , KC_LBRC, KC_LCBR, KC_LPRN, _______, _______, KC_RPRN, KC_RCBR, KC_RBRC, KC_TILD, _______, \
+  _______, KC_EXLM, KC_AT  , KC_HASH, KC_DLR , KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_BSLS, KC_PIPE, _______, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  \
 ),
