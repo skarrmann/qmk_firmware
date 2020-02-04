@@ -45,8 +45,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  |  Esc   |   Z    |   X    |   C    |   V    |   B    |   N    |   M    |   ,    |   .    |   /    | Enter  |
  | LShift |        |        |        |        |        |        |        |        |        |        | RShift |
  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- |   [    |        |        |        |  Del   |  Bksp  | Space  |  Tab   |        | Insert |        |   ]    |
- |        |  GUI   |  App   |  LAlt  |  LCtl  | Lower  | Raise  |  RCtl  |  RAlt  |        | Mouse  |        |
+ |   [    |        |        |        |  Del   |  Bksp  | Space  |  Tab   |        | Insert | Caps   |   ]    |
+ |        |  GUI   |  App   |  LAlt  |  LCtl  | Lower  | Raise  |  RCtl  |  RAlt  |        |        |        |
  `-----------------------------------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_preonic_grid( \
@@ -54,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_MINS, \
   KC_EQL , KC_A   , KC_S   , LD_D   , LF_F   , KC_G   , KC_H   , LJ_J   , LK_K   , KC_L   , KC_SCLN, KC_QUOT, \
   SL_ESC , KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, SR_ENT , \
-  KC_LBRC, KC_LGUI, KC_APP , KC_LALT, CL_DEL , LL_BSPC, LR_SPC , CR_TAB , KC_RALT, KC_INS , TG_MOUS, KC_RBRC  \
+  KC_LBRC, KC_LGUI, KC_APP , KC_LALT, CL_DEL , LL_BSPC, LR_SPC , CR_TAB , KC_RALT, KC_INS , KC_CAPS, KC_RBRC  \
 ),
 
 /* Lower
