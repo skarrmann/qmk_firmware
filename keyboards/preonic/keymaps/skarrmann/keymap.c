@@ -328,7 +328,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 uint16_t get_tapping_term(uint16_t keycode) {
   switch (keycode) {
     case LR_SPC:
-      return 250;
+      return TAPPING_TERM_LONG;
     default:
       return TAPPING_TERM;
   }
