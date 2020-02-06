@@ -3,6 +3,9 @@
 // Custom keycode names
 #define CL_DEL  MT(MOD_LCTL, KC_DEL)
 #define CR_BSPC MT(MOD_RCTL, KC_BSPC)
+#define SL_EQL  MT(MOD_LSFT, KC_EQL)
+#define SL_ESC  MT(MOD_LSFT, KC_ESC)
+#define SR_ENT  MT(MOD_RSFT, KC_ENT)
 #define OSL_LL  OSL(_LOWER)
 #define LR_SPC  LT(_RAISE, KC_SPC)
 #define LD_D    LT(_D, KC_D)
@@ -29,27 +32,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Qwerty
  ,-----------------------------------------------------------------------------------------------------------.
- |  Del   |   1    |   2    |   3    |   4    |   5    |   6    |   7    |   8    |   9    |   0    |  Bspc  |
+ |   `    |   1    |   2    |   3    |   4    |   5    |   6    |   7    |   8    |   9    |   0    |   \    |
  |        |        |        |        |        |        |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
  |  Tab   |   Q    |   W    |   E    |   R    |   T    |   Y    |   U    |   I    |   O    |   P    |   -    |
  |        |        |        |        |        |        |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- |        |   A    |   S    |   D    |   F    |   G    |   H    |   J    |   K    |   L    |   ;    |   '    |
+ |   =    |   A    |   S    |   D    |   F    |   G    |   H    |   J    |   K    |   L    |   ;    |   '    |
  | LShift |        |        | LayerD | LayerF |        |        | LayerJ | LayerK |        |        |        |
  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
  |  Esc   |   Z    |   X    |   C    |   V    |   B    |   N    |   M    |   ,    |   .    |   /    | Enter  |
- |        |        |        |        |        |        |        |        |        |        |        |        |
+ | LShift |        |        |        |        |        |        |        |        |        |        | RShift |
  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
  |   [    |        |        |        |  Del   |One Shot| Space  |  Bspc  |        | Insert | Caps   |   ]    |
  |        |  GUI   |  App   |  LAlt  |  LCtl  | Lower  | Raise  |  RCtl  |  RAlt  |        |        |        |
  `-----------------------------------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_preonic_grid( \
-  KC_DEL , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , KC_BSPC, \
+  KC_GRV , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , KC_BSLS, \
   KC_TAB , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_MINS, \
-  KC_LSFT, KC_A   , KC_S   , LD_D   , LF_F   , KC_G   , KC_H   , LJ_J   , LK_K   , KC_L   , KC_QUOT, KC_QUOT, \
-  KC_ESC , KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, KC_ENT , \
+  SL_EQL , KC_A   , KC_S   , LD_D   , LF_F   , KC_G   , KC_H   , LJ_J   , LK_K   , KC_L   , KC_SCLN, KC_QUOT, \
+  SL_ESC , KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, SR_ENT , \
   KC_LBRC, KC_LGUI, KC_APP , KC_LALT, CL_DEL , OSL_LL , LR_SPC , CR_BSPC, KC_RALT, KC_INS , KC_CAPS, KC_RBRC  \
 ),
 
@@ -73,9 +76,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_LOWER] = LAYOUT_preonic_grid( \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-  _______, _______, KC_GRV , KC_LBRC, KC_RBRC, _______, _______, KC_EQL , KC_PLUS, _______, _______, _______, \
+  _______, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, _______, _______, KC_EQL , KC_PLUS, _______, _______, _______, \
   _______, KC_EXLM, KC_AT  , KC_HASH, KC_DLR , KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______, \
-  _______, _______, _______, _______, _______, _______, _______, KC_BSLS, KC_PIPE, _______, _______, _______, \
+  _______, _______, _______, KC_GRV , KC_TILD, _______, _______, KC_BSLS, KC_PIPE, _______, _______, _______, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  \
 ),
 
