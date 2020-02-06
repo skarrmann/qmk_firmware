@@ -1,10 +1,12 @@
 #include QMK_KEYBOARD_H
 
 // Custom keycode names
+#define AL_ESC  MT(MOD_LALT, KC_ESC)
+#define AR_ESC  MT(MOD_RALT, KC_ESC)
 #define CL_DEL  MT(MOD_LCTL, KC_DEL)
 #define CR_TAB  MT(MOD_RCTL, KC_TAB)
-#define SL_ESC  MT(MOD_LSFT, KC_ESC)
-#define SR_ENT  MT(MOD_RSFT, KC_ENT)
+#define SL_EQL  MT(MOD_LSFT, KC_EQL)
+#define SR_QUOT MT(MOD_RSFT, KC_QUOT)
 #define LL_BSPC LT(_LOWER, KC_BSPC)
 #define LR_SPC  LT(_RAISE, KC_SPC)
 #define LD_D    LT(_D, KC_D)
@@ -31,28 +33,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Qwerty
  ,-----------------------------------------------------------------------------------------------------------.
- |   `    |   1    |   2    |   3    |   4    |   5    |   6    |   7    |   8    |   9    |   0    |   \    |
+ |  Esc   |   1    |   2    |   3    |   4    |   5    |   6    |   7    |   8    |   9    |   0    |   \    |
  |        |        |        |        |        |        |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- |  Tab   |   Q    |   W    |   E    |   R    |   T    |   Y    |   U    |   I    |   O    |   P    |   -    |
+ |   `    |   Q    |   W    |   E    |   R    |   T    |   Y    |   U    |   I    |   O    |   P    |   -    |
  |        |        |        |        |        |        |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
  |   =    |   A    |   S    |   D    |   F    |   G    |   H    |   J    |   K    |   L    |   ;    |   '    |
- |        |        |        | LayerD | LayerF |        |        | LayerJ | LayerK |        |        |        |
+ | LShift |        |        | LayerD | LayerF |        |        | LayerJ | LayerK |        |        | RShift |
  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- |  Esc   |   Z    |   X    |   C    |   V    |   B    |   N    |   M    |   ,    |   .    |   /    | Enter  |
- | LShift |        |        |        |        |        |        |        |        |        |        | RShift |
+ |   \    |   Z    |   X    |   C    |   V    |   B    |   N    |   M    |   ,    |   .    |   /    | Enter  |
+ |        |        |        |        |        |        |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- |   [    |        |        |        |  Del   |  Bksp  | Space  |  Tab   |        | Insert | Caps   |   ]    |
+ |   [    |        |        |  Esc   |  Del   |  Bksp  | Space  |  Tab   |  Esc   | Insert | Caps   |   ]    |
  |        |  GUI   |  App   |  LAlt  |  LCtl  | Lower  | Raise  |  RCtl  |  RAlt  |        |        |        |
  `-----------------------------------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_preonic_grid( \
-  KC_GRV , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , KC_BSLS, \
-  KC_TAB , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_MINS, \
-  KC_EQL , KC_A   , KC_S   , LD_D   , LF_F   , KC_G   , KC_H   , LJ_J   , LK_K   , KC_L   , KC_SCLN, KC_QUOT, \
-  SL_ESC , KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, SR_ENT , \
-  KC_LBRC, KC_LGUI, KC_APP , KC_LALT, CL_DEL , LL_BSPC, LR_SPC , CR_TAB , KC_RALT, KC_INS , KC_CAPS, KC_RBRC  \
+  KC_ESC , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , KC_BSLS, \
+  KC_GRV , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_MINS, \
+  SL_EQL , KC_A   , KC_S   , LD_D   , LF_F   , KC_G   , KC_H   , LJ_J   , LK_K   , KC_L   , KC_SCLN, SR_QUOT, \
+  KC_BSLS, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, KC_ENT , \
+  KC_LBRC, KC_LGUI, KC_APP , AL_ESC , CL_DEL , LL_BSPC, LR_SPC , CR_TAB , AR_ESC , KC_INS , KC_CAPS, KC_RBRC  \
 ),
 
 /* Lower
@@ -298,7 +300,12 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 uint16_t get_tapping_term(uint16_t keycode) {
   switch (keycode) {
+    case SL_EQL:
+    case SR_QUOT:
+      return TAPPING_TERM_SHORT;    
     case LR_SPC:
+    case LD_D:
+    case LK_K:
       return TAPPING_TERM_LONG;
     default:
       return TAPPING_TERM;
