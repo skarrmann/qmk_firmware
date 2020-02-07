@@ -1,6 +1,7 @@
 #include QMK_KEYBOARD_H
 
 // Custom keycode names
+#define OSM_CL  OSM(MOD_LCTL)
 #define CL_DEL  MT(MOD_LCTL, KC_DEL)
 #define CR_BSPC MT(MOD_RCTL, KC_BSPC)
 #define OSM_SL  OSM(MOD_LSFT)
@@ -41,10 +42,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  |One Shot|   A    |   S    |   D    |   F    |   G    |   H    |   J    |   K    |   L    |   ;    |   '    |
  | LShift |        |        | LayerD | LayerF |        |        | LayerJ | LayerK |        |        |        |
  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- |  Esc   |   Z    |   X    |   C    |   V    |   B    |   N    |   M    |   ,    |   .    |   /    | Enter  |
- | LShift |        |        |        |        |        |        |        |        |        |        | RShift |
+ |One Shot|   Z    |   X    |   C    |   V    |   B    |   N    |   M    |   ,    |   .    |   /    | Enter  |
+ |  LCtl  |        |        |        |        |        |        |        |        |        |        | RShift |
  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- |   [    |        |        |        |  Del   |One Shot| Space  |  Bspc  |        | Insert | Caps   |   ]    |
+ |  Esc   |        |        |        |  Del   |One Shot| Space  |  Bspc  |        | Insert | Caps   |   =    |
  |        |  GUI   |  App   |  LAlt  |  LCtl  | Lower  | Raise  |  RCtl  |  RAlt  |        |        |        |
  `-----------------------------------------------------------------------------------------------------------'
  */
@@ -52,8 +53,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_GRV , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , KC_BSLS, \
   KC_TAB , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   , KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_MINS, \
   OSM_SL , KC_A   , KC_S   , LD_D   , LF_F   , KC_G   , KC_H   , LJ_J   , LK_K   , KC_L   , KC_SCLN, KC_QUOT, \
-  SL_ESC , KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, SR_ENT , \
-  KC_LBRC, KC_LGUI, KC_APP , KC_LALT, CL_DEL , OSL_LL , LR_SPC , CR_BSPC, KC_RALT, KC_INS , KC_CAPS, KC_RBRC  \
+  OSM_CL , KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, SR_ENT , \
+  KC_ESC , KC_LGUI, KC_APP , KC_LALT, CL_DEL , OSL_LL , LR_SPC , CR_BSPC, KC_RALT, KC_INS , KC_CAPS, KC_EQL   \
 ),
 
 /* Lower
