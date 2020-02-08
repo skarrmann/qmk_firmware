@@ -1,5 +1,13 @@
 #include QMK_KEYBOARD_H
 
+// Tap dance declarations
+enum {
+  TD_LABK_RABK = 0,
+  TD_LBRC_RBRC,
+  TD_LCBR_RCBR,
+  TD_LPRN_RPRN
+};
+
 // Custom keycode names
 #define OSM_CL  OSM(MOD_LCTL)
 #define CL_DEL  MT(MOD_LCTL, KC_DEL)
@@ -15,9 +23,14 @@
 #define LK_K    LT(_K, KC_K)
 #define TG_MODD TG(_MODDED)
 #define TG_MASK TG(_MASK)
+#define TD_ABK  TD(TD_LABK_RABK)
+#define TD_BRC  TD(TD_LBRC_RBRC)
+#define TD_CBR  TD(TD_LCBR_RCBR)
+#define TD_PRN  TD(TD_LPRN_RPRN)
 
+// Layer declarations
 enum preonic_layers {
-  _QWERTY,
+  _QWERTY = 0,
   _MODDED,
   _D,
   _F,
@@ -222,8 +235,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  |        |        |        |        |        |        |        |        |        |        |        |        |
  |        |        |        |        |        |        |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- |        |        |        |        |        |        |        | [][][] |        |        |        |        |
- |        |        |        |        |        |        |        | [][][] |        |        |        |        |
+ |        |TapDance|TapDance|TapDance|TapDance|        |        | [][][] |        |        |        |        |
+ |        |  < >   |  [ ]   |  { }   |  ( )   |        |        | [][][] |        |        |        |        |
  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
  |        |        |        |        |        |        |        |        |        |        |        |        |
  |        |        |        |        |        |        |        |        |        |        |        |        |
@@ -235,7 +248,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_J] = LAYOUT_preonic_grid( \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-  _______, _______, _______, _______, _______, _______, _______, KC_TRNS, _______, _______, _______, _______, \
+  _______, TD_ABK , TD_BRC , TD_CBR , TD_PRN , _______, _______, KC_TRNS, _______, _______, _______, _______, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  \
 ),
@@ -294,10 +307,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 
+// Layer state
 layer_state_t layer_state_set_user(layer_state_t state) {
-    return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+  return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
 
+// Tap dance definitions
+qk_tap_dance_action_t tap_dance_actions[] = {
+  [TD_LABK_RABK] = ACTION_TAP_DANCE_DOUBLE(KC_LABK, KC_RABK),
+  [TD_LBRC_RBRC] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC, KC_RBRC),
+  [TD_LCBR_RCBR] = ACTION_TAP_DANCE_DOUBLE(KC_LCBR, KC_RCBR),
+  [TD_LPRN_RPRN] = ACTION_TAP_DANCE_DOUBLE(KC_LPRN, KC_RPRN),
+};
+
+// Tapping term per key
 uint16_t get_tapping_term(uint16_t keycode) {
   switch (keycode) {
     case LR_SPC:
@@ -309,6 +332,7 @@ uint16_t get_tapping_term(uint16_t keycode) {
   }
 }
 
+// Tapping force hold per key
 bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case LR_SPC:
