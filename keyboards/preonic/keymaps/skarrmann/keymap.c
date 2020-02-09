@@ -1,4 +1,4 @@
-#include QMK_KEYBOARD_H
+#include "skarrmann.h"
 
 // Custom keycode names
 #define OSM_CL  OSM(MOD_LCTL)
@@ -14,24 +14,6 @@
 #define LJ_J    LT(_J, KC_J)
 #define LK_K    LT(_K, KC_K)
 #define TG_STND TG(_STANDARD)
-#define TG_MASK TG(_MASK)
-#define TD_ABK  TD(TD_LABK_RABK)
-#define TD_BRC  TD(TD_LBRC_RBRC)
-#define TD_CBR  TD(TD_LCBR_RCBR)
-#define TD_PRN  TD(TD_LPRN_RPRN)
-
-// Layer declarations
-enum preonic_layers {
-  _QWERTY = 0,
-  _STANDARD,
-  _D,
-  _F,
-  _J,
-  _K,
-  _LOWER,
-  _RAISE,
-  _ADJUST
-};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -121,7 +103,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  |        | Reset  | Debug  |        |        |        |        |  Caps  | Insert |        |  PScr  |        |
  |        |        |        |        |        |        |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- |        |        |        |        |        |        |        |        |        |  Mask  |        |        |
+ |        |        |        |        |        |        |        |        |        |        |        |        |
  |        |        |        |        |        |        |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
  |        |        |        |        |        |        |        |        |        |        |        |        |
@@ -134,7 +116,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ADJUST] = LAYOUT_preonic_grid( \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
   _______, RESET  , DEBUG  , _______, _______, _______, _______, KC_CAPS, KC_INS , _______, KC_PSCR, _______, \
-  _______, _______, _______, _______, _______, _______, _______, _______, _______, TG_MASK, _______, _______, \
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  \
 ),
