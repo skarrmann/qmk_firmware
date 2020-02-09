@@ -9,8 +9,14 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 uint16_t get_tapping_term(uint16_t keycode) {
   switch (keycode) {
     case LR_SPC:
-    case LD_D:
-    case LK_K:
+    case LH1_QWE:
+    case LH2_QWE:
+    case LH3_QWE:
+    case LH4_QWE:
+    case LH5_QWE:
+    case LH6_QWE:
+    case LH7_QWE:
+    case LH8_QWE:
       return TAPPING_TERM_LONG;
     default:
       return TAPPING_TERM;
