@@ -336,6 +336,7 @@ uint16_t get_tapping_term(uint16_t keycode) {
 bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case LR_SPC:
+    case SR_ENT:
       return true;
     default:
       return false;
