@@ -2,6 +2,8 @@
 
 #include QMK_KEYBOARD_H
 
+#include "wrappers.h"
+
 // Layer declarations
 enum userspace_layers {
   _QWERTY = 0,
