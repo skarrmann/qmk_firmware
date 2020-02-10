@@ -25,7 +25,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_QWERTY] = LAYOUT_ortho_5x12_wrapper( \
   KC_GRV , _________________NUMROW_L0_________________, _________________NUMROW_R0_________________, KC_BSLS, \
   KC_TAB , _________________QWERTY_L1_________________, _________________QWERTY_R1_________________, KC_MINS, \
-  OSM_SL , LH1_QWE, LH2_QWE, LH3_QWE, LH4_QWE, KC_G   , KC_H   , LH5_QWE, LH6_QWE, LH7_QWE, LH8_QWE, SR_ENT , \
+  OSM_SL , _________________QWERTY_L2_HOME____________, _________________QWERTY_R2_HOME____________, SR_ENT , \
   KC_EQL , _________________QWERTY_L3_________________, _________________QWERTY_R3_________________, KC_SCLN, \
   KC_ESC , KC_LGUI, KC_APP , KC_LALT, CL_DEL , OSL_LL , LR_SPC , CR_BSPC, KC_RALT, KC_INS , KC_CAPS, TG_STND  \
 ),

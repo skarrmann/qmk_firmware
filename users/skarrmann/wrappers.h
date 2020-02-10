@@ -14,6 +14,9 @@
 #define _________________QWERTY_R2_________________ KC_H   , KC_J   , KC_L   , KC_L   , KC_QUOT // Substitute ; with '
 #define _________________QWERTY_R3_________________ KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH
 
+#define _________________QWERTY_L2_HOME____________ LH1_QWE, LH2_QWE, LH3_QWE, LH4_QWE, KC_G
+#define _________________QWERTY_R2_HOME____________ KC_H   , LH5_QWE, LH6_QWE, LH7_QWE, LH8_QWE
+
 /* Lower
  ,-----------------------------------------------------------------------------------------------------------.
  |        |   1    |   2    |   3    |   4    |   5    |   6    |   7    |   8    |   9    |   0    |        |
