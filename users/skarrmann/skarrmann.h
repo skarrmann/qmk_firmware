@@ -37,6 +37,6 @@ enum userspace_layers {
 #define LH5_QWE LT(_HOME5, KC_J)
 #define LH6_QWE LT(_HOME6, KC_K)
 #define LH7_QWE LT(_HOME7, KC_L)
-#define LH8_QWE LT(_HOME8, KC_QUOT)
+#define LH8_QWE LT(_HOME8, KC_SCLN)
 #define TG_STND TG(_STANDARD)
 
