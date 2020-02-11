@@ -14,8 +14,8 @@
 #define _________________QWERTY_R2_________________ KC_H   , KC_J   , KC_L   , KC_L   , KC_SCLN
 #define _________________QWERTY_R3_________________ KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH
 
-#define _________________QWERTY_L2_HOME____________ LH1_QWE, LH2_QWE, LH3_QWE, LH4_QWE, KC_G
-#define _________________QWERTY_R2_HOME____________ KC_H   , LH5_QWE, LH6_QWE, LH7_QWE, LH8_QWE
+#define _________________QWERTY_L2_HOME____________ KC_A   , KC_S            , LT(_HOME1, KC_D), LT(_HOME2, KC_F), KC_G
+#define _________________QWERTY_R2_HOME____________ KC_H   , LT(_HOME3, KC_J), LT(_HOME4, KC_K), KC_L            , KC_SCLN
 
 /* Lower
  ,-----------------------------------------------------------------------------------------------------------.
