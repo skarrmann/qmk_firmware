@@ -7,6 +7,7 @@
 // Layer declarations
 enum userspace_layers {
   _QWERTY = 0,
+  _COLEMAK,
   _STANDARD,
   _HOME1,
   _HOME2,
@@ -24,6 +25,12 @@ enum userspace_layers {
 #define OSM_SL  OSM(MOD_LSFT)
 #define SL_ESC  MT(MOD_LSFT, KC_ESC)
 #define SR_ENT  MT(MOD_RSFT, KC_ENT)
-#define OSL_LL  OSL(_LOWER)
+#define OSL_L   OSL(_LOWER)
 #define LR_SPC  LT(_RAISE, KC_SPC)
+#define HT1(k)  LT(_HOME1, k)
+#define HT2(k)  LT(_HOME2, k)
+#define HT3(k)  LT(_HOME3, k)
+#define HT4(k)  LT(_HOME4, k)
+#define TG_QWRT TG(_QWERTY)
+#define TG_CLMK TG(_COLEMAK)
 #define TG_STND TG(_STANDARD)
