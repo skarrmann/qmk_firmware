@@ -1,7 +1,7 @@
 
 #include "skarrmann.h"
 
-#define _________________TRNS___X0_________________ KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
+#define _________________BLANK__X0_________________ KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
 
 #define _________________NUMROW_L0_________________ KC_1   , KC_2   , KC_3   , KC_4   , KC_5
 #define _________________NUMROW_R0_________________ KC_6   , KC_7   , KC_8   , KC_9   , KC_0
