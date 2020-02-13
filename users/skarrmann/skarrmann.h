@@ -26,6 +26,7 @@ enum userspace_layers {
 #define SL_ESC  MT(MOD_LSFT, KC_ESC)
 #define SR_ENT  MT(MOD_RSFT, KC_ENT)
 #define OSL_L   OSL(_LOWER)
+#define LL_TAB  LT(_LOWER, KC_TAB)
 #define LR_SPC  LT(_RAISE, KC_SPC)
 #define HT1(k)  LT(_HOME1, k)
 #define HT2(k)  LT(_HOME2, k)

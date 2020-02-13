@@ -11,7 +11,7 @@
     KC_TAB ,  K01    , K02    , K03    , K04    , K05   , K06    , K07    , K08    , K09    , K0A    , KC_MINS, \
     OSM_SL ,  K11    , K12    , HT1(K13), HT2(K14), K15 , K16    , HT3(K17), HT4(K18), K19  , K1A    , KC_QUOT, \
     KC_EQL ,  K21    , K22    , K23    , K24    , K25   , K26    , K27    , K28    , K29    , K2A    , SR_ENT , \
-    KC_ESC ,  KC_LGUI, KC_APP , KC_LALT, CL_DEL , OSL_L , LR_SPC , CR_BSPC, KC_RALT, KC_INS , KC_CAPS, TG_STND  \
+    KC_ESC ,  KC_LGUI, KC_APP , KC_LALT, CL_DEL , LL_TAB, LR_SPC , CR_BSPC, KC_RALT, KC_INS , KC_CAPS, TG_STND  \
   )
 
 #define LAYOUT_ortho_4x12_base_wrapper(...) LAYOUT_ortho_4x12_base(__VA_ARGS__)
