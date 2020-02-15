@@ -13,7 +13,7 @@
     KC_TAB ,  K11    , K12    , K13    , K14    , K15   , K16    , K17    , K18    , K19    , K1A    , KC_MINS, \
     OSM_SL ,  K21    , K22    , HT1(K23), HT2(K24), K25 , K26    , HT3(K27), HT4(K28), K29  , K2A    , KC_QUOT, \
     KC_EQL ,  K31    , K32    , K33    , K34    , K35   , K36    , K37    , K38    , K39    , K3A    , SR_ENT , \
-    KC_ESC ,  KC_LGUI, KC_APP , KC_LALT, CL_DEL , LL_TAB, LR_SPC , CR_BSPC, KC_RALT, KC_INS , KC_CAPS, TG_STND  \
+    KC_ESC ,  KC_LGUI, KC_APP , KC_LALT, CL_DEL , LL_TAB, LR_SPC , CR_BSPC, KC_RALT, KC_INS , _______, _______  \
   )
 
 #define LAYOUT_ortho_5x12_base_wrapper(...) LAYOUT_ortho_5x12_base(__VA_ARGS__)
@@ -60,11 +60,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 // Standard: Remove custom layer and mod keys
 [_STANDARD] = LAYOUT_ortho_5x12_wrapper( \
-  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-  KC_LSFT, _______, _______, KC_D   , KC_F   , _______, _______, KC_J   , KC_K   , _______, _______, _______, \
-  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-  _______, _______, _______, _______, _______, KC_SPC , KC_SPC , _______, _______, _______, _______, _______  \
+  KC_GRV , _________________NUMROW_L0_________________, _________________NUMROW_R0_________________, KC_BSLS, \
+  KC_TAB , _________________QWERTY_L1_________________, _________________QWERTY_R1_________________, KC_MINS, \
+  KC_LSFT, _________________QWERTY_L2_________________, _________________QWERTY_R2_________________, KC_QUOT, \
+  KC_LCTL, _________________QWERTY_L3_________________, _________________QWERTY_R3_________________, KC_ENT , \
+  KC_ESC , TG_STND, KC_LGUI, KC_LALT, KC_DEL , KC_TAB , KC_SPC , KC_BSPC, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT  \
 ),
 
 [_HOME1] = LAYOUT_ortho_5x12_wrapper( \

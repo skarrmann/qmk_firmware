@@ -32,6 +32,6 @@ enum userspace_layers {
 #define HT2(k)  LT(_HOME2, k)
 #define HT3(k)  LT(_HOME3, k)
 #define HT4(k)  LT(_HOME4, k)
-#define TG_QWRT TG(_QWERTY)
-#define TG_CLMK TG(_COLEMAK)
+#define DF_QWRT DF(_QWERTY)
+#define DF_CLMK DF(_COLEMAK)
 #define TG_STND TG(_STANDARD)
