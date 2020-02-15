@@ -73,16 +73,16 @@
 
 /* Layer Home1 (Mouse)
  ,-----------------------------------------------------.
- |Ms-Acl0 |Ms-Btn1 |Ms-Btn2 |Ms-Btn3 |Ms-Btn4 |Ms-Btn5 |
+ |Ms-Btn1 |Ms-Btn2 |Ms-Btn3 |Ms-Btn4 |Ms-Btn5 |        |
  |--------+--------+--------+--------+--------+--------|
- |Ms-Acl1 |Ms-Left |Ms-Down | Ms-Up  |Ms-Right|        |
+ |        |Ms-Left |Ms-Down | Ms-Up  |Ms-Right|        |
  |--------+--------+--------+--------+--------+--------|
- |Ms-Acl2 |Ms-WLeft|Ms-WDown| Ms-WUp |Ms-WRght|        |
+ |        |Ms-WLeft|Ms-WDown| Ms-WUp |Ms-WRght|        |
  `-----------------------------------------------------'
  */
-#define _____________________HOME1__R1______________________ KC_ACL0, KC_BTN1, KC_BTN2, KC_BTN3, KC_BTN4, KC_BTN5
-#define _____________________HOME1__R2______________________ KC_ACL1, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, _______
-#define _____________________HOME1__R3______________________ KC_ACL2, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, _______
+#define _____________________HOME1__R1______________________ KC_BTN1, KC_BTN2, KC_BTN3, KC_BTN4, KC_BTN5, _______
+#define _____________________HOME1__R2______________________ _______, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, _______
+#define _____________________HOME1__R3______________________ _______, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, _______
 
 /* Layer Home2 (Navigation)
  ,-----------------------------------------------------.
