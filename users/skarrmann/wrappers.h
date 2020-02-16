@@ -7,10 +7,10 @@
  |--------|                                            | |                                            |--------|
  |  Esc   |                                            | |                                            |   -    |
  |        |                                            | |                                            |        |
- |--------|                                            | |                                            |--------|
- |One-Shot|                                            | |                                            |   '    |
- | LShift |                                            | |                                            |        |
- |--------|                                            | |                                            |--------|
+ |--------|                 ,-----------------.        | |        ,-----------------.                 |--------|
+ |One-Shot|                 | (key)  | (key)  |        | |        | (key)  | (key)  |                 |   '    |
+ | LShift |                 | HOME1  | HOME2  |        | |        | HOME3  | HOME4  |                 |        |
+ |--------|                 `-----------------'        | |        `-----------------'                 |--------|
  |        |                                            | |                                            | Enter  |
  |  LAlt  |                                            | |                                            | RShift |
  |--------+--------------------------------------------| |--------------------------------------------+--------|
@@ -27,6 +27,11 @@
 #define BASE_R1 KC_MINS
 #define BASE_R2 KC_QUOT
 #define BASE_R3 SR_ENT
+
+#define BASE_H1(k) LT(_HOME1, k)
+#define BASE_H2(k) LT(_HOME2, k)
+#define BASE_H3(k) LT(_HOME3, k)
+#define BASE_H4(k) LT(_HOME4, k)
 
 #define BASE_B0 KC_NO
 #define BASE_B1 KC_NO
