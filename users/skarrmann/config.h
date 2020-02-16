@@ -2,6 +2,7 @@
 
 // Tap-hold configuration
 #define TAPPING_TERM_PER_KEY
+#define TAPPING_TERM_SHORT 125
 #define TAPPING_TERM 150
 #define TAPPING_TERM_LONG 200
 #undef PERMISSIVE_HOLD
