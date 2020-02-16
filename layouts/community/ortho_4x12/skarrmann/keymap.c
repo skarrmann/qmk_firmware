@@ -3,15 +3,15 @@
 #define LAYOUT_ortho_4x12_wrapper(...) LAYOUT_ortho_4x12(__VA_ARGS__)
 
 #define LAYOUT_ortho_4x12_base( \
-    K01, K02, K03, K04, K05, K06, K07, K08, K09, K0A, \
     K11, K12, K13, K14, K15, K16, K17, K18, K19, K1A, \
-    K21, K22, K23, K24, K25, K26, K27, K28, K29, K2A  \
+    K21, K22, K23, K24, K25, K26, K27, K28, K29, K2A, \
+    K31, K32, K33, K34, K35, K36, K37, K38, K39, K3A  \
   ) \
   LAYOUT_ortho_4x12_wrapper( \
-    KC_UNDS,  K01    , K02    , K03    , K04    , K05   , K06    , K07    , K08    , K09    , K0A    , KC_MINS, \
-    OSM_SL ,  K11    , K12    , HT1(K13), HT2(K14), K15 , K16    , HT3(K17), HT4(K18), K19  , K1A    , KC_QUOT, \
-    KC_LALT,  K21    , K22    , K23    , K24    , K25   , K26    , K27    , K28    , K29    , K2A    , SR_ENT , \
-    KC_ESC ,  KC_LGUI, KC_APP , KC_LALT, CL_DEL , LL_TAB, LR_SPC , CR_BSPC, KC_RALT, KC_INS , _______, _______ \
+    BASE_L1, K11    , K12    , K13    , K14    , K15    , K16    , K17    , K18    , K19    , K1A    , BASE_R1, \
+    BASE_L2, K21    , K22    , H1(K23), H2(K24), K25    , K26    , H3(K27), H4(K28), K29    , K2A    , BASE_R2, \
+    BASE_L3, K31    , K32    , K33    , K34    , K35    , K36    , K37    , K38    , K39    , K3A    , BASE_R3, \
+    BASE_B0, BASE_B1, BASE_B2, BASE_B3, BASE_B4, BASE_B5, BASE_B6, BASE_B7, BASE_B8, BASE_B9, BASE_BA, BASE_BB  \
   )
 
 #define LAYOUT_ortho_4x12_base_wrapper(...) LAYOUT_ortho_4x12_base(__VA_ARGS__)
@@ -28,6 +28,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _________________COLEMAK_L1________________, _________________COLEMAK_R1________________, \
   _________________COLEMAK_L2________________, _________________COLEMAK_R2________________, \
   _________________COLEMAK_L3________________, _________________COLEMAK_R3________________  \
+),
+
+[_DVORAK] = LAYOUT_ortho_4x12_base_wrapper( \
+  _________________DVORAK_L1_________________, _________________DVORAK_R1_________________, \
+  _________________DVORAK_L2_________________, _________________DVORAK_R2_________________, \
+  _________________DVORAK_L3_________________, _________________DVORAK_R3_________________  \
+),
+
+[_STANDARD] = LAYOUT_ortho_4x12_wrapper( \
+  STND_L1, _________________QWERTY_L1_________________, _________________QWERTY_R1_________________, STND_R1, \
+  STND_L2, _________________QWERTY_L2_________________, _________________QWERTY_R2_________________, STND_R2, \
+  STND_L3, _________________QWERTY_L3_________________, _________________QWERTY_R3_________________, STND_R3, \
+  STND_B0, STND_B1, STND_B2, STND_B3, STND_B4, STND_B5, STND_B6, STND_B7, STND_B8, STND_B9, STND_BA, STND_BB  \
 ),
 
 [_LOWER] = LAYOUT_ortho_4x12_wrapper( \
@@ -51,13 +64,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  \
 ),
 
-// Standard: Remove custom layer and mod keys
-[_STANDARD] = LAYOUT_ortho_4x12_wrapper( \
-  KC_TAB , _________________QWERTY_L1_________________, _________________QWERTY_R1_________________, KC_MINS, \
-  KC_LSFT, _________________QWERTY_L2_________________, _________________QWERTY_R2_________________, KC_QUOT, \
-  KC_LCTL, _________________QWERTY_L3_________________, _________________QWERTY_R3_________________, KC_ENT , \
-  KC_ESC , TG_STND, KC_LGUI, KC_LALT, KC_DEL , KC_TAB , KC_SPC , KC_BSPC, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT  \
-),
 
 [_HOME1] = LAYOUT_ortho_4x12_wrapper( \
   _______, _______, _______, _______, _______, _______, _____________________HOME1__R1______________________, \

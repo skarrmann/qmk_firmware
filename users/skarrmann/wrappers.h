@@ -1,5 +1,88 @@
 #include "skarrmann.h"
 
+/* Base modifiers
+ ,-----------------------------------------------------------------------------------------------------------.
+ |   `    |                                            |                                            |   \    |
+ |        |                                            |                                            |        |
+ |--------|                                            |                                            |--------|
+ |  Esc   |                                            |                                            |   -    |
+ |        |                                            |                                            |        |
+ |--------|                                            |                                            |--------|
+ |One-Shot|                                            |                                            |   '    |
+ | LShift |                                            |                                            |        |
+ |--------|                                            |                                            |--------|
+ |        |                                            |                                            | Enter  |
+ |  LAlt  |                                            |                                            | RShift |
+ |--------+--------------------------------------------+--------------------------------------------+--------|
+ |        |        |  App   |        |  Del   |  Tab   | Space  |  Bspc  |        |        |        |        |
+ |        |        |        |  LGUI  |  LCtl  | LOWER  | RAISE  |  RCtl  |  RAlt  |        |        |        |
+ `-----------------------------------------------------------------------------------------------------------'
+ */
+#define BASE_L0 KC_GRV
+#define BASE_L1 KC_ESC
+#define BASE_L2 OSM_SL
+#define BASE_L3 KC_LALT
+
+#define BASE_R0 KC_BSLS
+#define BASE_R1 KC_MINS
+#define BASE_R2 KC_QUOT
+#define BASE_R3 SR_ENT
+
+#define BASE_B0 KC_NO
+#define BASE_B1 KC_NO
+#define BASE_B2 KC_APP
+#define BASE_B3 KC_LGUI
+#define BASE_B4 CL_DEL
+#define BASE_B5 LL_TAB
+#define BASE_B6 LR_SPC
+#define BASE_B7 CR_BSPC
+#define BASE_B8 KC_RALT
+#define BASE_B9 KC_NO
+#define BASE_BA KC_NO
+#define BASE_BB KC_NO
+
+/* Standard modifiers: For games and applications which need standard key behavior
+ ,-----------------------------------------------------------------------------------------------------------.
+ |  Esc   |                                            |                                            |  Bspc  |
+ |        |                                            |                                            |        |
+ |--------|                                            |                                            |--------|
+ |  Tab   |                                            |                                            |   -    |
+ |        |                                            |                                            |        |
+ |--------|                                            |                                            |--------|
+ |        |                                            |                                            |   '    |
+ |  Caps  |                                            |                                            |        |
+ |--------|                                            |                                            |--------|
+ |        |                                            |                                            | Enter  |
+ | LShift |                                            |                                            |        |
+ |--------+--------------------------------------------+--------------------------------------------+--------|
+ |        |        |        |  App   |  Del   | Space  | Space  |  Bspc  |  Left  |   Up   |  Down  | Right  |
+ |  LCtl  |  LGUI  | LAlt   |        | LOWER  |        |        | RAISE  |        |        |        |        |
+ `-----------------------------------------------------------------------------------------------------------'
+ */
+#define STND_L0 KC_ESC
+#define STND_L1 KC_TAB
+#define STND_L2 KC_CAPS
+#define STND_L3 KC_LSFT
+
+#define STND_R0 KC_BSPC
+#define STND_R1 KC_MINS
+#define STND_R2 KC_QUOT
+#define STND_R3 KC_ENT
+
+#define STND_B0 KC_LCTL
+#define STND_B1 KC_LGUI
+#define STND_B2 KC_LALT
+#define STND_B3 KC_APP
+#define STND_B4 LT(_LOWER, KC_DEL)
+#define STND_B5 KC_SPC
+#define STND_B6 KC_SPC
+#define STND_B7 LT(_RAISE, KC_BSPC)
+#define STND_B8 KC_LEFT
+#define STND_B9 KC_DOWN
+#define STND_BA KC_UP
+#define STND_BB KC_RGHT
+
+/* Base layers - placed inside of a modifier wrapper */
 #define _________________NUMROW_L0_________________ KC_1   , KC_2   , KC_3   , KC_4   , KC_5
 #define _________________NUMROW_R0_________________ KC_6   , KC_7   , KC_8   , KC_9   , KC_0
 
@@ -19,6 +102,16 @@
 #define _________________COLEMAK_R2________________ KC_H   , KC_N   , KC_E   , KC_I   , KC_O
 #define _________________COLEMAK_R3________________ KC_K   , KC_M   , KC_COMM, KC_DOT , KC_SLSH
 
+#define _________________DVORAK_L1_________________ KC_QUOT, KC_COMM, KC_DOT , KC_P   , KC_Y
+#define _________________DVORAK_L2_________________ KC_A   , KC_O   , KC_E   , KC_U   , KC_I
+#define _________________DVORAK_L3_________________ KC_SCLN, KC_Q   , KC_J   , KC_K   , KC_X
+
+#define _________________DVORAK_R1_________________ KC_F   , KC_G   , KC_C   , KC_R   , KC_L
+#define _________________DVORAK_R2_________________ KC_D   , KC_H   , KC_T   , KC_N   , KC_S
+#define _________________DVORAK_R3_________________ KC_B   , KC_M   , KC_W   , KC_V   , KC_Z
+
+
+/* Custom layers - can cover the full keyboard layout */
 /* Lower
  ,-----------------------------------------------------------------------------------------------------------.
  |        |   `    |   [    |   ]    |   =    |   /    |   \    |   *    |   {    |   }    |   +    |   -    |
@@ -58,7 +151,7 @@
  ,-----------------------------------------------------------------------------------------------------------.
  |        | Reset  | Debug  |        |        |        |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- |        |        |        |        |        |        |        | Qwerty |Colemak |        |Standard|        |
+ |        |        |        |        |        |        |        | Qwerty |Colemak | Dvorak |Standard|        |
  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
  |        |        |        |        |        |        |        |        |        |        |        |        |
  `-----------------------------------------------------------------------------------------------------------'
@@ -68,7 +161,7 @@
 #define _____________________ADJUST_L3______________________ _______, _______, _______, _______, _______, _______
 
 #define _____________________ADJUST_R1______________________ _______, _______, _______, _______, _______, _______
-#define _____________________ADJUST_R2______________________ _______, DF_QWRT, DF_CLMK, _______, TG_STND, _______
+#define _____________________ADJUST_R2______________________ _______, DF_QWRT, DF_CLMK, DF_DVRK, TG_STND, _______
 #define _____________________ADJUST_R3______________________ _______, _______, _______, _______, _______, _______
 
 /* Layer Home1 (Mouse)
