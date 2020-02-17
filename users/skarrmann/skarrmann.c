@@ -23,6 +23,7 @@ uint16_t get_tapping_term(uint16_t keycode) {
   uint16_t basic_keycode = (keycode & 0x00FF);
   switch (basic_keycode) {
     case KC_ENT:
+    case KC_QUOT:
       return TAPPING_TERM_SHORT;
     case KC_SPC:
       return TAPPING_TERM_LONG;

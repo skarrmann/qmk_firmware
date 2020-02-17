@@ -3,7 +3,7 @@
 // Tap-hold configuration
 #define TAPPING_TERM_PER_KEY
 #define TAPPING_TERM_SHORT 130
-#define TAPPING_TERM 160
+#define TAPPING_TERM 150
 #define TAPPING_TERM_LONG 200
 #undef PERMISSIVE_HOLD
 #define IGNORE_MOD_TAP_INTERRUPT

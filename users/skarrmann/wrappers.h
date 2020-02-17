@@ -9,24 +9,24 @@
  |        |                                            | |                                            |        |
  |--------|                 ,-----------------.        | |        ,-----------------.                 |--------|
  |One-Shot|                 | (key)  | (key)  |        | |        | (key)  | (key)  |                 |   '    |
- | LShift |                 | HOME1  | HOME2  |        | |        | HOME3  | HOME4  |                 |        |
+ | LShift |                 | HOME1  | HOME2  |        | |        | HOME3  | HOME4  |                 | RShift |
  |--------|                 `-----------------'        | |        `-----------------'                 |--------|
  |        |                                            | |                                            | Enter  |
- |  LAlt  |                                            | |                                            | RShift |
+ |  LAlt  |                                            | |                                            | RAlt   |
  |--------+--------------------------------------------| |--------------------------------------------+--------|
- |        |        |  App   |        |  Del   |  Tab   | | Space  |  Bspc  |        |        |        |        |
- |        |        |        |  LGUI  |  LCtl  | LOWER  | | RAISE  |  RCtl  |  RAlt  |        |        |        |
+ |        |        |  App   |        |  Del   |  Tab   | | Space  |  Bspc  |  Left  |  Down  |   Up   | Right  |
+ |        |        |        |  LGUI  |  LCtl  | LOWER  | | RAISE  |  RCtrl |        |        |        |        |
  `-----------------------------------------------------' `-----------------------------------------------------'
  */
 #define BASE_L0 KC_GRV
 #define BASE_L1 KC_ESC
-#define BASE_L2 OSM_SL
+#define BASE_L2 OSM(MOD_LSFT)
 #define BASE_L3 KC_LALT
 
 #define BASE_R0 KC_BSLS
 #define BASE_R1 KC_MINS
-#define BASE_R2 KC_QUOT
-#define BASE_R3 SR_ENT
+#define BASE_R2 MT(MOD_RSFT, KC_QUOT)
+#define BASE_R3 MT(MOD_RALT, KC_ENT)
 
 #define BASE_H1(k) LT(_HOME1, k)
 #define BASE_H2(k) LT(_HOME2, k)
@@ -37,14 +37,14 @@
 #define BASE_B1 KC_NO
 #define BASE_B2 KC_APP
 #define BASE_B3 KC_LGUI
-#define BASE_B4 CL_DEL
-#define BASE_B5 LL_TAB
-#define BASE_B6 LR_SPC
-#define BASE_B7 CR_BSPC
-#define BASE_B8 KC_RALT
-#define BASE_B9 KC_NO
-#define BASE_BA KC_NO
-#define BASE_BB KC_NO
+#define BASE_B4 MT(MOD_LCTL, KC_DEL)
+#define BASE_B5 LT(_LOWER, KC_TAB)
+#define BASE_B6 LT(_RAISE, KC_SPC)
+#define BASE_B7 MT(MOD_RCTL, KC_BSPC)
+#define BASE_B8 KC_LEFT
+#define BASE_B9 KC_DOWN
+#define BASE_BA KC_UP
+#define BASE_BB KC_RIGHT
 
 /* Standard modifiers - for games and applications which need standard key behavior
  ,-----------------------------------------------------. ,-----------------------------------------------------.
@@ -188,7 +188,7 @@
 #define _____________________ADJUST_L4______________________ _______, _______, _______, _______, _______, _______
 
 #define _____________________ADJUST_R0______________________ _______, _______, _______, _______, _______, _______
-#define _____________________ADJUST_R1______________________ _______, DF_QWRT, DF_CLMK, DF_DVRK, TG_STND, _______
+#define _____________________ADJUST_R1______________________ _______, DF_QWRT, DF_CLMK, DF_DVRK, DF_STND, _______
 #define _____________________ADJUST_R2______________________ _______, _______, _______, _______, _______, _______
 #define _____________________ADJUST_R3______________________ _______, _______, _______, _______, _______, _______
 #define _____________________ADJUST_R4______________________ _______, _______, _______, _______, _______, _______
