@@ -8,6 +8,13 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 // Tapping term per key
 uint16_t get_tapping_term(uint16_t keycode) {
 
+  // Key-specific tapping terms
+  uint16_t basic_keycode = (keycode & 0x00FF);
+  switch (basic_keycode) {
+    case KC_SPC:
+      return TAPPING_TERM_K_SPC;
+  }
+
   // Mod tapping terms
   if (keycode >= QK_MOD_TAP && keycode <= QK_MOD_TAP_MAX) {
     uint16_t mod = mod_config((keycode >> 0x8) & 0x1F);
@@ -38,8 +45,6 @@ uint16_t get_tapping_term(uint16_t keycode) {
       case _BASE3:
       case _BASE4:
         return TAPPING_TERM_L_BASE;
-      case _RAISE:
-        return TAPPING_TERM_L_RAISE;
     }
   }
 

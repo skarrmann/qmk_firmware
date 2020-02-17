@@ -8,25 +8,25 @@
  |  ESC   |                          |  (KC)  |        | |        |  (KC)  |                          |   -    |
  |        |                          | BASE1  |        | |        | BASE3  |                          |        |
  |--------+--------------------------+--------|        | |        |-----------------------------------+--------|
- |One-Shot|  (KC)  |  (KC)  |  (KC)  |  (KC)  |        | |        |  (KC)  |  (KC)  |  (KC)  |  (KC)  |   '    |
- |  LSFT  |  LSFT  |  LCTL  |  LALT  | BASE2  |        | |        | BASE4  |  RALT  |  RCTL  |  RSFT  |  RSFT  |
- |--------+--------+--------------------------'        | |        `--------------------------+--------+--------|
- |        |  (KC)  |                                   | |                                   |  (KC)  |  ENT   |
- |  LALT  |  LGUI  |                                   | |                                   |  RGUI  |  RALT  |
+ |        |  (KC)  |  (KC)  |  (KC)  |  (KC)  |        | |        |  (KC)  |  (KC)  |  (KC)  |  (KC)  |   '    |
+ |  LSFT  |  LCTL  |  LGUI  |  LALT  | BASE2  |        | |        | BASE4  |  RALT  |  RGUI  |  RCTL  |  RSFT  |
+ |--------+-----------------------------------'        | |        `-----------------------------------+--------|
+ |        |                                            | |                                            |  ENT   |
+ |  LCTL  |                                            | |                                            |  RCTL  |
  |--------+--------------------------------------------| |--------------------------------------------+--------|
- |        |        |  APP   |        |  DEL   |  TAB   | |  SPC   |  BSPC  |  LEFT  |  DOWN  |   UP   | RIGHT  |
- |        |        |        |  LGUI  |  LCTL  | LOWER  | | RAISE  |  RCTL  |        |        |        |        |
+ |        |        |        |  APP   |  DEL   |  TAB   | |  SPC   |  BSPC  |  LEFT  |  DOWN  |   UP   | RIGHT  |
+ |        |  LGUI  |  LALT  |        | RAISE  | LOWER  | | LOWER  | RAISE  |        |        |        |        |
  `-----------------------------------------------------' `-----------------------------------------------------'
  */
 #define BASE_L0 KC_GRV
 #define BASE_L1 KC_ESC
-#define BASE_L2 OSM(MOD_LSFT)
-#define BASE_L3 KC_LALT
+#define BASE_L2 KC_LSFT
+#define BASE_L3 KC_LCTL
 
 #define BASE_R0 KC_BSLS
 #define BASE_R1 KC_MINS
 #define BASE_R2 MT(MOD_RSFT, KC_QUOT)
-#define BASE_R3 MT(MOD_RALT, KC_ENT)
+#define BASE_R3 MT(MOD_RCTL, KC_ENT)
 
 #define BASE1_T(k) LT(_BASE1, k)
 #define BASE2_T(k) LT(_BASE2, k)
@@ -34,13 +34,13 @@
 #define BASE4_T(k) LT(_BASE4, k)
 
 #define BASE_B0 KC_NO
-#define BASE_B1 KC_NO
-#define BASE_B2 KC_APP
-#define BASE_B3 KC_LGUI
-#define BASE_B4 MT(MOD_LCTL, KC_DEL)
+#define BASE_B1 KC_LGUI
+#define BASE_B2 KC_LALT
+#define BASE_B3 KC_APP
+#define BASE_B4 LT(_RAISE, KC_DEL)
 #define BASE_B5 LT(_LOWER, KC_TAB)
-#define BASE_B6 LT(_RAISE, KC_SPC)
-#define BASE_B7 MT(MOD_RCTL, KC_BSPC)
+#define BASE_B6 LT(_LOWER, KC_SPC)
+#define BASE_B7 LT(_RAISE, KC_BSPC)
 #define BASE_B8 KC_LEFT
 #define BASE_B9 KC_DOWN
 #define BASE_BA KC_UP
