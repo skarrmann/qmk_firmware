@@ -56,10 +56,10 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
   // Enable tapping force hold for specific basic keys
   uint16_t basic_keycode = (keycode & 0x00FF);
   switch (basic_keycode) {
-    case KC_BSPC:
-    case KC_DEL:
-      return false;
+    case KC_SPC:
+    case KC_QUOT:
+      return true;
   }
 
-  return true;
+  return false;
 }
