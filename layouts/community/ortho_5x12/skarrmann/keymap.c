@@ -10,7 +10,7 @@
   LAYOUT_ortho_5x12_wrapper( \
     BASE_L0,      _________________NUMROW_L0_________________,                          _________________NUMROW_R0_________________,                          BASE_R0     , \
     BASE_L1     , K11         , K12         , K13         , BASE1_T(K14), K15         , K16         , BASE3_T(K17), K18         , K19         , K1A         , BASE_R1     , \
-    BASE_L2     , LCTL_T(K21) , LGUI_T(K22) , LALT_T(K23) , BASE2_T(K24), K25         , K26         , BASE4_T(K27), RALT_T(K28) , RGUI_T(K29) , RCTL_T(K2A) , BASE_R2     , \
+    BASE_L2     , K21         , LGUI_T(K22) , LALT_T(K23) , BASE2_T(K24), K25         , K26         , BASE4_T(K27), RALT_T(K28) , RGUI_T(K29) , K2A         , BASE_R2     , \
     BASE_L3     , K31         , K32         , K33         , K34         , K35         , K36         , K37         , K38         , K39         , K3A         , BASE_R3     , \
     BASE_B0     , BASE_B1     , BASE_B2     , BASE_B3     , BASE_B4     , BASE_B5     , BASE_B6     , BASE_B7     , BASE_B8     , BASE_B9     , BASE_BA     , BASE_BB       \
   )
