@@ -12,28 +12,28 @@
  |  LSFT  |        |  LGUI  |  LALT  | BASE2  |        | |        | BASE4  |  RALT  |  RGUI  |        |  RSFT  |
  |--------+-----------------------------------'        | |        `-----------------------------------+--------|
  |        |                                            | |                                            |  ENT   |
- | RAISE  |                                            | |                                            | LOWER  |
+ |  LALT  |                                            | |                                            |  RALT  |
  |--------+--------------------------------------------| |--------------------------------------------+--------|
  |        |        |        |  APP   |  DEL   |  TAB   | |  SPC   |  BSPC  |  LEFT  |  DOWN  |   UP   | RIGHT  |
- |        |  LGUI  |  LALT  |        |  LCTL  | LOWER  | | RAISE  |  RCTL  |        |        |        |        |
+ |  LCTL  |  LGUI  |  LALT  |        |  LCTL  | LOWER  | | RAISE  |  RCTL  |        |        |        |        |
  `-----------------------------------------------------' `-----------------------------------------------------'
  */
 #define BASE_L0 KC_GRV
 #define BASE_L1 KC_ESC
 #define BASE_L2 KC_LSFT
-#define BASE_L3 MO(_RAISE)
+#define BASE_L3 KC_LALT
 
 #define BASE_R0 KC_BSLS
 #define BASE_R1 KC_MINS
 #define BASE_R2 MT(MOD_RSFT, KC_QUOT)
-#define BASE_R3 LT(_LOWER, KC_ENT)
+#define BASE_R3 MT(MOD_RALT, KC_ENT)
 
 #define BASE1_T(k) LT(_BASE1, k)
 #define BASE2_T(k) LT(_BASE2, k)
 #define BASE3_T(k) LT(_BASE3, k)
 #define BASE4_T(k) LT(_BASE4, k)
 
-#define BASE_B0 KC_NO
+#define BASE_B0 KC_LCTL
 #define BASE_B1 KC_LGUI
 #define BASE_B2 KC_LALT
 #define BASE_B3 KC_APP
