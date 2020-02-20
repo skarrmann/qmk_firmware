@@ -9,7 +9,7 @@
  |        |                          | BASE1  |        | |        | BASE3  |                          |        |
  |--------+--------------------------+--------|        | |        |-----------------------------------+--------|
  |        |  (KC)  |  (KC)  |  (KC)  |  (KC)  |        | |        |  (KC)  |  (KC)  |  (KC)  |  (KC)  |   '    |
- |  LSFT  |        |  LGUI  |  LALT  | BASE2  |        | |        | BASE4  |  RALT  |  RGUI  |        |  RSFT  |
+ |  LSFT  |  LCTL  |  LGUI  |  LALT  | BASE2  |        | |        | BASE4  |  RALT  |  RGUI  |  RCTL  |  RSFT  |
  |--------+-----------------------------------'        | |        `-----------------------------------+--------|
  |        |                                            | |                                            |  ENT   |
  |  LALT  |                                            | |                                            |  RALT  |
@@ -28,15 +28,15 @@
 #define BASE_R2 MT(MOD_RSFT, KC_QUOT)
 #define BASE_R3 MT(MOD_RALT, KC_ENT)
 
-#define BASE_LA(k) k
+#define BASE_LA(k) MT(MOD_LCTL, k)
 #define BASE_LB(k) MT(MOD_LGUI, k)
 #define BASE_LC(k) MT(MOD_LALT, k)
 #define BASE_LD(k) LT(_BASE2, k)
 #define BASE_LE(k) LT(_BASE1, k)
 
-#define BASE_RA(k) k
-#define BASE_RB(k) MT(MOD_LGUI, k)
-#define BASE_RC(k) MT(MOD_LALT, k)
+#define BASE_RA(k) MT(MOD_RCTL, k)
+#define BASE_RB(k) MT(MOD_RGUI, k)
+#define BASE_RC(k) MT(MOD_RALT, k)
 #define BASE_RD(k) LT(_BASE4, k)
 #define BASE_RE(k) LT(_BASE3, k)
 
