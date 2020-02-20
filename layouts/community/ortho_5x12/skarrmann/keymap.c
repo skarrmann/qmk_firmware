@@ -13,7 +13,6 @@
     BASE_L2     , BASE_LA(K21), BASE_LB(K22), BASE_LC(K23), BASE_LD(K24), K25         , K26         , BASE_RD(K27), BASE_RC(K28), BASE_RB(K29), BASE_RA(K2A), BASE_R2     , \
     BASE_L3     , K31         , K32         , K33         , K34         , K35         , K36         , K37         , K38         , K39         , K3A         , BASE_R3     , \
     BASE_B0     , BASE_B1     , BASE_B2     , BASE_B3     , BASE_B4     , BASE_B5     , BASE_B6     , BASE_B7     , BASE_B8     , BASE_B9     , BASE_BA     , BASE_BB       \
-
   )
 
 #define LAYOUT_ortho_5x12_base_wrapper(...) LAYOUT_ortho_5x12_base(__VA_ARGS__)
