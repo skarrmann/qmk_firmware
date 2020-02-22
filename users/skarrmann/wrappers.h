@@ -5,49 +5,49 @@
  |   `    |        |        |        |        |        | |        |        |        |        |        |   \    |
  |        |        |        |        |        |        | |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
- |  ESC   |        |        |        |  (KC)  |        | |        |  (KC)  |        |        |        |   -    |
+ |   =    |        |        |        |  (KC)  |        | |        |  (KC)  |        |        |        |   -    |
  |        |        |        |        | BASE1  |        | |        | BASE3  |        |        |        |        |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
- |        |  (KC)  |  (KC)  |  (KC)  |  (KC)  |        | |        |  (KC)  |  (KC)  |  (KC)  |  (KC)  |   '    |
- |  LSFT  |        |  LGUI  |  LALT  | BASE2  |        | |        | BASE4  |  RALT  |  RGUI  |        |  RSFT  |
+ |One-Shot|  (KC)  |  (KC)  |  (KC)  |  (KC)  |        | |        |  (KC)  |  (KC)  |  (KC)  |  (KC)  |   '    |
+ |  LSFT  |  LGUI  |  LALT  |  LSFT  |  LCTL  |        | |        |  RCTL  |  RSFT  |  RALT  |  RGUI  |        |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
- |        |        |        |        |        |        | |        |        |        |        |        |  ENT   |
- |  LALT  |        |        |        |        |        | |        |        |        |        |        |  RALT  |
+ |  ESC   |        |        |        |        |        | |        |        |        |        |        |  ENT   |
+ |        |        |        |        |        |        | |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
  |        |        |        |  APP   |  DEL   |  TAB   | |  SPC   |  BSPC  |  LEFT  |  DOWN  |   UP   | RIGHT  |
- |  LCTL  |  LGUI  |  LALT  |        |  LCTL  | LOWER  | | RAISE  |  RCTL  |        |        |        |        |
+ |  LCTL  |  LGUI  |  LALT  |        | BASE2  | LOWER  | | RAISE  | BASE4  |        |        |        |        |
  `-----------------------------------------------------' `-----------------------------------------------------'
  */
 #define BASE_L0 KC_GRV
-#define BASE_L1 KC_ESC
-#define BASE_L2 KC_LSFT
-#define BASE_L3 KC_LALT
+#define BASE_L1 KC_EQL
+#define BASE_L2 OSM(MOD_LSFT)
+#define BASE_L3 KC_ESC
 
 #define BASE_R0 KC_BSLS
 #define BASE_R1 KC_MINS
-#define BASE_R2 MT(MOD_RSFT, KC_QUOT)
-#define BASE_R3 MT(MOD_RALT, KC_ENT)
+#define BASE_R2 KC_QUOT
+#define BASE_R3 KC_ENT
 
-#define BASE_LA(k) k
-#define BASE_LB(k) MT(MOD_LGUI, k)
-#define BASE_LC(k) MT(MOD_LALT, k)
-#define BASE_LD(k) LT(_BASE2, k)
+#define BASE_LA(k) MT(MOD_LGUI, k)
+#define BASE_LB(k) MT(MOD_LALT, k)
+#define BASE_LC(k) MT(MOD_LSFT, k)
+#define BASE_LD(k) MT(MOD_LCTL, k)
 #define BASE_LE(k) LT(_BASE1, k)
 
-#define BASE_RA(k) k
-#define BASE_RB(k) MT(MOD_RGUI, k)
-#define BASE_RC(k) MT(MOD_RALT, k)
-#define BASE_RD(k) LT(_BASE4, k)
+#define BASE_RA(k) MT(MOD_RGUI, k)
+#define BASE_RB(k) MT(MOD_RALT, k)
+#define BASE_RC(k) MT(MOD_RSFT, k)
+#define BASE_RD(k) MT(MOD_RCTL, k)
 #define BASE_RE(k) LT(_BASE3, k)
 
 #define BASE_B0 KC_LCTL
 #define BASE_B1 KC_LGUI
 #define BASE_B2 KC_LALT
 #define BASE_B3 KC_APP
-#define BASE_B4 MT(MOD_LCTL, KC_DEL)
+#define BASE_B4 LT(_BASE2, KC_DEL)
 #define BASE_B5 LT(_LOWER, KC_TAB)
 #define BASE_B6 LT(_RAISE, KC_SPC)
-#define BASE_B7 MT(MOD_RCTL, KC_BSPC)
+#define BASE_B7 LT(_BASE4, KC_BSPC)
 #define BASE_B8 KC_LEFT
 #define BASE_B9 KC_DOWN
 #define BASE_BA KC_UP
@@ -121,7 +121,6 @@
 #define _________________DVORAK_R1_________________ KC_F   , KC_G   , KC_C   , KC_R   , KC_L
 #define _________________DVORAK_R2_________________ KC_D   , KC_H   , KC_T   , KC_N   , KC_S
 #define _________________DVORAK_R3_________________ KC_B   , KC_M   , KC_W   , KC_V   , KC_Z
-
 
 /* Custom layers - can cover the full keyboard layout */
 /* LOWER
@@ -201,9 +200,9 @@
 
 /* Layer BASE1 (Mouse)
  ,-----------------------------------------------------. ,-----------------------------------------------------.
- |        |  ACL0  |  ACL1  |  ACL2  |[][][][]|        | |        |        |        |        |        |        |
+ |        |        |        |        |        |        | |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
- |        |        |        |        |        |        | |        |  WH_L  |  WH_D  |  WH_U  |  WH_R  |        |
+ |        |  ACL0  |  ACL1  |  ACL2  |[][][][]|        | |        |  WH_L  |  WH_D  |  WH_U  |  WH_R  |        |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
  |        |        |        |        |        |        | |        |  MS_L  |  MS_D  |  MS_U  |  MS_R  |        |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
