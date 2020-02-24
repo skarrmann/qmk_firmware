@@ -5,11 +5,11 @@
  |   `    |        |        |        |        |        | |        |        |        |        |        |   \    |
  |        |        |        |        |        |        | |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
- |   =    |        |        |        |  (KC)  |        | |        |  (KC)  |        |        |        |   -    |
+ |  CAPS  |        |        |        |  (KC)  |        | |        |  (KC)  |        |        |        |   -    |
  |        |        |        |        | BASE1  |        | |        | BASE3  |        |        |        |        |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
- |One-Shot|  (KC)  |  (KC)  |  (KC)  |  (KC)  |        | |        |  (KC)  |  (KC)  |  (KC)  |  (KC)  |   '    |
- |  LSFT  |  LGUI  |  LALT  |  LSFT  |  LCTL  |        | |        |  RCTL  |  RSFT  |  RALT  |  RGUI  |        |
+ |        |  (KC)  |  (KC)  |  (KC)  |  (KC)  |        | |        |  (KC)  |  (KC)  |  (KC)  |  (KC)  |   '    |
+ |  LSFT  |  LGUI  |  LALT  |  LSFT  |  LCTL  |        | |        |  RCTL  |  RSFT  |  RALT  |  RGUI  |  RSFT  |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
  |  ESC   |        |        |        |        |        | |        |        |        |        |        |  ENT   |
  |        |        |        |        |        |        | |        |        |        |        |        |        |
@@ -19,13 +19,13 @@
  `-----------------------------------------------------' `-----------------------------------------------------'
  */
 #define BASE_L0 KC_GRV
-#define BASE_L1 KC_EQL
-#define BASE_L2 OSM(MOD_LSFT)
+#define BASE_L1 KC_CAPS
+#define BASE_L2 KC_LSFT
 #define BASE_L3 KC_ESC
 
 #define BASE_R0 KC_BSLS
 #define BASE_R1 KC_MINS
-#define BASE_R2 KC_QUOT
+#define BASE_R2 MT(MOD_RSFT, KC_QUOT)
 #define BASE_R3 KC_ENT
 
 #define BASE_LA(k) MT(MOD_LGUI, k)
