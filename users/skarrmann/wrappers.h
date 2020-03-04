@@ -18,40 +18,40 @@
  |  LCTL  |  LGUI  |  LALT  |        | BASE2  | LOWER  | | RAISE  | BASE4  |        |        |        |        |
  `-----------------------------------------------------' `-----------------------------------------------------'
  */
-#define BASE_L0 KC_GRV
-#define BASE_L1 KC_CAPS
-#define BASE_L2 KC_LSFT
-#define BASE_L3 MT(MOD_LCTL, KC_ESC)
+#define B_L0 KC_GRV
+#define B_L1 KC_CAPS
+#define B_L2 KC_LSFT
+#define B_L3 MT(MOD_LCTL, KC_ESC)
 
-#define BASE_R0 KC_BSLS
-#define BASE_R1 KC_MINS
-#define BASE_R2 MT(MOD_RSFT, KC_QUOT)
-#define BASE_R3 MT(MOD_RCTL, KC_ENT)
+#define B_R0 KC_BSLS
+#define B_R1 KC_MINS
+#define B_R2 MT(MOD_RSFT, KC_QUOT)
+#define B_R3 MT(MOD_RCTL, KC_ENT)
 
-#define BASE_LA(k) MT(MOD_LGUI, k)
-#define BASE_LB(k) MT(MOD_LALT, k)
-#define BASE_LC(k) MT(MOD_LSFT, k)
-#define BASE_LD(k) MT(MOD_LCTL, k)
-#define BASE_LE(k) LT(_BASE1, k)
+#define B_LA(k) MT(MOD_LGUI, k)
+#define B_LB(k) MT(MOD_LALT, k)
+#define B_LC(k) MT(MOD_LSFT, k)
+#define B_LD(k) MT(MOD_LCTL, k)
+#define B_LE(k) LT(_BASE1, k)
 
-#define BASE_RA(k) MT(MOD_RGUI, k)
-#define BASE_RB(k) MT(MOD_RALT, k)
-#define BASE_RC(k) MT(MOD_RSFT, k)
-#define BASE_RD(k) MT(MOD_RCTL, k)
-#define BASE_RE(k) LT(_BASE3, k)
+#define B_RA(k) MT(MOD_RGUI, k)
+#define B_RB(k) MT(MOD_RALT, k)
+#define B_RC(k) MT(MOD_RSFT, k)
+#define B_RD(k) MT(MOD_RCTL, k)
+#define B_RE(k) LT(_BASE3, k)
 
-#define BASE_B0 KC_LCTL
-#define BASE_B1 KC_LGUI
-#define BASE_B2 KC_LALT
-#define BASE_B3 KC_APP
-#define BASE_B4 LT(_BASE2, KC_DEL)
-#define BASE_B5 LT(_LOWER, KC_TAB)
-#define BASE_B6 LT(_RAISE, KC_SPC)
-#define BASE_B7 LT(_BASE4, KC_BSPC)
-#define BASE_B8 KC_LEFT
-#define BASE_B9 KC_DOWN
-#define BASE_BA KC_UP
-#define BASE_BB KC_RIGHT
+#define B_B0 KC_LCTL
+#define B_B1 KC_LGUI
+#define B_B2 KC_LALT
+#define B_B3 KC_APP
+#define B_B4 LT(_BASE2, KC_DEL)
+#define B_B5 LT(_LOWER, KC_TAB)
+#define B_B6 LT(_RAISE, KC_SPC)
+#define B_B7 LT(_BASE4, KC_BSPC)
+#define B_B8 KC_LEFT
+#define B_B9 KC_DOWN
+#define B_BA KC_UP
+#define B_BB KC_RIGHT
 
 /* Standard modifiers - for games and applications which need standard key behavior
  ,-----------------------------------------------------. ,-----------------------------------------------------.

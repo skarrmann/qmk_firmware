@@ -3,16 +3,16 @@
 #define LAYOUT_ortho_4x12_wrapper(...) LAYOUT_ortho_4x12(__VA_ARGS__)
 
 #define LAYOUT_ortho_4x12_base( \
-    K11, K12, K13, K14, K15, K16, K17, K18, K19, K1A, \
-    K21, K22, K23, K24, K25, K26, K27, K28, K29, K2A, \
-    K31, K32, K33, K34, K35, K36, K37, K38, K39, K3A  \
-  ) \
-  LAYOUT_ortho_4x12_wrapper( \
-    BASE_L1     , K11         , K12         , K13         , BASE_LE(K14), K15         , K16         , BASE_RE(K17), K18         , K19         , K1A         , BASE_R1     , \
-    BASE_L2     , BASE_LA(K21), BASE_LB(K22), BASE_LC(K23), BASE_LD(K24), K25         , K26         , BASE_RD(K27), BASE_RC(K28), BASE_RB(K29), BASE_RA(K2A), BASE_R2     , \
-    BASE_L3     , K31         , K32         , K33         , K34         , K35         , K36         , K37         , K38         , K39         , K3A         , BASE_R3     , \
-    BASE_B0     , BASE_B1     , BASE_B2     , BASE_B3     , BASE_B4     , BASE_B5     , BASE_B6     , BASE_B7     , BASE_B8     , BASE_B9     , BASE_BA     , BASE_BB       \
-  )
+  K11, K12, K13, K14, K15, K16, K17, K18, K19, K1A, \
+  K21, K22, K23, K24, K25, K26, K27, K28, K29, K2A, \
+  K31, K32, K33, K34, K35, K36, K37, K38, K39, K3A  \
+) \
+LAYOUT_ortho_4x12_wrapper( \
+  B_L1, K11      , K12      , K13      , B_LE(K14), K15      , K16      , B_RE(K17), K18      , K19      , K1A      , B_R1, \
+  B_L2, B_LA(K21), B_LB(K22), B_LC(K23), B_LD(K24), K25      , K26      , B_RD(K27), B_RC(K28), B_RB(K29), B_RA(K2A), B_R2, \
+  B_L3, K31      , K32      , K33      , K34      , K35      , K36      , K37      , K38      , K39      , K3A      , B_R3, \
+  B_B0, B_B1     , B_B2     , B_B3     , B_B4     , B_B5     , B_B6     , B_B7     , B_B8     , B_B9     , B_BA     , B_BB  \
+)
 
 #define LAYOUT_ortho_4x12_base_wrapper(...) LAYOUT_ortho_4x12_base(__VA_ARGS__)
 
