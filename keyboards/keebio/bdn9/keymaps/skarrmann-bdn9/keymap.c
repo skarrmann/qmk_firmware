@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 
-enum _layers {
+enum custom_layers {
   _NAV = 0,
   _EDIT,
   _MEDIA
@@ -22,23 +22,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         | Knob 1: Undo/Redo |          | Knob 2: Undo/Redo |
         | Ctrl + Q          | Layer 2  | Ctrl + O          |
         | Ctrl + A          | Ctrl + S | Ctrl + F          |
-        | Cut               | Copy     | Paste             |
+        | Ctrl + X          | Ctrl + C | Ctrl + V          |
      */
     [_EDIT] = LAYOUT(
         LCTL(KC_Q), TO(2)     , LCTL(KC_Q),
         LCTL(KC_A), LCTL(KC_S), LCTL(KC_F),
-        KC_CUT    , KC_COPY   , KC_PSTE
+        LCTL(KC_X), LCTL(KC_C), LCTL(KC_V)
     ),
     /*
         | Knob 1: Vol+/Vol- |                | Knob 2: Media P/N  |
         | Press: Mute       | Layer 0        | Press: Media Play  |
-        | RGB Toggle        | Backlight      | Media Stop         |
-        |                   |                |                    |
+        |                   | RGB Val+       | Media Stop         |
+        | Backlight-        | RGB Val-       | Backlight+         |
      */
     [_MEDIA] = LAYOUT(
         KC_MUTE, TO(0)  , KC_MPLY,
-        RGB_TOG, BL_STEP, KC_MSTP,
-        RGB_M_P, KC_NO  , KC_NO
+        KC_NO  , RGB_VAI, KC_MSTP,
+        BL_DEC , RGB_VAD, BL_INC
     	),
 };
 
@@ -109,13 +109,13 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     uint8_t layer = biton32(state);
     switch (layer) {
         case _NAV:
-            rgblight_setrgb(0x00, 0x33, 0xAA);
+            rgblight_sethsv(0xA0, rgblight_get_sat(), rgblight_get_val());
             break;
         case _EDIT:
-            rgblight_setrgb(0xAA, 0x00, 0x33);
+            rgblight_sethsv(0xE0, rgblight_get_sat(), rgblight_get_val());
             break;
         case _MEDIA:
-            rgblight_setrgb(0x33, 0xAA, 0x00);
+            rgblight_sethsv(0x50, rgblight_get_sat(), rgblight_get_val());
             break;
         default:
             break;
