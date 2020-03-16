@@ -39,8 +39,3 @@
 #define MK_C_OFFSET_2 16
 #define MK_W_INTERVAL_2 MOUSEKEY_WHEEL_INTERVAL
 #define MK_W_OFFSET_2 4
-
-// Encoder configuration
-#ifdef ENCODER_ENABLE
-  #define ENCODER_RESOLUTION 4
-#endif

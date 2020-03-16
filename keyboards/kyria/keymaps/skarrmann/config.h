@@ -13,6 +13,10 @@
   #define RGBLIGHT_VAL_STEP 32
 #endif
 
+#ifdef ENCODER_ENABLE
+  #define ENCODER_RESOLUTION 2
+#endif
+
 // Handle Elite C rev3 on the slave side
 // #define SPLIT_USB_DETECT
 // #define NO_USB_STARTUP_CHECK
