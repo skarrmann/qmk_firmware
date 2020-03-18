@@ -56,6 +56,10 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
   switch (basic_keycode) {
     case KC_DEL:
     case KC_BSPC:
+    case KC_UP:
+    case KC_DOWN:
+    case KC_LEFT:
+    case KC_RIGHT:
       return false;
   }
 
