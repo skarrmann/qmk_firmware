@@ -10,10 +10,8 @@ enum userspace_layers {
   _COLEMAK,
   _DVORAK,
   _STANDARD,
-  _BASE1,
-  _BASE2,
-  _BASE3,
-  _BASE4,
+  _NAV,
+  _FUNC,
   _LOWER,
   _RAISE,
   _ADJUST

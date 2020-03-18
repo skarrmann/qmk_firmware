@@ -40,10 +40,8 @@ uint16_t get_tapping_term(uint16_t keycode) {
   if (keycode >= QK_LAYER_TAP && keycode <= QK_LAYER_TAP_MAX) {
     uint16_t layer = ((keycode & 0x0F00) >> 8);
     switch (layer) {
-      case _BASE1:
-      case _BASE2:
-      case _BASE3:
-      case _BASE4:
+      case _NAV:
+      case _FUNC:
         return TAPPING_TERM_L_BASE;
     }
   }
