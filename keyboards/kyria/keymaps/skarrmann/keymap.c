@@ -11,7 +11,7 @@ LAYOUT_kyria_wrapper( \
   B_L1, K11      , K12      , K13      , K14      , K15                                                  , K16      , K17      , K18      , K19      , K1A      , B_R1, \
   B_L2, B_LA(K21), B_LB(K22), B_LC(K23), B_LD(K24), K25                                                  , K26      , B_RD(K27), B_RC(K28), B_RB(K29), B_RA(K2A), B_R2, \
   B_L3, K31      , K32      , K33      , K34      , K35      , RGB_VAD  , RGB_VAI  , RGB_HUD  , RGB_HUI  , K36      , K37      , K38      , K39      , K3A      , B_R3, \
-                              KC_MUTE  , KC_NO    , B_B4     , B_B5     , KC_LSFT  , KC_RSFT  , B_B6     , B_B7     , KC_NO    , KC_HOME   \
+                              KC_MUTE  , B_B3     , B_B4     , B_B5     , KC_LSFT  , KC_RSFT  , B_B6     , B_B7     , KC_HOME  , KC_END    \
 )
 
 #define LAYOUT_kyria_base_wrapper(...) LAYOUT_kyria_base(__VA_ARGS__)
@@ -30,10 +30,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _________________COLEMAK_L3________________, _________________COLEMAK_R3________________  \
 ),
 
-[_DVORAK] = LAYOUT_kyria_base_wrapper( \
-  _________________DVORAK_L1_________________, _________________DVORAK_R1_________________, \
-  _________________DVORAK_L2_________________, _________________DVORAK_R2_________________, \
-  _________________DVORAK_L3_________________, _________________DVORAK_R3_________________  \
+[_SYMBOL] = LAYOUT_kyria_base_wrapper( \
+  _________________SYMBOL_L1_________________, _________________SYMBOL_R1_________________, \
+  _________________SYMBOL_L2_________________, _________________SYMBOL_R2_________________, \
+  _________________SYMBOL_L3_________________, _________________SYMBOL_R3_________________  \
+),
+
+[_NUMBER] = LAYOUT_kyria_base_wrapper( \
+  _________________NUMBER_L1_________________, _________________NUMBER_R1_________________, \
+  _________________NUMBER_L2_________________, _________________NUMBER_R2_________________, \
+  _________________NUMBER_L3_________________, _________________NUMBER_R3_________________  \
+),
+
+[_UTILITY] = LAYOUT_kyria_base_wrapper( \
+  _________________UTILITY_L1________________, _________________UTILITY_R1________________, \
+  _________________UTILITY_L2________________, _________________UTILITY_R2________________, \
+  _________________UTILITY_L3________________, _________________UTILITY_R3________________  \
 ),
 
 [_STANDARD] = LAYOUT_kyria_wrapper( \
@@ -41,24 +53,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   STND_L2, _________________QWERTY_L2_________________,                                     _________________QWERTY_R2_________________, STND_R2, \
   STND_L3, _________________QWERTY_L3_________________, KC_NO  , KC_NO  , KC_NO  , KC_NO  , _________________QWERTY_R3_________________, STND_R3, \
                              STND_B1, STND_B2, STND_B3, STND_B4, STND_B5, STND_B6, STND_B7, STND_B8, STND_B9, STND_BA \
-),
-
-[_LOWER] = LAYOUT_kyria_base_wrapper( \
-  _________________LOWER_L1__________________, _________________LOWER_R1__________________, \
-  _________________LOWER_L2__________________, _________________LOWER_R2__________________, \
-  _________________LOWER_L3__________________, _________________LOWER_R3__________________  \
-),
-
-[_RAISE] = LAYOUT_kyria_base_wrapper( \
-  _________________RAISE_L1__________________, _________________RAISE_R1__________________, \
-  _________________RAISE_L2__________________, _________________RAISE_R2__________________, \
-  _________________RAISE_L3__________________, _________________RAISE_R3__________________  \
-),
-
-[_ADJUST] = LAYOUT_kyria_base_wrapper( \
-  _________________ADJUST_L1_________________, _________________ADJUST_R1_________________, \
-  _________________ADJUST_L2_________________, _________________ADJUST_R2_________________, \
-  _________________ADJUST_L3_________________, _________________ADJUST_R3_________________  \
 ),
 
 };
@@ -102,27 +96,21 @@ static void render_status(void) {
     switch (get_highest_layer(layer_state)) {
         case _QWERTY:
             oled_write_P(PSTR("Default\n"), false);
-	    break;
-	case _COLEMAK:
-	    oled_write_P(PSTR("Colemak\n"), false);
             break;
-	case _STANDARD:
-	    oled_write_P(PSTR("Standard\n"), false);
-	    break;
-        case _LOWER:
-            oled_write_P(PSTR("Lower\n"), false);
+        case _COLEMAK:
+            oled_write_P(PSTR("Colemak\n"), false);
             break;
-        case _RAISE:
-            oled_write_P(PSTR("Raise\n"), false);
+        case _STANDARD:
+            oled_write_P(PSTR("Standard\n"), false);
             break;
-        case _ADJUST:
-            oled_write_P(PSTR("Adjust\n"), false);
+        case _SYMBOL:
+            oled_write_P(PSTR("Symbol\n"), false);
             break;
-        case _NAV:
-            oled_write_P(PSTR("Navigate\n"), false);
+        case _NUMBER:
+            oled_write_P(PSTR("Number\n"), false);
             break;
-        case _FUNC:
-            oled_write_P(PSTR("Function\n"), false);
+        case _UTILITY:
+            oled_write_P(PSTR("Utility\n"), false);
             break;
         default:
             oled_write_P(PSTR("Undefined\n"), false);

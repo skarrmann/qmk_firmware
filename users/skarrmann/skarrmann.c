@@ -1,9 +1,9 @@
 #include "skarrmann.h"
 
 // Layer state
-layer_state_t layer_state_set_user(layer_state_t state) {
-  return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
-}
+// layer_state_t layer_state_set_user(layer_state_t state) {
+//   return update_tri_layer_state(state, _NUMBER, _SYMBOL, _UTILITY);
+// }
 
 // Tapping term per key
 uint16_t get_tapping_term(uint16_t keycode) {
@@ -40,9 +40,9 @@ uint16_t get_tapping_term(uint16_t keycode) {
   if (keycode >= QK_LAYER_TAP && keycode <= QK_LAYER_TAP_MAX) {
     uint16_t layer = ((keycode & 0x0F00) >> 8);
     switch (layer) {
-      case _NAV:
-      case _FUNC:
-        return TAPPING_TERM_L_BASE;
+      // Add entries for any layers with their own tapping terms
+      // case _NUMBER:
+      //   return TAPPING_TERM_L_BASE;
     }
   }
 

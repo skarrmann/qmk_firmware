@@ -8,17 +8,13 @@
 enum userspace_layers {
   _QWERTY = 0,
   _COLEMAK,
-  _DVORAK,
+  _SYMBOL,
+  _NUMBER,
+  _UTILITY,
   _STANDARD,
-  _NAV,
-  _FUNC,
-  _LOWER,
-  _RAISE,
-  _ADJUST
 };
 
 // Custom keycodes
 #define DF_QWRT DF(_QWERTY)
 #define DF_CLMK DF(_COLEMAK)
-#define DF_DVRK DF(_DVORAK)
 #define DF_STND DF(_STANDARD)
