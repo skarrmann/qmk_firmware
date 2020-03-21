@@ -5,27 +5,27 @@
  |   `    |        |        |        |        |        | |        |        |        |        |        |   \    |
  |        |        |        |        |        |        | |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
- |  CAPS  |        |        |        |        |        | |        |        |        |        |        |   -    |
+ |  DEL   |        |        |        |        |        | |        |        |        |        |        |  BSPC  |
  |        |        |        |        |        |        | |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
- |        |  (KC)  |  (KC)  |  (KC)  |  (KC)  |        | |        |  (KC)  |  (KC)  |  (KC)  |  (KC)  |   '    |
- |  LSFT  |  LGUI  |  LALT  |  LSFT  |  LCTL  |        | |        |  RCTL  |  RSFT  |  RALT  |  RSFT  |  RSFT  |
+ |        |  (KC)  |  (KC)  |  (KC)  |  (KC)  |        | |        |  (KC)  |  (KC)  |  (KC)  |  (KC)  |        |
+ |  LSFT  |  LGUI  |  LALT  |  LSFT  |  LCTL  |        | |        |  RCTL  |  RSFT  |  RALT  |  RGUI  |  RSFT  |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
  |  ESC   |        |        |        |        |        | |        |        |        |        |        |  ENT   |
  |  LCTL  |        |        |        |        |        | |        |        |        |        |        |  RCTL  |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
- |        |        |        |  APP   |  DEL   |  TAB   | |  SPC   |  BSPC  |  LEFT  |  DOWN  |   UP   | RIGHT  |
- |  LCTL  |  LGUI  |  LALT  |        |        | LOWER  | | RAISE  |        |        |        |        |        |
+ |        |        |        |  APP   | LSFT + |        | |  SPC   |  TAB   |  LEFT  |  DOWN  |   UP   | RIGHT  |
+ |  LCTL  |  LGUI  |  LALT  |        | LOWER  | LOWER  | | RAISE  |        |        |        |        |        |
  `-----------------------------------------------------' `-----------------------------------------------------'
  */
 #define B_L0 KC_GRV
-#define B_L1 KC_CAPS
+#define B_L1 KC_DEL
 #define B_L2 KC_LSFT
 #define B_L3 MT(MOD_LCTL, KC_ESC)
 
 #define B_R0 KC_BSLS
-#define B_R1 KC_MINS
-#define B_R2 MT(MOD_RSFT, KC_QUOT)
+#define B_R1 KC_BSPC
+#define B_R2 KC_RSFT
 #define B_R3 MT(MOD_RCTL, KC_ENT)
 
 #define B_LA(k) MT(MOD_LGUI, k)
@@ -42,10 +42,10 @@
 #define B_B1 KC_LGUI
 #define B_B2 KC_LALT
 #define B_B3 KC_APP
-#define B_B4 KC_DEL
-#define B_B5 LT(_LOWER, KC_TAB)
+#define B_B4 LM(_LOWER, MOD_LSFT)
+#define B_B5 MO(_LOWER)
 #define B_B6 LT(_RAISE, KC_SPC)
-#define B_B7 KC_BSPC
+#define B_B7 KC_TAB
 #define B_B8 KC_LEFT
 #define B_B9 KC_DOWN
 #define B_BA KC_UP
