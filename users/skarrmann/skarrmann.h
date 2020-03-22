@@ -10,11 +10,12 @@ enum userspace_layers {
   _COLEMAK,
   _SYMBOL,
   _NUMBER,
-  _UTILITY,
-  _STANDARD,
+  _NAVIGATE,
+  _FUNCTION,
 };
 
 // Custom keycodes
-#define DF_QWRT DF(_QWERTY)
-#define DF_CLMK DF(_COLEMAK)
-#define DF_STND DF(_STANDARD)
+enum userspace_keycodes {
+  QWERTY = SAFE_RANGE,
+  COLEMAK,
+};

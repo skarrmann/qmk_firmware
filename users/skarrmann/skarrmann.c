@@ -1,9 +1,23 @@
 #include "skarrmann.h"
 
-// Layer state
-// layer_state_t layer_state_set_user(layer_state_t state) {
-//   return update_tri_layer_state(state, _NUMBER, _SYMBOL, _UTILITY);
-// }
+// Process custom keycodes
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    case QWERTY:
+      if (record->event.pressed) {
+        set_single_persistent_default_layer(_QWERTY);
+      }
+      return false;
+      break;
+    case COLEMAK:
+      if (record->event.pressed) {
+        set_single_persistent_default_layer(_COLEMAK);
+      }
+      return false;
+      break;
+  }
+  return true;
+}
 
 // Tapping term per key
 uint16_t get_tapping_term(uint16_t keycode) {
