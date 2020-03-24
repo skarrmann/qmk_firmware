@@ -1,5 +1,11 @@
 #include "skarrmann.h"
 
+#define B_THUMB_L0______ RGB_VAD, RGB_VAI
+#define B_THUMB_R0______ RGB_HUD, RGB_HUI
+
+#define B_THUMB_L1_________________________________ KC_MUTE, B_B3, B_B4, B_B5   , KC_LSFT
+#define B_THUMB_R1_________________________________ KC_RSFT, B_B6, B_B7, KC_HOME, KC_END
+
 #define LAYOUT_kyria_wrapper(...) LAYOUT(__VA_ARGS__)
 
 #define LAYOUT_kyria_base( \
@@ -8,10 +14,10 @@
   K31, K32, K33, K34, K35, K36, K37, K38, K39, K3A  \
 ) \
 LAYOUT_kyria_wrapper( \
-  B_L1, K11      , K12      , K13      , K14      , K15                                                  , K16      , K17      , K18      , K19      , K1A      , B_R1, \
-  B_L2, B_LA(K21), B_LB(K22), B_LC(K23), B_LD(K24), K25                                                  , K26      , B_RD(K27), B_RC(K28), B_RB(K29), B_RA(K2A), B_R2, \
-  B_L3, K31      , K32      , K33      , K34      , K35      , RGB_VAD  , RGB_VAI  , RGB_HUD  , RGB_HUI  , K36      , K37      , K38      , K39      , K3A      , B_R3, \
-                              KC_MUTE  , KC_NO    , B_B4     , B_B5     , KC_LSFT  , KC_RSFT  , B_B6     , B_B7     , KC_NO    , KC_HOME   \
+  B_L1   , K11    , K12    , K13    , K14    , K15                                        , K16    , K17    , K18    , K19    , K1A    , B_R1   , \
+  B_L2   , B_LH_MODS(K21, K22, K23, K24)     , K25                                        , K26    , B_RH_MODS(K27, K28, K29, K2A)     , B_R2   , \
+  B_L3   , K31    , K32    , K33    , K34    , K35    , B_THUMB_L0______, B_THUMB_R0______, K36    , K37    , K38    , K39    , K3A    , B_R3   , \
+                             B_THUMB_L1_________________________________, B_THUMB_R1_________________________________                             \
 )
 
 #define LAYOUT_kyria_base_wrapper(...) LAYOUT_kyria_base(__VA_ARGS__)
@@ -19,62 +25,42 @@ LAYOUT_kyria_wrapper( \
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_QWERTY] = LAYOUT_kyria_base_wrapper( \
-  _________________QWERTY_L1_________________, _________________QWERTY_R1_________________, \
-  _________________QWERTY_L2_________________, _________________QWERTY_R2_________________, \
-  _________________QWERTY_L3_________________, _________________QWERTY_R3_________________  \
+  QWERTY_L1__________________________________, QWERTY_R1__________________________________, \
+  QWERTY_L2__________________________________, QWERTY_R2__________________________________, \
+  QWERTY_L3__________________________________, QWERTY_R3__________________________________  \
 ),
 
 [_COLEMAK] = LAYOUT_kyria_base_wrapper( \
-  _________________COLEMAK_L1________________, _________________COLEMAK_R1________________, \
-  _________________COLEMAK_L2________________, _________________COLEMAK_R2________________, \
-  _________________COLEMAK_L3________________, _________________COLEMAK_R3________________  \
+  COLEMAK_L1_________________________________, COLEMAK_R1_________________________________, \
+  COLEMAK_L2_________________________________, COLEMAK_R2_________________________________, \
+  COLEMAK_L3_________________________________, COLEMAK_R3_________________________________  \
 ),
 
-[_DVORAK] = LAYOUT_kyria_base_wrapper( \
-  _________________DVORAK_L1_________________, _________________DVORAK_R1_________________, \
-  _________________DVORAK_L2_________________, _________________DVORAK_R2_________________, \
-  _________________DVORAK_L3_________________, _________________DVORAK_R3_________________  \
-),
-
-[_STANDARD] = LAYOUT_kyria_wrapper( \
-  STND_L1, _________________QWERTY_L1_________________,                                     _________________QWERTY_R1_________________, STND_R1, \
-  STND_L2, _________________QWERTY_L2_________________,                                     _________________QWERTY_R2_________________, STND_R2, \
-  STND_L3, _________________QWERTY_L3_________________, KC_NO  , KC_NO  , KC_NO  , KC_NO  , _________________QWERTY_R3_________________, STND_R3, \
-                             STND_B1, STND_B2, STND_B3, STND_B4, STND_B5, STND_B6, STND_B7, STND_B8, STND_B9, STND_BA \
-),
-
-[_LOWER] = LAYOUT_kyria_wrapper( \
-  _____________________LOWER_L1_______________________,                                     _____________________LOWER_R1_______________________, \
-  _____________________LOWER_L2_______________________,                                     _____________________LOWER_R2_______________________, \
-  _____________________LOWER_L3_______________________, _______, _______, _______, _______, _____________________LOWER_R3_______________________, \
+[_SYMBOL] = LAYOUT_kyria_wrapper( \
+  SYMBOL_L1___________________________________________,                                     SYMBOL_R1___________________________________________, \
+  SYMBOL_L2___________________________________________,                                     SYMBOL_R2___________________________________________, \
+  SYMBOL_L3___________________________________________, _______, _______, _______, _______, SYMBOL_R3___________________________________________, \
                              _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ \
 ),
 
-[_RAISE] = LAYOUT_kyria_wrapper( \
-  _____________________RAISE_L1_______________________,                                     _____________________RAISE_R1_______________________, \
-  _____________________RAISE_L2_______________________,                                     _____________________RAISE_R2_______________________, \
-  _____________________RAISE_L3_______________________, _______, _______, _______, _______, _____________________RAISE_R3_______________________, \
+[_NUMBER] = LAYOUT_kyria_wrapper( \
+  NUMBER_L1___________________________________________,                                     NUMBER_R1___________________________________________, \
+  NUMBER_L2___________________________________________,                                     NUMBER_R2___________________________________________, \
+  NUMBER_L3___________________________________________, _______, _______, _______, _______, NUMBER_R3___________________________________________, \
                              _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ \
 ),
 
-[_ADJUST] = LAYOUT_kyria_wrapper( \
-  _____________________ADJUST_L1______________________,                                     _____________________ADJUST_R1______________________, \
-  _____________________ADJUST_L2______________________,                                     _____________________ADJUST_R2______________________, \
-  _____________________ADJUST_L3______________________, _______, _______, _______, _______, _____________________ADJUST_R3______________________, \
+[_NAVIGATE] = LAYOUT_kyria_wrapper( \
+  NAVIGATE_L1_________________________________________,                                     NAVIGATE_R1_________________________________________, \
+  NAVIGATE_L2_________________________________________,                                     NAVIGATE_R2_________________________________________, \
+  NAVIGATE_L3_________________________________________, _______, _______, _______, _______, NAVIGATE_R3_________________________________________, \
                              _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ \
 ),
 
-[_NAV] = LAYOUT_kyria_wrapper( \
-  ______________________NAV_L1________________________,                                     ______________________NAV_R1________________________, \
-  ______________________NAV_L2________________________,                                     ______________________NAV_R2________________________, \
-  ______________________NAV_L3________________________, _______, _______, _______, _______, ______________________NAV_R3________________________, \
-                             _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ \
-),
-
-[_FUNC] = LAYOUT_kyria_wrapper( \
-  ______________________FUNC_L1_______________________,                                     ______________________FUNC_R1_______________________, \
-  ______________________FUNC_L2_______________________,                                     ______________________FUNC_R2_______________________, \
-  ______________________FUNC_L3_______________________, _______, _______, _______, _______, ______________________FUNC_R3_______________________, \
+[_FUNCTION] = LAYOUT_kyria_wrapper( \
+  FUNCTION_L1_________________________________________,                                     FUNCTION_R1_________________________________________, \
+  FUNCTION_L2_________________________________________,                                     FUNCTION_R2_________________________________________, \
+  FUNCTION_L3_________________________________________, _______, _______, _______, _______, FUNCTION_R3_________________________________________, \
                              _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ \
 ),
 
@@ -99,53 +85,43 @@ static void render_kyria_logo(void) {
     oled_write_raw_P(kyria_logo, sizeof(kyria_logo));
 }
 
-static void render_qmk_logo(void) {
-    static const char PROGMEM qmk_logo[] = {
-      0x80,0x81,0x82,0x83,0x84,0x85,0x86,0x87,0x88,0x89,0x8a,0x8b,0x8c,0x8d,0x8e,0x8f,0x90,0x91,0x92,0x93,0x94,
-      0xa0,0xa1,0xa2,0xa3,0xa4,0xa5,0xa6,0xa7,0xa8,0xa9,0xaa,0xab,0xac,0xad,0xae,0xaf,0xb0,0xb1,0xb2,0xb3,0xb4,
-      0xc0,0xc1,0xc2,0xc3,0xc4,0xc5,0xc6,0xc7,0xc8,0xc9,0xca,0xcb,0xcc,0xcd,0xce,0xcf,0xd0,0xd1,0xd2,0xd3,0xd4,0
-    };
-
-    oled_write_P(qmk_logo, false);
+void render_base_layer_status(void) {
+    oled_write_P(PSTR("Base: "), false);
+    switch (get_highest_layer(default_layer_state)) {
+        case _QWERTY:
+            oled_write_P(PSTR("Qwerty\n"), false);
+            break;
+        case _COLEMAK:
+            oled_write_P(PSTR("Colemak\n"), false);
+	    break;
+	default:
+            oled_write_P(PSTR("\n"), false);
+	    break;
+    }
 }
 
-static void render_status(void) {
-    // QMK Logo and version information
-    render_qmk_logo();
-    oled_write_P(PSTR("skarrmann keymap\n\n"), false);
-
-    // Host Keyboard Layer Status
+void render_custom_layer_status(void) {
     oled_write_P(PSTR("Layer: "), false);
     switch (get_highest_layer(layer_state)) {
-        case _QWERTY:
-            oled_write_P(PSTR("Default\n"), false);
-	    break;
-	case _COLEMAK:
-	    oled_write_P(PSTR("Colemak\n"), false);
+        case _SYMBOL:
+            oled_write_P(PSTR("Symbol\n"), false);
             break;
-	case _STANDARD:
-	    oled_write_P(PSTR("Standard\n"), false);
-	    break;
-        case _LOWER:
-            oled_write_P(PSTR("Lower\n"), false);
+        case _NUMBER:
+            oled_write_P(PSTR("Number\n"), false);
             break;
-        case _RAISE:
-            oled_write_P(PSTR("Raise\n"), false);
-            break;
-        case _ADJUST:
-            oled_write_P(PSTR("Adjust\n"), false);
-            break;
-        case _NAV:
+	case _NAVIGATE:
             oled_write_P(PSTR("Navigate\n"), false);
             break;
-        case _FUNC:
+	case _FUNCTION:
             oled_write_P(PSTR("Function\n"), false);
-            break;
-        default:
-            oled_write_P(PSTR("Undefined\n"), false);
+	    break;
+	default:
+            oled_write_P(PSTR("\n"), false);
+	    break;
     }
+}
 
-    // Host Keyboard Modifiers
+void render_mod_status(void) {
     uint8_t mod_state = get_mods();
     oled_write_P(PSTR("Mod: "), false);
     oled_write_P((mod_state & MOD_MASK_SHIFT) ? PSTR("SFT ") : PSTR("    "), false);
@@ -153,12 +129,21 @@ static void render_status(void) {
     oled_write_P((mod_state & MOD_MASK_ALT)   ? PSTR("ALT ") : PSTR("    "), false);
     oled_write_P((mod_state & MOD_MASK_GUI)   ? PSTR("OS")   : PSTR("  ")  , false);
     oled_write_P(PSTR("\n"), false);
+}
 
-    // Host Keyboard LED Status
+void render_lock_status(void) {
     uint8_t led_usb_state = host_keyboard_leds();
     oled_write_P(IS_LED_ON(led_usb_state, USB_LED_NUM_LOCK)    ? PSTR("NUMLCK ") : PSTR("       "), false);
     oled_write_P(IS_LED_ON(led_usb_state, USB_LED_CAPS_LOCK)   ? PSTR("CAPLCK ") : PSTR("       "), false);
     oled_write_P(IS_LED_ON(led_usb_state, USB_LED_SCROLL_LOCK) ? PSTR("SCRLCK ") : PSTR("       "), false);
+}
+
+void render_status(void) {
+    oled_write_P(PSTR("Keymap: skarrmann\n\n"), false);
+    render_base_layer_status();
+    render_custom_layer_status();
+    render_mod_status();
+    render_lock_status();
 }
 
 void oled_task_user(void) {

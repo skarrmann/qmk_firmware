@@ -1,8 +1,22 @@
 #include "skarrmann.h"
 
-// Layer state
-layer_state_t layer_state_set_user(layer_state_t state) {
-  return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+// Process custom keycodes
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    case QWERTY:
+      if (record->event.pressed) {
+        set_single_persistent_default_layer(_QWERTY);
+      }
+      return false;
+      break;
+    case COLEMAK:
+      if (record->event.pressed) {
+        set_single_persistent_default_layer(_COLEMAK);
+      }
+      return false;
+      break;
+  }
+  return true;
 }
 
 // Tapping term per key
@@ -40,9 +54,9 @@ uint16_t get_tapping_term(uint16_t keycode) {
   if (keycode >= QK_LAYER_TAP && keycode <= QK_LAYER_TAP_MAX) {
     uint16_t layer = ((keycode & 0x0F00) >> 8);
     switch (layer) {
-      case _NAV:
-      case _FUNC:
-        return TAPPING_TERM_L_BASE;
+      // Add entries for any layers with their own tapping terms
+      // case _NUMBER:
+      //   return TAPPING_TERM_L_BASE;
     }
   }
 
@@ -56,6 +70,10 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
   switch (basic_keycode) {
     case KC_DEL:
     case KC_BSPC:
+    case KC_UP:
+    case KC_DOWN:
+    case KC_LEFT:
+    case KC_RIGHT:
       return false;
   }
 
