@@ -9,7 +9,6 @@ enum userspace_layers {
   _QWERTY = 0,
   _COLEMAK,
   _SYMBOL,
-  _NUMBER,
   _NAVIGATE,
   _FUNCTION,
 };
