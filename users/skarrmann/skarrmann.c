@@ -55,9 +55,9 @@ uint16_t get_tapping_term(uint16_t keycode) {
     uint16_t layer = ((keycode & 0x0F00) >> 8);
     switch (layer) {
       // Add entries for any layers with their own tapping terms
-      case _NUMBER:
-      case _FUNCTION:
-        return TAPPING_TERM_L_BASE;
+      // case _NUMBER:
+      // case _FUNCTION:
+      //   return TAPPING_TERM_L_BASE;
     }
   }
 

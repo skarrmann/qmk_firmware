@@ -99,9 +99,6 @@ void render_custom_layer_status(void) {
         case _SYMBOL:
             oled_write_P(PSTR("Symbol\n"), false);
             break;
-        case _NUMBER:
-            oled_write_P(PSTR("Number\n"), false);
-            break;
 	case _NAVIGATE:
             oled_write_P(PSTR("Navigate\n"), false);
             break;
