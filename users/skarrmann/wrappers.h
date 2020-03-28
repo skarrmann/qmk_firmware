@@ -68,8 +68,8 @@
 
 #define SYMBOL_L0___________________________________________ _______, _______, _______, _______, _______, _______
 #define SYMBOL_L1___________________________________________ KC_GRV , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   
-#define SYMBOL_L2___________________________________________ KC_PLUS, KC_EXLM, KC_AT  , KC_LCBR, KC_RCBR, KC_AMPR
-#define SYMBOL_L3___________________________________________ KC_TILD, KC_HASH, KC_DLR , KC_LBRC, KC_RBRC, KC_PERC
+#define SYMBOL_L2___________________________________________ KC_PLUS, KC_HASH, KC_DLR , KC_LCBR, KC_RCBR, KC_AMPR
+#define SYMBOL_L3___________________________________________ KC_TILD, KC_EXLM, KC_AT  , KC_LBRC, KC_RBRC, KC_PERC
 #define SYMBOL_L4___________________________________________ _______, _______, _______, _______, _______, _______
 
 #define SYMBOL_R0___________________________________________ _______, _______, _______, _______, _______, _______
