@@ -68,13 +68,13 @@
 
 #define SYMBOL_L0___________________________________________ _______, _______, _______, _______, _______, _______
 #define SYMBOL_L1___________________________________________ KC_GRV , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   
-#define SYMBOL_L2___________________________________________ KC_PLUS, KC_HASH, KC_DLR , KC_LCBR, KC_RCBR, KC_AMPR
-#define SYMBOL_L3___________________________________________ KC_TILD, KC_EXLM, KC_AT  , KC_LBRC, KC_RBRC, KC_PERC
+#define SYMBOL_L2___________________________________________ KC_HASH, KC_EXLM, KC_LPRN, KC_RPRN, KC_DLR , KC_AMPR
+#define SYMBOL_L3___________________________________________ KC_TILD, KC_AT  , KC_LBRC, KC_RBRC, KC_PLUS, KC_PERC
 #define SYMBOL_L4___________________________________________ _______, _______, _______, _______, _______, _______
 
 #define SYMBOL_R0___________________________________________ _______, _______, _______, _______, _______, _______
 #define SYMBOL_R1___________________________________________ KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , KC_UNDS
-#define SYMBOL_R2___________________________________________ KC_PIPE, KC_EQL , KC_LPRN, KC_RPRN, KC_COLN, KC_DQUO
+#define SYMBOL_R2___________________________________________ KC_PIPE, KC_EQL , KC_LCBR, KC_RCBR, KC_COLN, KC_DQUO
 #define SYMBOL_R3___________________________________________ KC_CIRC, KC_ASTR, KC_LABK, KC_RABK, KC_QUES, KC_BSLS
 #define SYMBOL_R4___________________________________________ _______, _______, _______, _______, _______, _______
 
