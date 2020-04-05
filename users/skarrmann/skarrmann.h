@@ -8,6 +8,7 @@
 enum userspace_layers {
   _QWERTY = 0,
   _COLEMAK,
+  _GAME,
   _SYMBOL,
   _NAVIGATE,
   _FUNCTION,
@@ -18,3 +19,6 @@ enum userspace_keycodes {
   QWERTY = SAFE_RANGE,
   COLEMAK,
 };
+
+// Convenience keycode macros
+#define TG_GAME TG(_GAME)

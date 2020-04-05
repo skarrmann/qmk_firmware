@@ -3,8 +3,8 @@
 #define B_THUMB_L0______ RGB_VAD, RGB_VAI
 #define B_THUMB_R0______ RGB_HUD, RGB_HUI
 
-#define B_THUMB_L1_________________________________ KC_MUTE, B_B3, B_B4, B_B5   , KC_ESC
-#define B_THUMB_R1_________________________________ KC_ENT, B_B6, B_B7, KC_HOME, KC_END
+#define B_THUMB_L1_________________________________ KC_MUTE, B_B3, B_B4, B_B5, KC_ESC
+#define B_THUMB_R1_________________________________ KC_ENT , B_B6, B_B7, B_B8, KC_END
 
 #define LAYOUT_kyria_wrapper(...) LAYOUT(__VA_ARGS__)
 
@@ -57,6 +57,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                              _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ \
 ),
 
+[_GAME] = LAYOUT_kyria_wrapper( \
+  GAME_L1_____________________________________________,                                     GAME_R1_____________________________________________, \
+  GAME_L2_____________________________________________,                                     GAME_R2_____________________________________________, \
+  GAME_L3_____________________________________________, _______, _______, _______, _______, GAME_R3_____________________________________________, \
+                             _______, _______, _______, KC_SPC , _______, _______, KC_SPC , _______, _______, _______ \
+),
+
 };
 
 #ifdef OLED_DRIVER_ENABLE
@@ -104,6 +111,9 @@ void render_custom_layer_status(void) {
             break;
 	case _FUNCTION:
             oled_write_P(PSTR("Function\n"), false);
+	    break;
+	case _GAME:
+	    oled_write_P(PSTR("Game\n"), false);
 	    break;
 	default:
             oled_write_P(PSTR("\n"), false);
