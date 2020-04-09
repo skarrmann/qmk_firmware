@@ -21,4 +21,6 @@ enum userspace_keycodes {
 };
 
 // Convenience keycode macros
+#define TG_SYMB TG(_SYMBOL)
+#define TG_NAVI TG(_NAVIGATE)
 #define TG_GAME TG(_GAME)

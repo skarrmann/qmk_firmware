@@ -1,7 +1,7 @@
 #include "skarrmann.h"
 
-#define B_THUMB_L0______ RGB_VAD, RGB_VAI
-#define B_THUMB_R0______ RGB_HUD, RGB_HUI
+#define B_THUMB_L0______ TG_SYMB, _______
+#define B_THUMB_R0______ _______, TG_NAVI
 
 #define B_THUMB_L1_________________________________ KC_MUTE, B_B3, B_B4, B_B5, KC_ESC
 #define B_THUMB_R1_________________________________ KC_ENT , B_B6, B_B7, B_B8, KC_END
