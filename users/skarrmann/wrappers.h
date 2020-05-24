@@ -2,28 +2,28 @@
 
 /* Base modifiers - for productivity and efficiency
  .-----------------------------------------------------. .-----------------------------------------------------.
- |   `    |        |        |        |        |        | |        |        |        |        |        |   \    |
+ |   `    |        |        |        |        |        | |        |        |        |        |        |   =    |
  |        |        |        |        |        |        | |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
  |        |        |        |        |        |        | |        |        |        |        |        |   -    |
- |  CAPS  |        |        |        |        |        | |        |        |        |        |        |        |
+ |        |        |        |        |        |        | |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
  |        |  (KC)  |  (KC)  |  (KC)  |  (KC)  |        | |        |  (KC)  |  (KC)  |  (KC)  |  (KC)  |   '    |
- |  LSFT  |  LGUI  |  LALT  |  LSFT  |  LCTL  |        | |        |  RCTL  |  RSFT  |  RALT  |  RGUI  |        |
+ |  LSFT  |  LGUI  |  LALT  |  LSFT  |  LCTL  |        | |        |  RCTL  |  RSFT  |  RALT  |  RGUI  |  RSFT  |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
  |  ESC   |        |        |        |        |        | |        |        |        |        |        |  ENT   |
  |  LCTL  |        |        |        |        |        | |        |        |        |        |        |  RCTL  |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
- |  ESC   |  DOWN  |   UP   |  APP   |  DEL   |  TAB   | |  SPC   |  BSPC  |  APP   |  LEFT  |  RIGHT |  ENT   |
- |        |        |        |        |FUNCTION| SYMBOL | |NAVIGATE|        |        |        |        |        |
+ |        |        |        |  APP   |  DEL   |  TAB   | |  SPC   |  BSPC  |  LEFT  |  DOWN  |   UP   | RIGHT  |
+ |  LCTL  |  LGUI  |  LALT  |        |FUNCTION| SYMBOL | |NAVIGATE|        |        |        |        |        |
  '-----------------------------------------------------' '-----------------------------------------------------'
  */
 #define B_L0 KC_GRV
-#define B_L1 KC_CAPS
+#define B_L1 _______
 #define B_L2 KC_LSFT
 #define B_L3 MT(MOD_LCTL, KC_ESC)
 
-#define B_R0 KC_BSLS
+#define B_R0 KC_EQL
 #define B_R1 KC_MINS
 #define B_R2 MT(MOD_RSFT, KC_QUOT)
 #define B_R3 MT(MOD_RCTL, KC_ENT)
@@ -31,18 +31,18 @@
 #define B_LH_MODS(k1, k2, k3, k4) MT(MOD_LGUI, k1), MT(MOD_LALT, k2), MT(MOD_LSFT, k3), MT(MOD_LCTL, k4)
 #define B_RH_MODS(k1, k2, k3, k4) MT(MOD_RCTL, k1), MT(MOD_RSFT, k2), MT(MOD_RALT, k3), MT(MOD_RGUI, k4)
 
-#define B_B0 KC_ESC
-#define B_B1 KC_DOWN
-#define B_B2 KC_UP
+#define B_B0 KC_LCTL
+#define B_B1 KC_LGUI
+#define B_B2 KC_LALT
 #define B_B3 KC_APP
 #define B_B4 LT(_FUNCTION, KC_DEL)
 #define B_B5 LT(_SYMBOL, KC_TAB)
 #define B_B6 LT(_NAVIGATE, KC_SPC)
 #define B_B7 KC_BSPC
-#define B_B8 KC_APP
-#define B_B9 KC_LEFT
-#define B_BA KC_RIGHT
-#define B_BB KC_ENT
+#define B_B8 KC_LEFT
+#define B_B9 KC_DOWN
+#define B_BA KC_UP
+#define B_BB KC_RIGHT
 
 /* Base layers */
 #define NUMROW_L0__________________________________ KC_1   , KC_2   , KC_3   , KC_4   , KC_5   
