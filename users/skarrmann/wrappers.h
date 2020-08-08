@@ -6,35 +6,35 @@
  |        |        |        |        |        |        | |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
  |   `    |        |        |        |        |        | |        |        |        |        |        |   -    |
- |        |        |        |        |        |        | |        |        |        |        |        |        |
+ |  LALT  |        |        |        |        |        | |        |        |        |        |        |  RALT  |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
- |        |  (KC)  |  (KC)  |  (KC)  |  (KC)  |        | |        |  (KC)  |  (KC)  |  (KC)  |  (KC)  |   '    |
- |  LSFT  |  LGUI  |  LALT  |  LSFT  |  LCTL  |        | |        |  RCTL  |  RSFT  |  RALT  |  RGUI  |  RSFT  |
+ |        |        |        |        |        |        | |        |        |        |        |        |   '    |
+ |  LSFT  |        |        |        |        |        | |        |        |        |        |        |  RSFT  |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
  |  ESC   |        |        |        |        |        | |        |        |        |        |        |  ENT   |
  |  LCTL  |        |        |        |        |        | |        |        |        |        |        |  RCTL  |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
- |        |        |        |  APP   |  DEL   |  TAB   | |  SPC   |  BSPC  |  LEFT  |  DOWN  |   UP   | RIGHT  |
- |  LCTL  |  LGUI  |  LALT  |        |FUNCTION| SYMBOL | |NAVIGATE|        |        |        |        |        |
+ |        |        |        |        |  DEL   |  TAB   | |  SPC   |  BSPC  |  LEFT  |  DOWN  |   UP   | RIGHT  |
+ |  LCTL  |  LGUI  |  LALT  |  LGUI  |FUNCTION| SYMBOL | |NAVIGATE|        |        |        |        |        |
  '-----------------------------------------------------' '-----------------------------------------------------'
  */
 #define B_L0 KC_BSLS
-#define B_L1 KC_GRV
+#define B_L1 MT(MOD_LALT, KC_GRV)
 #define B_L2 KC_LSFT
 #define B_L3 MT(MOD_LCTL, KC_ESC)
 
 #define B_R0 KC_EQL
-#define B_R1 KC_MINS
+#define B_R1 MT(MOD_RALT, KC_MINS)
 #define B_R2 MT(MOD_RSFT, KC_QUOT)
 #define B_R3 MT(MOD_RCTL, KC_ENT)
 
-#define B_LH_MODS(k1, k2, k3, k4) MT(MOD_LGUI, k1), MT(MOD_LALT, k2), MT(MOD_LSFT, k3), MT(MOD_LCTL, k4)
-#define B_RH_MODS(k1, k2, k3, k4) MT(MOD_RCTL, k1), MT(MOD_RSFT, k2), MT(MOD_RALT, k3), MT(MOD_RGUI, k4)
+#define B_LH_MODS(k1, k2, k3, k4) k1, k2, k3, k4 
+#define B_RH_MODS(k1, k2, k3, k4) k1, k2, k3, k4 
 
 #define B_B0 KC_LCTL
 #define B_B1 KC_LGUI
 #define B_B2 KC_LALT
-#define B_B3 KC_APP
+#define B_B3 KC_LGUI
 #define B_B4 LT(_FUNCTION, KC_DEL)
 #define B_B5 LT(_SYMBOL, KC_TAB)
 #define B_B6 LT(_NAVIGATE, KC_SPC)
@@ -97,7 +97,7 @@
 #define FUNCTION_L4_________________________________________ _______, _______, _______, _______, _______, _______
 
 #define FUNCTION_R0_________________________________________ _______, _______, _______, _______, _______, _______
-#define FUNCTION_R1_________________________________________ QWERTY , KC_MUTE, KC_VOLU, KC_VOLD, _______, _______
+#define FUNCTION_R1_________________________________________ QWERTY , KC_MUTE, KC_VOLD, KC_VOLU, _______, _______
 #define FUNCTION_R2_________________________________________ COLEMAK, KC_RCTL, KC_RSFT, KC_RALT, KC_RGUI, _______
 #define FUNCTION_R3_________________________________________ TG_GAME, RGB_VAD, RGB_VAI, RGB_HUD, RGB_HUI, _______
 #define FUNCTION_R4_________________________________________ _______, _______, _______, _______, _______, _______
