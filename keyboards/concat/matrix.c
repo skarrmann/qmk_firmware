@@ -7,13 +7,17 @@ static matrix_row_t read_row(uint8_t row_index) {
 
     for (uint8_t col_index = 0; col_index < 8; col_index++) {
 
-        // Read matrix pins B1, B2, B3, B4 and bit-shift them into position
-        next_row |= (((matrix_row_t)(0b00011110 & PINB) >> 1) << (col_index * 4));
-
+        // Shift a 1 into the beginning of the shift register data chain, then shift 0s throughout the rest
+        writePin(SR_DATA_PIN, row_index == 0 && col_index == 0 ? 1 : 0);
         writePinLow(SR_CLK_PIN);
         writePinHigh(SR_CLK_PIN);
 
+	// Small delay to allow shift register to finish shifting
         wait_us(5);
+
+        // Read matrix input pins B1, B2, B3, B4 and bit-shift them into position
+        next_row |= (((matrix_row_t)(0b00011110 & PINB) >> 1) << (col_index * 4));
+
     }
 
     return next_row;
@@ -32,12 +36,6 @@ void matrix_init_custom(void) {
 
 uint8_t matrix_scan_custom(matrix_row_t current_matrix[]) {
     bool matrix_has_changed = false;
-
-    // Shift a 1 into the beginning of the shift register chain, then shift 0s throughout the rest
-    writePinHigh(SR_DATA_PIN);
-    writePinLow(SR_CLK_PIN);
-    writePinHigh(SR_CLK_PIN);
-    writePinLow(SR_DATA_PIN);
 
     for (uint8_t row_index = 0; row_index < MATRIX_ROWS; row_index++) {
         matrix_row_t next_row = read_row(row_index);
