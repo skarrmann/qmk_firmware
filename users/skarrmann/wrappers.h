@@ -2,47 +2,47 @@
 
 /* Base modifiers - for productivity and efficiency
  .-----------------------------------------------------. .-----------------------------------------------------.
- |   \    |        |        |        |        |        | |        |        |        |        |        |   =    |
+ |        |        |        |        |        |        | |        |        |        |        |        |        |
  |        |        |        |        |        |        | |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
- |   `    |        |        |        |        |        | |        |        |        |        |        |   -    |
- |  LALT  |        |        |        |        |        | |        |        |        |        |        |  RALT  |
+ |        |        |        |        |        |        | |        |        |        |        |        |   -    |
+ |  LALT  |        |        |        |        |        | |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
  |        |        |        |        |        |        | |        |        |        |        |        |   '    |
- |  LSFT  |        |        |        |        |        | |        |        |        |        |        |  RSFT  |
+ |  LSFT  |        |        |        |        |        | |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
- |  ESC   |        |        |        |        |        | |        |        |        |        |        |  ENT   |
- |  LCTL  |        |        |        |        |        | |        |        |        |        |        |  RCTL  |
+ |        |        |        |        |        |        | |        |        |        |        |        |  ENT   |
+ |  LCTL  |        |        |        |        |        | |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
- |        |        |        |        |  DEL   |  TAB   | |  SPC   |  BSPC  |  LEFT  |  DOWN  |   UP   | RIGHT  |
- |  LCTL  |  LGUI  |  LALT  |  LGUI  |FUNCTION| SYMBOL | |NAVIGATE|        |        |        |        |        |
+ |        |        |        |        |  DEL   |  TAB   | |  SPC   |  BSPC  |        |        |        |  ESC   |
+ |  LGUI  |        |        |        |FUNCTION| SYMBOL | |  NAV   |        |        |        |        |        |
  '-----------------------------------------------------' '-----------------------------------------------------'
  */
-#define B_L0 KC_BSLS
-#define B_L1 MT(MOD_LALT, KC_GRV)
+#define B_L0 _______
+#define B_L1 KC_LALT
 #define B_L2 KC_LSFT
-#define B_L3 MT(MOD_LCTL, KC_ESC)
+#define B_L3 KC_LCTL
 
-#define B_R0 KC_EQL
-#define B_R1 MT(MOD_RALT, KC_MINS)
-#define B_R2 MT(MOD_RSFT, KC_QUOT)
-#define B_R3 MT(MOD_RCTL, KC_ENT)
+#define B_R0 _______
+#define B_R1 KC_MINS
+#define B_R2 KC_QUOT
+#define B_R3 KC_ENT
 
 #define B_LH_MODS(k1, k2, k3, k4) k1, k2, k3, k4 
 #define B_RH_MODS(k1, k2, k3, k4) k1, k2, k3, k4 
 
-#define B_B0 KC_LCTL
-#define B_B1 KC_LGUI
-#define B_B2 KC_LALT
-#define B_B3 KC_LGUI
+#define B_B0 KC_LGUI
+#define B_B1 _______
+#define B_B2 _______
+#define B_B3 _______
 #define B_B4 LT(_FUNCTION, KC_DEL)
 #define B_B5 LT(_SYMBOL, KC_TAB)
 #define B_B6 LT(_NAVIGATE, KC_SPC)
 #define B_B7 KC_BSPC
-#define B_B8 KC_LEFT
-#define B_B9 KC_DOWN
-#define B_BA KC_UP
-#define B_BB KC_RIGHT
+#define B_B8 _______
+#define B_B9 _______
+#define B_BA _______
+#define B_BB KC_ESC
 
 /* Base layers */
 #define NUMROW_L0__________________________________ KC_1   , KC_2   , KC_3   , KC_4   , KC_5   
@@ -67,16 +67,16 @@
 /* Custom layers */ 
 
 #define SYMBOL_L0___________________________________________ _______, _______, _______, _______, _______, _______
-#define SYMBOL_L1___________________________________________ KC_TILD, KC_1   , KC_2   , KC_3   , KC_4   , KC_5   
-#define SYMBOL_L2___________________________________________ _______, KC_EXLM, KC_LPRN, KC_RPRN, KC_DLR , KC_AMPR
-#define SYMBOL_L3___________________________________________ _______, KC_AT  , KC_LBRC, KC_RBRC, KC_PLUS, KC_PERC
+#define SYMBOL_L1___________________________________________ _______, KC_GRV , KC_LBRC, KC_RBRC, KC_BSLS, _______
+#define SYMBOL_L2___________________________________________ _______, KC_1   , KC_2   , KC_3   , KC_4   , KC_5   
+#define SYMBOL_L3___________________________________________ _______, _______, _______, _______, _______, _______
 #define SYMBOL_L4___________________________________________ _______, _______, _______, _______, _______, _______
 
 #define SYMBOL_R0___________________________________________ _______, _______, _______, _______, _______, _______
-#define SYMBOL_R1___________________________________________ KC_6   , KC_7   , KC_8   , KC_9   , KC_COLN, KC_UNDS
-#define SYMBOL_R2___________________________________________ KC_PIPE, KC_EQL , KC_LCBR, KC_RCBR, KC_HASH, KC_DQUO
-#define SYMBOL_R3___________________________________________ KC_CIRC, KC_ASTR, KC_LABK, KC_RABK, KC_QUES, KC_BSLS
-#define SYMBOL_R4___________________________________________ KC_0   , _______, _______, _______, _______, _______
+#define SYMBOL_R1___________________________________________ _______, KC_EQL , _______, _______, _______, _______
+#define SYMBOL_R2___________________________________________ KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , _______
+#define SYMBOL_R3___________________________________________ _______, _______, _______, _______, _______, _______
+#define SYMBOL_R4___________________________________________ _______, _______, _______, _______, _______, _______
 
 #define NAVIGATE_L0_________________________________________ _______, _______, _______, _______, _______, _______
 #define NAVIGATE_L1_________________________________________ _______, _______, _______, _______, _______, _______
