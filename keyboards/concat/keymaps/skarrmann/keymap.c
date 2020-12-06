@@ -23,31 +23,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     
     [_QWERTY] = {
         LAYOUT_concat_wrapper( \
-                 B_L0   , NUMROW_L0__________________________________,          \
+                 _______, NUMROW_L0__________________________________,          \
                  B_L1   , QWERTY_L1__________________________________,          \
                  B_L2   , QWERTY_L2__________________________________,          \
-        KC_LGUI, B_L3   , QWERTY_L3__________________________________, KC_LCTL, \
-        KC_HOME, KC_PGDN, KC_END ,                   B_B4   , B_B5   , KC_ESC),
+        B_B2   , B_L3   , QWERTY_L3__________________________________, KC_LCTL, \
+        KC_HOME, KC_PGDN, KC_END ,                   B_B4   , B_B5   , B_B3),
         LAYOUT_concat_wrapper( \
-                 NUMROW_R0__________________________________, B_R0   ,          \
+                 NUMROW_R0__________________________________, _______,          \
                  QWERTY_R1__________________________________, B_R1   ,          \
                  QWERTY_R2__________________________________, B_R2   ,          \
-        KC_RCTL, QWERTY_R3__________________________________, B_R3   , KC_RGUI, \
-        KC_ENT , B_B6   , B_B7   ,                   KC_LEFT, KC_DOWN, KC_RGHT)
+        KC_RCTL, QWERTY_R3__________________________________, B_R3   , B_B9   , \
+        B_B8   , B_B6   , B_B7   ,                   KC_LEFT, KC_DOWN, KC_RGHT)
     },
     [_COLEMAK] = {
         LAYOUT_concat_wrapper( \
-                 B_L0   , NUMROW_L0__________________________________,          \
+                 _______, NUMROW_L0__________________________________,          \
                  B_L1   , COLEMAK_L1_________________________________,          \
                  B_L2   , COLEMAK_L2_________________________________,          \
-        KC_LGUI, B_L3   , COLEMAK_L3_________________________________, KC_LCTL, \
-        KC_HOME, KC_PGDN, KC_END ,                   B_B4   , B_B5   , KC_ESC),
+        B_B2   , B_L3   , COLEMAK_L3_________________________________, KC_LCTL, \
+        KC_HOME, KC_PGDN, KC_END ,                   B_B4   , B_B5   , B_B3),
         LAYOUT_concat_wrapper( \
-                 NUMROW_R0__________________________________, B_R0   ,          \
+                 NUMROW_R0__________________________________, _______,          \
                  COLEMAK_R1_________________________________, B_R1   ,          \
                  COLEMAK_R2_________________________________, B_R2   ,          \
-        KC_RCTL, COLEMAK_R3_________________________________, B_R3   , KC_RGUI, \
-        KC_ENT , B_B6   , B_B7   ,                   KC_LEFT, KC_DOWN, KC_RGHT)
+        KC_RCTL, COLEMAK_R3_________________________________, B_R3   , B_B9   , \
+        B_B8   , B_B6   , B_B7   ,                   KC_LEFT, KC_DOWN, KC_RGHT)
     },
     [_SYMBOL] = {
 	LAYOUT_concat_wrapper( \
@@ -61,21 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		 SYMBOL_R1___________________________________________,          \
 		 SYMBOL_R2___________________________________________,          \
         _______, SYMBOL_R3___________________________________________, _______, \
-        _______, KC_0   , _______,                   _______, _______, _______)
-    },
-    [_NAVIGATE] = {
-	LAYOUT_concat_wrapper( \
-                 _______, _______, _______, _______, _______, _______,          \
-		 NAVIGATE_L1_________________________________________,          \
-		 NAVIGATE_L2_________________________________________,          \
-	_______, NAVIGATE_L3_________________________________________, _______, \
-        _______, _______, _______,                   _______, _______, _______),
-	LAYOUT_concat_wrapper( \
-                 _______, _______, _______, _______, _______, _______,          \
-		 NAVIGATE_R1_________________________________________,          \
-		 NAVIGATE_R2_________________________________________,          \
-	_______, NAVIGATE_R3_________________________________________, _______, \
-        _______, _______, _______,                   _______, _______, _______)
+        _______, KC_SPC , _______,                   _______, _______, _______)
     },
     [_FUNCTION] = {
         LAYOUT_concat_wrapper( \
@@ -83,7 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                  FUNCTION_L1_________________________________________,          \
                  FUNCTION_L2_________________________________________,          \
         _______, FUNCTION_L3_________________________________________, _______, \
-        _______, _______, _______,                   _______, _______, _______),
+        _______, _______, _______,                   _______, KC_TAB , _______),
         LAYOUT_concat_wrapper( \
                  _______, _______, _______, _______, _______, _______,          \
                  FUNCTION_R1_________________________________________,          \
@@ -132,9 +118,6 @@ void render_custom_layer_status(void) {
     switch (get_highest_layer(layer_state)) {
         case _SYMBOL:
             oled_write_P(PSTR("Symbol\n"), false);
-            break;
-	case _NAVIGATE:
-            oled_write_P(PSTR("Navigate\n"), false);
             break;
 	case _FUNCTION:
             oled_write_P(PSTR("Function\n"), false);

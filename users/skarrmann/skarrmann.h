@@ -10,7 +10,6 @@ enum userspace_layers {
   _COLEMAK,
   _GAME,
   _SYMBOL,
-  _NAVIGATE,
   _FUNCTION,
 };
 
@@ -22,5 +21,5 @@ enum userspace_keycodes {
 
 // Convenience keycode macros
 #define TG_SYMB TG(_SYMBOL)
-#define TG_NAVI TG(_NAVIGATE)
+#define TG_FUNC TG(_FUNCTION)
 #define TG_GAME TG(_GAME)
