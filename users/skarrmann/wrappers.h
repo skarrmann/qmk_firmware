@@ -3,41 +3,41 @@
 /* Base modifiers - for productivity and efficiency
  .-----------------------------------------------------. .-----------------------------------------------------.
  |   `    |        |        |        |        |        | |        |        |        |        |        |   -    |
- |        |        |        |        |        |        | |        |        |        |        |        |        |
+ |  LALT  |        |        |        |        |        | |        |        |        |        |        |  RALT  |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
  |        |        |        |        |        |        | |        |        |        |        |        |   '    |
  |  LSFT  |        |        |        |        |        | |        |        |        |        |        |  RSFT  |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
  |  ESC   |        |        |        |        |        | |        |        |        |        |        |  ENT   |
- |        |        |        |        |        |        | |        |        |        |        |        |        |
+ |  LCTL  |        |        |        |        |        | |        |        |        |        |        |  RCTL  |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
  |        |        |        |        |  DEL   |  TAB   | |  SPC   |  BSPC  |        |        |        |        |
- |        |        |  LGUI  |  LALT  |  LCTL  | SYMBOL | |FUNCTION|  RCTL  |  RALT  |  RGUI  |        |        |
+ |  LGUI  |        |        |        |        | SYMBOL | |FUNCTION|        |        |        |        |  RGUI  |
  '-----------------------------------------------------' '-----------------------------------------------------'
  */
-#define B_L1 KC_GRV
+#define B_L1 MT(MOD_LALT, KC_GRV)
 #define B_L2 KC_LSFT
-#define B_L3 KC_ESC
+#define B_L3 MT(MOD_LCTL, KC_ESC)
 
-#define B_R1 KC_MINS
+#define B_R1 MT(MOD_RALT, KC_MINS)
 #define B_R2 MT(MOD_RSFT, KC_QUOT)
-#define B_R3 KC_ENT
+#define B_R3 MT(MOD_RCTL, KC_ENT)
 
 #define B_LH_MODS(k1, k2, k3, k4) k1, k2, k3, k4 
 #define B_RH_MODS(k1, k2, k3, k4) k1, k2, k3, k4 
 
-#define B_B0 _______
+#define B_B0 KC_LGUI
 #define B_B1 _______
-#define B_B2 KC_LGUI
-#define B_B3 KC_LALT
-#define B_B4 MT(MOD_LCTL, KC_DEL)
+#define B_B2 _______
+#define B_B3 _______
+#define B_B4 KC_DEL
 #define B_B5 LT(_SYMBOL, KC_TAB)
 #define B_B6 LT(_FUNCTION, KC_SPC)
-#define B_B7 MT(MOD_RCTL, KC_BSPC)
-#define B_B8 KC_RALT
-#define B_B9 KC_RGUI
+#define B_B7 KC_BSPC
+#define B_B8 _______
+#define B_B9 _______
 #define B_BA _______
-#define B_BB _______
+#define B_BB KC_RGUI
 
 /* Base layers */
 #define NUMROW_L0__________________________________ KC_1   , KC_2   , KC_3   , KC_4   , KC_5   
