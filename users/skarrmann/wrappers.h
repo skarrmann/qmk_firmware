@@ -2,42 +2,42 @@
 
 /* Base modifiers - for productivity and efficiency
  .-----------------------------------------------------. .-----------------------------------------------------.
- |   `    |        |        |        |        |        | |        |        |        |        |        |   -    |
- |  LALT  |        |        |        |        |        | |        |        |        |        |        |  RALT  |
+ |  LALT  |        |        |        |        |        | |        |        |        |        |        |   -    |
+ |        |        |        |        |        |        | |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
  |        |        |        |        |        |        | |        |        |        |        |        |   '    |
- |  LSFT  |        |        |        |        |        | |        |        |        |        |        |  RSFT  |
+ |  LSFT  |        |        |        |        |        | |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
- |  ESC   |        |        |        |        |        | |        |        |        |        |        |  ENT   |
- |  LCTL  |        |        |        |        |        | |        |        |        |        |        |  RCTL  |
+ |        |        |        |        |        |        | |        |        |        |        |        |   \    |
+ |  LCTL  |        |        |        |        |        | |        |        |        |        |        |        |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
- |        |        |        |        |  DEL   |  TAB   | |  SPC   |  BSPC  |        |        |        |        |
- |  LGUI  |        |        |        |        | SYMBOL | |FUNCTION|        |        |        |        |  RGUI  |
+ |        |  INS   |  PSCR  |  ESC   |  TAB   |        | |  SPC   |  BSPC  |  ENT   |  DEL   |  APP   |   `    |
+ |  LGUI  |        |        |        |        | SYMBOL | |FUNCTION|        |        |        |        |        |
  '-----------------------------------------------------' '-----------------------------------------------------'
  */
-#define B_L1 MT(MOD_LALT, KC_GRV)
-#define B_L2 KC_LSFT
-#define B_L3 MT(MOD_LCTL, KC_ESC)
+#define B_L1 OSM(MOD_LALT)
+#define B_L2 OSM(MOD_LSFT)
+#define B_L3 OSM(MOD_LCTL)
 
-#define B_R1 MT(MOD_RALT, KC_MINS)
-#define B_R2 MT(MOD_RSFT, KC_QUOT)
-#define B_R3 MT(MOD_RCTL, KC_ENT)
+#define B_R1 KC_MINS
+#define B_R2 KC_QUOT
+#define B_R3 KC_BSLS
 
 #define B_LH_MODS(k1, k2, k3, k4) k1, k2, k3, k4 
 #define B_RH_MODS(k1, k2, k3, k4) k1, k2, k3, k4 
 
-#define B_B0 KC_LGUI
-#define B_B1 _______
-#define B_B2 _______
-#define B_B3 _______
-#define B_B4 KC_DEL
-#define B_B5 LT(_SYMBOL, KC_TAB)
+#define B_B0 OSM(MOD_LGUI)
+#define B_B1 KC_INS
+#define B_B2 KC_PSCR
+#define B_B3 KC_ESC
+#define B_B4 KC_TAB
+#define B_B5 MO(_SYMBOL)
 #define B_B6 LT(_FUNCTION, KC_SPC)
 #define B_B7 KC_BSPC
-#define B_B8 _______
-#define B_B9 _______
-#define B_BA _______
-#define B_BB KC_RGUI
+#define B_B8 KC_ENT
+#define B_B9 KC_DEL
+#define B_BA KC_APP
+#define B_BB KC_GRV
 
 /* Base layers */
 #define NUMROW_L0__________________________________ KC_1   , KC_2   , KC_3   , KC_4   , KC_5   
@@ -62,16 +62,16 @@
 /* Custom layers */ 
 
 #define SYMBOL_L0___________________________________________ _______, _______, _______, _______, _______, _______
-#define SYMBOL_L1___________________________________________ KC_TILD, KC_1   , KC_2   , KC_3   , KC_4   , KC_5   
-#define SYMBOL_L2___________________________________________ KC_HASH, KC_EXLM, KC_LPRN, KC_RPRN, KC_DLR , KC_AMPR
+#define SYMBOL_L1___________________________________________ _______, KC_EXLM, KC_LPRN, KC_RPRN, KC_DLR , KC_AMPR
+#define SYMBOL_L2___________________________________________ _______, KC_1   , KC_2   , KC_3   , KC_4   , KC_5   
 #define SYMBOL_L3___________________________________________ _______, KC_AT  , KC_LBRC, KC_RBRC, KC_PLUS, KC_PERC
 #define SYMBOL_L4___________________________________________ _______, _______, _______, _______, _______, _______
 
 #define SYMBOL_R0___________________________________________ _______, _______, _______, _______, _______, _______
-#define SYMBOL_R1___________________________________________ KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , KC_UNDS
-#define SYMBOL_R2___________________________________________ KC_PIPE, KC_EQL , KC_LCBR, KC_RCBR, KC_COLN, KC_DQUO
-#define SYMBOL_R3___________________________________________ KC_CIRC, KC_ASTR, KC_LABK, KC_RABK, KC_QUES, KC_BSLS
-#define SYMBOL_R4___________________________________________ KC_SPC , _______, _______, _______, _______, _______
+#define SYMBOL_R1___________________________________________ KC_HASH, KC_EXLM, KC_LCBR, KC_RCBR, KC_COLN, KC_UNDS
+#define SYMBOL_R2___________________________________________ KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , KC_DQUO
+#define SYMBOL_R3___________________________________________ KC_CIRC, KC_ASTR, KC_LABK, KC_RABK, KC_QUES, KC_PIPE
+#define SYMBOL_R4___________________________________________ _______, _______, _______, _______, _______, KC_TILD
 
 #define FUNCTION_L0_________________________________________ _______, _______, _______, _______, _______, _______
 #define FUNCTION_L1_________________________________________ KC_CLCK, KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_PSCR
