@@ -2,42 +2,42 @@
 
 /* Base modifiers - for productivity and efficiency
  .-----------------------------------------------------. .-----------------------------------------------------.
- |  LALT  |        |        |        |        |        | |        |        |        |        |        |   -    |
- |        |        |        |        |        |        | |        |        |        |        |        |        |
+ |   `    |        |        |        |        |        | |        |        |        |        |        |   -    |
+ |  LALT  |        |        |        |        |        | |        |        |        |        |        |  RALT  |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
- |        |        |        |        |        |        | |        |        |        |        |        |   '    |
- |  LSFT  |        |        |        |        |        | |        |        |        |        |        |        |
+ |   \    |        |        |        |        |        | |        |        |        |        |        |   '    |
+ |  LSFT  |        |        |        |        |        | |        |        |        |        |        |  RSFT  |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
- |        |        |        |        |        |        | |        |        |        |        |        |   \    |
- |  LCTL  |        |        |        |        |        | |        |        |        |        |        |        |
+ |  ESC   |        |        |        |        |        | |        |        |        |        |        |  ENT   |
+ |  LCTL  |        |        |        |        |        | |        |        |        |        |        |  RCTL  |
  |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
- |        |  INS   |  PSCR  |  ESC   |  TAB   |        | |  SPC   |  BSPC  |  ENT   |  DEL   |  APP   |   `    |
+ |        |  INS   |  PSCR  |  CAPS  |  DEL   |  TAB   | |  SPC   |  BSPC  |   1    |   2    |   4    |   8    |
  |  LGUI  |        |        |        |        | SYMBOL | |FUNCTION|        |        |        |        |        |
  '-----------------------------------------------------' '-----------------------------------------------------'
  */
-#define B_L1 OSM(MOD_LALT)
-#define B_L2 OSM(MOD_LSFT)
-#define B_L3 OSM(MOD_LCTL)
+#define B_L1 MT(MOD_LALT, KC_GRV)
+#define B_L2 MT(MOD_LSFT, KC_BSLS)
+#define B_L3 MT(MOD_LCTL, KC_ESC)
 
-#define B_R1 KC_MINS
-#define B_R2 KC_QUOT
-#define B_R3 KC_BSLS
+#define B_R1 MT(MOD_RALT, KC_MINS)
+#define B_R2 MT(MOD_RSFT, KC_QUOT)
+#define B_R3 MT(MOD_RCTL, KC_ENT)
 
 #define B_LH_MODS(k1, k2, k3, k4) k1, k2, k3, k4 
 #define B_RH_MODS(k1, k2, k3, k4) k1, k2, k3, k4 
 
-#define B_B0 OSM(MOD_LGUI)
+#define B_B0 KC_LGUI
 #define B_B1 KC_INS
 #define B_B2 KC_PSCR
-#define B_B3 KC_ESC
-#define B_B4 KC_TAB
-#define B_B5 MO(_SYMBOL)
+#define B_B3 KC_CAPS
+#define B_B4 KC_DEL
+#define B_B5 LT(_SYMBOL, KC_TAB)
 #define B_B6 LT(_FUNCTION, KC_SPC)
 #define B_B7 KC_BSPC
-#define B_B8 KC_ENT
-#define B_B9 KC_DEL
-#define B_BA KC_APP
-#define B_BB KC_GRV
+#define B_B8 KC_1
+#define B_B9 KC_2
+#define B_BA KC_4
+#define B_BB KC_8
 
 /* Base layers */
 #define NUMROW_L0__________________________________ KC_1   , KC_2   , KC_3   , KC_4   , KC_5   
@@ -62,37 +62,37 @@
 /* Custom layers */ 
 
 #define SYMBOL_L0___________________________________________ _______, _______, _______, _______, _______, _______
-#define SYMBOL_L1___________________________________________ _______, KC_EXLM, KC_LPRN, KC_RPRN, KC_DLR , KC_AMPR
-#define SYMBOL_L2___________________________________________ _______, KC_1   , KC_2   , KC_3   , KC_4   , KC_5   
+#define SYMBOL_L1___________________________________________ KC_TILD, KC_1   , KC_2   , KC_3   , KC_4   , KC_5   
+#define SYMBOL_L2___________________________________________ KC_PIPE, KC_EXLM, KC_LPRN, KC_RPRN, KC_DLR , KC_AMPR
 #define SYMBOL_L3___________________________________________ _______, KC_AT  , KC_LBRC, KC_RBRC, KC_PLUS, KC_PERC
 #define SYMBOL_L4___________________________________________ _______, _______, _______, _______, _______, _______
 
 #define SYMBOL_R0___________________________________________ _______, _______, _______, _______, _______, _______
-#define SYMBOL_R1___________________________________________ KC_HASH, KC_EXLM, KC_LCBR, KC_RCBR, KC_COLN, KC_UNDS
-#define SYMBOL_R2___________________________________________ KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , KC_DQUO
-#define SYMBOL_R3___________________________________________ KC_CIRC, KC_ASTR, KC_LABK, KC_RABK, KC_QUES, KC_PIPE
-#define SYMBOL_R4___________________________________________ _______, _______, _______, _______, _______, KC_TILD
+#define SYMBOL_R1___________________________________________ KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , KC_UNDS
+#define SYMBOL_R2___________________________________________ KC_HASH, KC_EQL , KC_LCBR, KC_RCBR, KC_COLN, KC_DQUO
+#define SYMBOL_R3___________________________________________ KC_CIRC, KC_ASTR, KC_LABK, KC_RABK, KC_QUES, _______
+#define SYMBOL_R4___________________________________________ KC_SPC , _______, _______, _______, _______, _______
 
 #define FUNCTION_L0_________________________________________ _______, _______, _______, _______, _______, _______
-#define FUNCTION_L1_________________________________________ KC_CLCK, KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_PSCR
+#define FUNCTION_L1_________________________________________ _______, KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_PSCR
 #define FUNCTION_L2_________________________________________ _______, KC_F5  , KC_F6  , KC_F7  , KC_F8  , KC_INS 
 #define FUNCTION_L3_________________________________________ _______, KC_F9  , KC_F10 , KC_F11 , KC_F12 , KC_PAUS
 #define FUNCTION_L4_________________________________________ _______, _______, _______, _______, _______, KC_TAB 
 
 #define FUNCTION_R0_________________________________________ _______, _______, _______, _______, _______, _______
-#define FUNCTION_R1_________________________________________ QWERTY , KC_HOME, KC_PGDN, KC_PGUP, KC_END , KC_SLCK
+#define FUNCTION_R1_________________________________________ QWERTY , KC_HOME, KC_PGDN, KC_PGUP, KC_END , _______
 #define FUNCTION_R2_________________________________________ COLEMAK, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, _______
-#define FUNCTION_R3_________________________________________ TG_GAME, KC_MUTE, KC_VOLD, KC_VOLU, KC_APP , KC_NLCK
+#define FUNCTION_R3_________________________________________ TG_GAME, KC_MUTE, KC_VOLD, KC_VOLU, KC_APP , _______
 #define FUNCTION_R4_________________________________________ _______, _______, _______, _______, _______, _______
 
 #define GAME_L0_____________________________________________ _______, NUMROW_L0__________________________________
-#define GAME_L1_____________________________________________ KC_TAB , QWERTY_L1__________________________________
-#define GAME_L2_____________________________________________ KC_LSFT, QWERTY_L2__________________________________
-#define GAME_L3_____________________________________________ KC_LCTL, QWERTY_L3__________________________________
+#define GAME_L1_____________________________________________ KC_LALT, COLEMAK_L1_________________________________
+#define GAME_L2_____________________________________________ KC_LSFT, COLEMAK_L2_________________________________
+#define GAME_L3_____________________________________________ KC_LCTL, COLEMAK_L3_________________________________
 #define GAME_L4_____________________________________________ _______, _______, _______, _______, _______, KC_SPC 
 
 #define GAME_R0_____________________________________________ NUMROW_R0__________________________________, _______
-#define GAME_R1_____________________________________________ QWERTY_R1__________________________________, KC_MINS
-#define GAME_R2_____________________________________________ QWERTY_R2__________________________________, KC_RSFT
-#define GAME_R3_____________________________________________ QWERTY_R3__________________________________, KC_ENT 
+#define GAME_R1_____________________________________________ COLEMAK_R1_________________________________, KC_MINS
+#define GAME_R2_____________________________________________ COLEMAK_R2_________________________________, KC_QUOT
+#define GAME_R3_____________________________________________ COLEMAK_R3_________________________________, KC_ENT 
 #define GAME_R4_____________________________________________ _______, _______, _______, _______, _______, _______

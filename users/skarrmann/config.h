@@ -2,17 +2,21 @@
 
 // Tap-hold configuration
 #define TAPPING_TERM_PER_KEY
-#define TAPPING_TERM 150
+#define TAPPING_TERM 120
 #define TAPPING_TERM_K_SPC 200
-#define TAPPING_TERM_M_SFT 160
-#define TAPPING_TERM_M_CTL 190
-#define TAPPING_TERM_M_ALT 240
-#define TAPPING_TERM_M_GUI 250
-#define TAPPING_TERM_M_MLT 250
+#define TAPPING_TERM_M_SFT 100
+#define TAPPING_TERM_M_CTL 120
+#define TAPPING_TERM_M_ALT 120
+#define TAPPING_TERM_M_GUI 120
+#define TAPPING_TERM_M_MLT 120
 #undef PERMISSIVE_HOLD
 #define IGNORE_MOD_TAP_INTERRUPT
 #define TAPPING_FORCE_HOLD_PER_KEY
 #define ONESHOT_TAP_TOGGLE 4
+
+// Combo configuration
+#define COMBO_COUNT 6
+#define COMBO_TERM 25
 
 // Mouse keys configuration
 #ifdef MOUSEKEY_ENABLE

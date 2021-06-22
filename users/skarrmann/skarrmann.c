@@ -80,3 +80,31 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
 
   return true;
 }
+
+// Combos
+enum combos {
+  COMBO_BIN_3,
+  COMBO_BIN_5,
+  COMBO_BIN_6,
+  COMBO_BIN_7,
+  COMBO_BIN_9,
+  COMBO_BIN_0
+};
+
+const uint16_t PROGMEM combo_bin_3[] = {KC_1, KC_2, COMBO_END};
+const uint16_t PROGMEM combo_bin_5[] = {KC_1, KC_4, COMBO_END};
+const uint16_t PROGMEM combo_bin_6[] = {KC_2, KC_4, COMBO_END};
+const uint16_t PROGMEM combo_bin_7[] = {KC_1, KC_2, KC_4, COMBO_END};
+const uint16_t PROGMEM combo_bin_9[] = {KC_1, KC_8, COMBO_END};
+const uint16_t PROGMEM combo_bin_0[] = {KC_2, KC_8, COMBO_END};
+
+
+combo_t key_combos[COMBO_COUNT] = {
+  [COMBO_BIN_3] = COMBO(combo_bin_3, KC_3),
+  [COMBO_BIN_5] = COMBO(combo_bin_5, KC_5),
+  [COMBO_BIN_6] = COMBO(combo_bin_6, KC_6),
+  [COMBO_BIN_7] = COMBO(combo_bin_7, KC_7),
+  [COMBO_BIN_9] = COMBO(combo_bin_9, KC_9),
+  [COMBO_BIN_0] = COMBO(combo_bin_0, KC_0)
+};
+
