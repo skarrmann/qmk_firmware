@@ -16,7 +16,7 @@
 
 // Combo configuration
 #define COMBO_COUNT 6
-#define COMBO_TERM 25
+#define COMBO_TERM 10
 
 // Mouse keys configuration
 #ifdef MOUSEKEY_ENABLE

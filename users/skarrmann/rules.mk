@@ -1,4 +1,4 @@
 SRC += skarrmann.c
 
-COMBO_ENABLE = yes
+COMBO_ENABLE = no
 COMMAND_ENABLE = no
