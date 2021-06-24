@@ -27,13 +27,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                  B_L1   , QWERTY_L1__________________________________,          \
                  B_L2   , QWERTY_L2__________________________________,          \
         B_B2   , B_L3   , QWERTY_L3__________________________________, KC_ESC, \
-        KC_HOME, KC_PGDN, KC_END ,                   B_B4   , B_B5   , KC_LSFT),
+        KC_HOME, KC_PGDN, KC_END ,                   B_B4   , B_B5   , KC_ESC),
         LAYOUT_concat_wrapper( \
                  NUMROW_R0__________________________________, _______,          \
                  QWERTY_R1__________________________________, B_R1   ,          \
                  QWERTY_R2__________________________________, B_R2   ,          \
         KC_ENT , QWERTY_R3__________________________________, B_R3   , B_B9   , \
-        KC_RSFT, B_B6   , B_B7   ,                   KC_LEFT, KC_DOWN, KC_RGHT)
+        KC_ENT , B_B6   , B_B7   ,                   KC_LEFT, KC_DOWN, KC_RGHT)
     },
     [_COLEMAK] = {
         LAYOUT_concat_wrapper( \
@@ -41,13 +41,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                  B_L1   , COLEMAK_L1_________________________________,          \
                  B_L2   , COLEMAK_L2_________________________________,          \
         B_B2   , B_L3   , COLEMAK_L3_________________________________, KC_ESC,  \
-        KC_HOME, KC_PGDN, KC_END ,                   B_B4   , B_B5   , KC_LSFT),
+        KC_HOME, KC_PGDN, KC_END ,                   B_B4   , B_B5   , KC_ESC),
         LAYOUT_concat_wrapper( \
                  NUMROW_R0__________________________________, _______,          \
                  COLEMAK_R1_________________________________, B_R1   ,          \
                  COLEMAK_R2_________________________________, B_R2   ,          \
         KC_ENT , COLEMAK_R3_________________________________, B_R3   , B_B9   , \
-        KC_RSFT, B_B6   , B_B7   ,                   KC_LEFT, KC_DOWN, KC_RGHT)
+        KC_ENT , B_B6   , B_B7   ,                   KC_LEFT, KC_DOWN, KC_RGHT)
     },
     [_SYMBOL] = {
 	LAYOUT_concat_wrapper( \
@@ -55,13 +55,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		 SYMBOL_L1___________________________________________,          \
 		 SYMBOL_L2___________________________________________,          \
         _______, SYMBOL_L3___________________________________________, _______, \
-        _______, _______, _______,                   _______, _______, _______),
+        _______, _______, _______,                   KC_LCTL, KC_LSFT, KC_LALT),
 	LAYOUT_concat_wrapper( \
                  _______, _______, _______, _______, _______, _______,          \
 		 SYMBOL_R1___________________________________________,          \
 		 SYMBOL_R2___________________________________________,          \
         _______, SYMBOL_R3___________________________________________, _______, \
-        _______, KC_SPC , _______,                   _______, _______, _______)
+        KC_RALT, KC_RSFT, KC_RCTL,                   _______, _______, _______)
     },
     [_FUNCTION] = {
         LAYOUT_concat_wrapper( \
@@ -69,13 +69,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                  FUNCTION_L1_________________________________________,          \
                  FUNCTION_L2_________________________________________,          \
         _______, FUNCTION_L3_________________________________________, _______, \
-        _______, _______, _______,                   _______, KC_TAB , _______),
+        _______, _______, _______,                   KC_LCTL, KC_LSFT, KC_LALT),
         LAYOUT_concat_wrapper( \
                  _______, _______, _______, _______, _______, _______,          \
                  FUNCTION_R1_________________________________________,          \
                  FUNCTION_R2_________________________________________,          \
         _______, FUNCTION_R3_________________________________________, _______, \
-        _______, _______, _______,                   _______, _______, _______)
+        KC_RALT, KC_RSFT, KC_RCTL,                   _______, _______, _______)
     },
     [_GAME] = {
 	LAYOUT_concat_wrapper( \
