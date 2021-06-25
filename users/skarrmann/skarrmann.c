@@ -52,7 +52,7 @@ uint16_t get_tapping_term(uint16_t keycode) {
 
   // Layer tapping terms
   if (keycode >= QK_LAYER_TAP && keycode <= QK_LAYER_TAP_MAX) {
-    uint16_t layer = ((keycode & 0x0F00) >> 8);
+    uint16_t layer = ((keycode & 0x0F00) >> 0x8);
     switch (layer) {
       // Add entries for any layers with their own tapping terms
       // case _NUMBER:
@@ -66,7 +66,6 @@ uint16_t get_tapping_term(uint16_t keycode) {
 
 // Tapping force hold per key
 bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
-  // Enable tapping force hold for specific basic keys
   uint16_t basic_keycode = (keycode & 0x00FF);
   switch (basic_keycode) {
     case KC_DEL:
@@ -78,7 +77,16 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
       return false;
   }
 
-  return true;
+  if (keycode >= QK_LAYER_TAP && keycode <= QK_LAYER_TAP_MAX) {
+    uint16_t layer = ((keycode & 0x0F00) >> 0x8);
+    switch (layer) {
+      case _SYMBOL:
+      case _FUNCTION:
+        return true;
+    }
+  }
+
+  return false;
 }
 
 // Combos

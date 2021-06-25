@@ -2,9 +2,9 @@
 
 // Tap-hold configuration
 #define TAPPING_TERM_PER_KEY
-#define TAPPING_TERM 150
-#define TAPPING_TERM_K_SPC 200
-#define TAPPING_TERM_M_SFT 110
+#define TAPPING_TERM 140
+#define TAPPING_TERM_K_SPC 180
+#define TAPPING_TERM_M_SFT 120
 #define TAPPING_TERM_M_CTL 150
 #define TAPPING_TERM_M_ALT 150
 #define TAPPING_TERM_M_GUI 160
@@ -12,7 +12,9 @@
 #undef PERMISSIVE_HOLD
 #define IGNORE_MOD_TAP_INTERRUPT
 #define TAPPING_FORCE_HOLD_PER_KEY
-#define ONESHOT_TAP_TOGGLE 4
+
+// One shot configuration
+#define ONESHOT_TIMEOUT 1000
 
 // Combo configuration
 #define COMBO_COUNT 6
