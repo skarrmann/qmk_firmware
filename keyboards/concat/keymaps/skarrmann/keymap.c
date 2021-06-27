@@ -41,7 +41,7 @@ LAYOUT_concat_wrapper( \
 LAYOUT_concat_wrapper( \
            _______, NUMROW_R0__________________________________,          \
            K11    , K12    , K13    , K14    , K15    , B_RO1  ,          \
-           K21    , B_LH_MODS(K22, K23, K24, K25)     , B_RO2  ,          \
+           K21    , B_RH_MODS(K22, K23, K24, K25)     , B_RO2  ,          \
   B_RI3  , K31    , K32    , K33    , K34    , K35    , B_RO3  , _______, \
   B_RI4  , B_RB1  , B_RB2  ,                   _______, _______, _______  \
 )
