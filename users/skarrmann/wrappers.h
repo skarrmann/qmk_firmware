@@ -1,43 +1,62 @@
 #include "skarrmann.h"
 
 /* Base modifiers - for productivity and efficiency
- .-----------------------------------------------------. .-----------------------------------------------------.
- |   ;    |        |        |        |        |        | |        |        |        |        |        |   -    |
- |  LALT  |        |        |        |        |        | |        |        |        |        |        |  ALT   |
- |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
- |        |        |        |        |        |        | |        |        |        |        |        |        |
- |  LSFT  |        |        |        |        |        | |        |        |        |        |        |  RSFT  |
- |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
- |  ESC   |        |        |        |        |        | |        |        |        |        |        |  ENT   |
- |  LCTL  |        |        |        |        |        | |        |        |        |        |        |  RCTL  |
- |--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------|
- |        |  INS   |  PSCR  |  CAPS  |  DEL   |  TAB   | |  SPC   |  BSPC  |   1    |   2    |   4    |        |
- |  LGUI  |        |        |        |        | SYMBOL | |FUNCTION|        |        |        |        |  RGUI  |
- '-----------------------------------------------------' '-----------------------------------------------------'
+ .--------------------------------------------------------------. .--------------------------------------------------------------.
+ |   ;    |        |        |        |        |        |        | |        |        |        |        |        |        |   -    |
+ |  LALT  |        |        |        |        |        |        | |        |        |        |        |        |        |  ALT   |
+ |--------+--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------+--------|
+ |        |        |        |        |        |        |        | |        |        |        |        |        |        |        |
+ |  LSFT  |        |        |        |        |        |        | |        |        |        |        |        |        |  RSFT  |
+ |--------+--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------+--------|
+ |  ESC   |        |        |        |        |        |        | |        |        |        |        |        |        |  ENT   |
+ |  LCTL  |        |        |        |        |        |        | |        |        |        |        |        |        |  RCTL  |
+ |--------+--------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------+--------|
+ |        |  INS   |  PSCR  |  CAPS  |  DEL   |  TAB   |  ESC   | |  ENT   |  SPC   |  BSPC  |        |        |        |        |
+ |  LGUI  |        |        |        |        | SYMBOL |  LGUI  | |  RGUI  |FUNCTION|        |        |        |        |  RGUI  |
+ '--------------------------------------------------------------' '--------------------------------------------------------------'
  */
-#define B_L1 MT(MOD_LALT, KC_SCLN)
-#define B_L2 KC_LSFT
-#define B_L3 MT(MOD_LCTL, KC_ESC)
 
-#define B_R1 MT(MOD_RALT, KC_MINS)
-#define B_R2 KC_RSFT
-#define B_R3 MT(MOD_RCTL, KC_ENT)
+/* Left outer side (top-to-bottom) */
+#define B_LO1 MT(MOD_LALT, KC_SCLN)
+#define B_LO2 KC_LSFT
+#define B_LO3 MT(MOD_LCTL, KC_ESC)
+#define B_LO4 KC_LGUI
 
+/* Right outer side (top-to-bottom) */
+#define B_RO1 MT(MOD_RALT, KC_MINS)
+#define B_RO2 KC_RSFT
+#define B_RO3 MT(MOD_RCTL, KC_ENT)
+#define B_RO4 KC_RGUI
+
+/* Left inner side (top-to-bottom) */
+#define B_LI1 _______
+#define B_LI2 _______
+#define B_LI3 _______
+#define B_LI4 MT(MOD_LGUI, KC_ESC)
+
+/* Right inner side (top-to-bottom) */
+#define B_RI1 _______
+#define B_RI2 _______
+#define B_RI3 _______
+#define B_RI4 MT(MOD_LGUI, KC_ENT)
+
+/* Left bottom (center-to-outside) */
+#define B_LB1 LT(_SYMBOL, KC_TAB)
+#define B_LB2 KC_DEL
+#define B_LB3 KC_CAPS
+#define B_LB4 KC_PSCR
+#define B_LB5 KC_INS
+
+/* Right bottom (center-to-outside) */
+#define B_RB1 LT(_FUNCTION, KC_SPC)
+#define B_RB2 KC_BSPC
+#define B_RB3 _______
+#define B_RB4 _______
+#define B_RB5 _______
+
+/* Home row mods */
 #define B_LH_MODS(k1, k2, k3, k4) k1, k2, k3, k4 
-#define B_RH_MODS(k1, k2, k3, k4) k1, k2, k3, k4 
-
-#define B_B0 MT(MOD_LGUI, KC_ESC)
-#define B_B1 KC_INS
-#define B_B2 KC_PSCR
-#define B_B3 KC_CAPS
-#define B_B4 KC_DEL
-#define B_B5 LT(_SYMBOL, KC_TAB)
-#define B_B6 LT(_FUNCTION, KC_SPC)
-#define B_B7 KC_BSPC
-#define B_B8 KC_1
-#define B_B9 KC_2
-#define B_BA KC_4
-#define B_BB MT(MOD_RGUI, KC_ENT)
+#define B_RH_MODS(k1, k2, k3, k4) k1, k2, k3, k4
 
 /* Base layers */
 #define NUMROW_L0__________________________________ KC_1   , KC_2   , KC_3   , KC_4   , KC_5   
@@ -68,8 +87,8 @@
 #define SYMBOL_L4___________________________________________ _______, _______, _______, _______, _______, _______
 
 #define SYMBOL_R0___________________________________________ _______, _______, _______, _______, _______, _______
-#define SYMBOL_R1___________________________________________ KC_6   , KC_7   , KC_8   , KC_9   , KC_DQUO, KC_UNDS
-#define SYMBOL_R2___________________________________________ KC_PIPE, KC_EQL , KC_LCBR, KC_RCBR, KC_0   , KC_BSLS
+#define SYMBOL_R1___________________________________________ KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , KC_UNDS
+#define SYMBOL_R2___________________________________________ KC_PIPE, KC_EQL , KC_LCBR, KC_RCBR, KC_DQUO, KC_BSLS
 #define SYMBOL_R3___________________________________________ KC_CIRC, KC_ASTR, KC_LABK, KC_RABK, KC_QUES, KC_TILD
 #define SYMBOL_R4___________________________________________ _______, _______, _______, _______, _______, _______
 
@@ -77,7 +96,7 @@
 #define FUNCTION_L1_________________________________________ _______, KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_PSCR
 #define FUNCTION_L2_________________________________________ _______, KC_F5  , KC_F6  , KC_F7  , KC_F8  , KC_INS 
 #define FUNCTION_L3_________________________________________ _______, KC_F9  , KC_F10 , KC_F11 , KC_F12 , KC_PAUS
-#define FUNCTION_L4_________________________________________ _______, _______, _______, _______, _______, KC_TAB 
+#define FUNCTION_L4_________________________________________ _______, _______, _______, _______, KC_CAPS, KC_TAB 
 
 #define FUNCTION_R0_________________________________________ _______, _______, _______, _______, _______, _______
 #define FUNCTION_R1_________________________________________ QWERTY , KC_HOME, KC_PGDN, KC_PGUP, KC_END , _______
@@ -95,4 +114,4 @@
 #define GAME_R1_____________________________________________ _______, _______, _______, _______, _______, _______
 #define GAME_R2_____________________________________________ _______, _______, _______, _______, _______, _______
 #define GAME_R3_____________________________________________ _______, _______, _______, _______, _______, _______
-
+#define GAME_R4_____________________________________________ _______, _______, _______, _______, _______, _______

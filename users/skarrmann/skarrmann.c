@@ -92,21 +92,9 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
 // Combos
 #ifdef COMBO_ENABLED
 enum combos {
-  COMBO_BIN_WF,
-  COMBO_BIN_FP,
-  COMBO_BIN_LU,
-  COMBO_BIN_UY,
 };
 
-const uint16_t PROGMEM combo_bin_wf[] = {KC_W, KC_F, COMBO_END};
-const uint16_t PROGMEM combo_bin_fp[] = {KC_F, KC_P, COMBO_END};
-const uint16_t PROGMEM combo_bin_lu[] = {KC_L, KC_U, COMBO_END};
-const uint16_t PROGMEM combo_bin_uy[] = {KC_U, KC_Y, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
-  [COMBO_BIN_WF] = COMBO(combo_bin_wf, KC_ESC),
-  [COMBO_BIN_FP] = COMBO(combo_bin_fp, KC_DEL),
-  [COMBO_BIN_LU] = COMBO(combo_bin_lu, KC_BSPC),
-  [COMBO_BIN_UY] = COMBO(combo_bin_uy, KC_ENT)
 };
 #endif

@@ -1,11 +1,5 @@
 #include "skarrmann.h"
 
-#define B_THUMB_L0______ KC_LCTL, KC_LALT
-#define B_THUMB_R0______ KC_RALT, KC_RCTL
-
-#define B_THUMB_L1_________________________________ _______, B_B2, B_B4, B_B5, B_B3
-#define B_THUMB_R1_________________________________ B_B8, B_B6, B_B7, B_B9, _______
-
 #define LAYOUT_kyria_wrapper(...) LAYOUT(__VA_ARGS__)
 
 #define LAYOUT_kyria_base( \
@@ -14,10 +8,10 @@
   K31, K32, K33, K34, K35, K36, K37, K38, K39, K3A  \
 ) \
 LAYOUT_kyria_wrapper( \
-  B_L1   , K11    , K12    , K13    , K14    , K15                                        , K16    , K17    , K18    , K19    , K1A    , B_R1   , \
-  B_L2   , B_LH_MODS(K21, K22, K23, K24)     , K25                                        , K26    , B_RH_MODS(K27, K28, K29, K2A)     , B_R2   , \
-  B_L3   , K31    , K32    , K33    , K34    , K35    , B_THUMB_L0______, B_THUMB_R0______, K36    , K37    , K38    , K39    , K3A    , B_R3   , \
-                             B_THUMB_L1_________________________________, B_THUMB_R1_________________________________                             \
+  B_LO1  , K11    , K12    , K13    , K14    , K15                                        , K16    , K17    , K18    , K19    , K1A    , B_RO1  , \
+  B_LO2  , B_LH_MODS(K21, K22, K23, K24)     , K25                                        , K26    , B_RH_MODS(K27, K28, K29, K2A)     , B_RO2  , \
+  B_LO3  , K31    , K32    , K33    , K34    , K35    , B_LI2  , B_LI3  , B_RI3  , B_RI2  , K36    , K37    , K38    , K39    , K3A    , B_RO3  , \
+			     B_LB4  , B_LB3  , B_LB2  , B_LB1  , B_LI4  , B_RI4  , B_RB1  , B_RB2  , B_RB3  , B_RB4                               \
 )
 
 #define LAYOUT_kyria_base_wrapper(...) LAYOUT_kyria_base(__VA_ARGS__)
