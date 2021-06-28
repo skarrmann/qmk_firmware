@@ -55,8 +55,8 @@
 #define B_RB5 _______
 
 /* Home row mods (disabled) */
-#define B_LH_MODS(k1, k2, k3, k4) k1, k2, k3, k4 // MT(MOD_LGUI, k1), MT(MOD_LALT, k2), MT(MOD_LSFT, k3), MT(MOD_LCTL, k4)
-#define B_RH_MODS(k1, k2, k3, k4) k1, k2, k3, k4 // MT(MOD_RCTL, k1), MT(MOD_RSFT, k2), MT(MOD_RALT, k3), MT(MOD_RGUI, k4)
+#define B_LH_MODS(k1, k2, k3, k4) MT(MOD_LGUI, k1), MT(MOD_LALT, k2), MT(MOD_LSFT, k3), MT(MOD_LCTL, k4)
+#define B_RH_MODS(k1, k2, k3, k4) MT(MOD_RCTL, k1), MT(MOD_RSFT, k2), MT(MOD_RALT, k3), MT(MOD_RGUI, k4)
 
 /* Base layers */
 #define NUMROW_L0__________________________________ KC_1   , KC_2   , KC_3   , KC_4   , KC_5   
@@ -70,13 +70,13 @@
 #define QWERTY_R2__________________________________ KC_H   , KC_J   , KC_K   , KC_L   , KC_QUOT
 #define QWERTY_R3__________________________________ KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH
                                     
-#define COLEMAK_L1_________________________________ KC_Q   , KC_W   , KC_F   , KC_P   , KC_G   
-#define COLEMAK_L2_________________________________ KC_A   , KC_R   , KC_S   , KC_T   , KC_D   
-#define COLEMAK_L3_________________________________ KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   
+#define COLEMAK_L1_________________________________ KC_Q   , KC_W   , KC_F   , KC_P   , KC_B   
+#define COLEMAK_L2_________________________________ KC_A   , KC_R   , KC_S   , KC_T   , KC_G   
+#define COLEMAK_L3_________________________________ KC_Z   , KC_X   , KC_C   , KC_D   , KC_V   
                                     
 #define COLEMAK_R1_________________________________ KC_J   , KC_L   , KC_U   , KC_Y   , KC_QUOT
-#define COLEMAK_R2_________________________________ KC_H   , KC_N   , KC_E   , KC_I   , KC_O   
-#define COLEMAK_R3_________________________________ KC_K   , KC_M   , KC_COMM, KC_DOT , KC_SLSH
+#define COLEMAK_R2_________________________________ KC_M   , KC_N   , KC_E   , KC_I   , KC_O   
+#define COLEMAK_R3_________________________________ KC_K   , KC_H   , KC_COMM, KC_DOT , KC_SLSH
 
 /* Custom layers */ 
 

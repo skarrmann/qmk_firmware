@@ -86,7 +86,20 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
     }
   }
 
-  return false;
+  return true;
+}
+
+// Permissive hold per key
+bool get_permissive__hold(uint16_t keycode, keyrecord_t *record) {
+  if (keycode >= QK_LAYER_TAP && keycode <= QK_LAYER_TAP_MAX) {
+    uint16_t layer = ((keycode & 0x0F00) >> 0x8);
+    switch (layer) {
+      case _FUNCTION:
+        return false;
+    }
+  }
+
+  return true;
 }
 
 // Combos
