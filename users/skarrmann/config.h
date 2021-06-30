@@ -1,24 +1,8 @@
 #pragma once
 
-// Tap-hold configuration
-#define TAPPING_TERM_PER_KEY
-#define TAPPING_TERM 140
-#define TAPPING_TERM_K_SPC 180
-#define TAPPING_TERM_M_SFT 120
-#define TAPPING_TERM_M_CTL 150
-#define TAPPING_TERM_M_ALT 150
-#define TAPPING_TERM_M_GUI 160
-#define TAPPING_TERM_M_MLT 160
-#undef PERMISSIVE_HOLD
-#define IGNORE_MOD_TAP_INTERRUPT
-#define TAPPING_FORCE_HOLD_PER_KEY
-
-// One shot configuration
-#define ONESHOT_TIMEOUT 1000
-
-// Combo configuration
-#define COMBO_COUNT 0
-#define COMBO_TERM 50
+// One shot keys configuration
+#define ONESHOT_TAP_TOGGLE 5
+#define ONESHOT_TIMEOUT 5000
 
 // Mouse keys configuration
 #ifdef MOUSEKEY_ENABLE
