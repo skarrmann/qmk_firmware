@@ -81,6 +81,7 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
     uint16_t layer = ((keycode & 0x0F00) >> 0x8);
     switch (layer) {
       case _SYMBOL:
+      case _NAVIGATE:
       case _FUNCTION:
         return true;
     }

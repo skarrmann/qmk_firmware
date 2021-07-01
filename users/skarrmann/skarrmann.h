@@ -10,6 +10,7 @@ enum userspace_layers {
   _COLEMAK,
   _GAME,
   _SYMBOL,
+  _NAVIGATE,
   _FUNCTION,
 };
 
