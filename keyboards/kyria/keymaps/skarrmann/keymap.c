@@ -9,7 +9,7 @@
 ) \
 LAYOUT_kyria_wrapper( \
   B_LO1  , K11    , K12    , K13    , K14    , K15                                        , K16    , K17    , K18    , K19    , K1A    , B_RO1  , \
-  B_LO2  , K21    , K22    , K23    , K24    , K25                                        , K26    , K27    , K28    , K29    , K2A    , B_RO2  , \
+  B_LO2  , B_LH_MODS(K21, K22, K23, K24)     , K25                                        , K26    , B_RH_MODS(K27, K28, K29, K2A)     , B_RO2  , \
   B_LO3  , K31    , K32    , K33    , K34    , K35    , B_LI2  , B_LI3  , B_RI3  , B_RI2  , K36    , K37    , K38    , K39    , K3A    , B_RO3  , \
 			     B_LB4  , B_LB3  , B_LB2  , B_LB1  , B_LI4  , B_RI4  , B_RB1  , B_RB2  , B_RB3  , B_RB4                               \
 )
@@ -28,13 +28,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   COLEMAK_L1_________________________________, COLEMAK_R1_________________________________, \
   COLEMAK_L2_________________________________, COLEMAK_R2_________________________________, \
   COLEMAK_L3_________________________________, COLEMAK_R3_________________________________  \
-),
-
-[_HMOD] = LAYOUT_kyria_wrapper( \
-  HMOD_L1_____________________________________________,                                     HMOD_R1_____________________________________________, \
-  HMOD_L2_____________________________________________,                                     HMOD_R2_____________________________________________, \
-  HMOD_L3_____________________________________________, _______, _______, _______, _______, HMOD_R3_____________________________________________, \
-                             _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ \
 ),
 
 [_SYMBOL] = LAYOUT_kyria_wrapper( \
@@ -102,9 +95,6 @@ void render_custom_layer_status(void) {
             break;
 	case _FUNCTION:
             oled_write_P(PSTR("Function\n"), false);
-	    break;
-	case _HMOD:
-	    oled_write_P(PSTR("Home row mods\n"), false);
 	    break;
 	case _GAME:
 	    oled_write_P(PSTR("Game\n"), false);
