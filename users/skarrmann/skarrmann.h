@@ -8,6 +8,7 @@
 enum userspace_layers {
   _QWERTY = 0,
   _COLEMAK,
+  _HMOD,
   _GAME,
   _SYMBOL,
   _FUNCTION,
@@ -23,3 +24,4 @@ enum userspace_keycodes {
 #define TG_SYMB TG(_SYMBOL)
 #define TG_FUNC TG(_FUNCTION)
 #define TG_GAME TG(_GAME)
+#define TG_HMOD TG(_HMOD)

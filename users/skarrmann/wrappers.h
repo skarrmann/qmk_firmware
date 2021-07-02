@@ -54,9 +54,17 @@
 #define B_RB4 _______
 #define B_RB5 _______
 
-/* Home row mods (disabled) */
-#define B_LH_MODS(k1, k2, k3, k4) k1, k2, k3, k4 // MT(MOD_LGUI, k1), MT(MOD_LALT, k2), MT(MOD_LSFT, k3), MT(MOD_LCTL, k4)
-#define B_RH_MODS(k1, k2, k3, k4) k1, k2, k3, k4 // MT(MOD_RCTL, k1), MT(MOD_RSFT, k2), MT(MOD_RALT, k3), MT(MOD_RGUI, k4)
+// Left-hand home row mods
+#define HOME_A LGUI_T(KC_A)
+#define HOME_R LALT_T(KC_R)
+#define HOME_S LSFT_T(KC_S)
+#define HOME_T LCTL_T(KC_T)
+
+// Right-hand home row mods
+#define HOME_N RCTL_T(KC_N)
+#define HOME_E RSFT_T(KC_E)
+#define HOME_I LALT_T(KC_I)
+#define HOME_O RGUI_T(KC_O)
 
 /* Base layers */
 #define NUMROW_L0__________________________________ KC_1   , KC_2   , KC_3   , KC_4   , KC_5   
@@ -80,6 +88,18 @@
 
 /* Custom layers */ 
 
+#define HMOD_L0_____________________________________________ _______, _______, _______, _______, _______, _______
+#define HMOD_L1_____________________________________________ _______, _______, _______, _______, _______, _______
+#define HMOD_L2_____________________________________________ _______, HOME_A , HOME_R , HOME_S , HOME_T , _______
+#define HMOD_L3_____________________________________________ _______, _______, _______, _______, _______, _______
+#define HMOD_L4_____________________________________________ _______, _______, _______, _______, _______, _______
+
+#define HMOD_R0_____________________________________________ _______, _______, _______, _______, _______, _______
+#define HMOD_R1_____________________________________________ _______, _______, _______, _______, _______, _______
+#define HMOD_R2_____________________________________________ _______, HOME_N , HOME_E , HOME_I , HOME_O , _______
+#define HMOD_R3_____________________________________________ _______, _______, _______, _______, _______, _______
+#define HMOD_R4_____________________________________________ _______, _______, _______, _______, _______, _______
+
 #define SYMBOL_L0___________________________________________ _______, _______, _______, _______, _______, _______
 #define SYMBOL_L1___________________________________________ KC_GRV , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   
 #define SYMBOL_L2___________________________________________ KC_HASH, KC_EXLM, KC_LPRN, KC_RPRN, KC_DLR , KC_AMPR
@@ -101,7 +121,7 @@
 #define FUNCTION_R0_________________________________________ _______, _______, _______, _______, _______, _______
 #define FUNCTION_R1_________________________________________ QWERTY , KC_HOME, KC_PGDN, KC_PGUP, KC_END , _______
 #define FUNCTION_R2_________________________________________ COLEMAK, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, _______
-#define FUNCTION_R3_________________________________________ TG_GAME, KC_MUTE, KC_VOLD, KC_VOLU, KC_APP , _______
+#define FUNCTION_R3_________________________________________ TG_GAME, KC_MUTE, KC_VOLD, KC_VOLU, TG_HMOD, _______
 #define FUNCTION_R4_________________________________________ _______, _______, _______, _______, _______, _______
 
 #define GAME_L0_____________________________________________ _______, _______, _______, _______, _______, _______
