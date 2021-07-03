@@ -54,10 +54,6 @@
 #define B_RB4 _______
 #define B_RB5 _______
 
-/* Home row mods (disabled) */
-#define B_LH_MODS(k1, k2, k3, k4) k1, k2, k3, k4 // MT(MOD_LGUI, k1), MT(MOD_LALT, k2), MT(MOD_LSFT, k3), MT(MOD_LCTL, k4)
-#define B_RH_MODS(k1, k2, k3, k4) k1, k2, k3, k4 // MT(MOD_RCTL, k1), MT(MOD_RSFT, k2), MT(MOD_RALT, k3), MT(MOD_RGUI, k4)
-
 /* Base layers */
 #define NUMROW_L0__________________________________ KC_1   , KC_2   , KC_3   , KC_4   , KC_5   
 #define NUMROW_R0__________________________________ KC_6   , KC_7   , KC_8   , KC_9   , KC_0   

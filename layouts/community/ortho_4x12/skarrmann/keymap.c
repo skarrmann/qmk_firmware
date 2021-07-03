@@ -9,7 +9,7 @@
 ) \
 LAYOUT_ortho_4x12_wrapper( \
   B_LO1  , K11    , K12    , K13    , K14    , K15    , K16    , K17    , K18    , K19    , K1A    , B_RO1  , \
-  B_LO2  , B_LH_MODS(K21, K22, K23, K24)     , K25    , K26    , B_RH_MODS(K27, K28, K29, K2A)     , B_RO2  , \
+  B_LO2  , K21    , K22    , K23    , K24    , K25    , K26    , K27    , K28    , K29    , K2A    , B_RO2  , \
   B_LO3  , K31    , K32    , K33    , K34    , K35    , K36    , K37    , K38    , K39    , K3A    , B_RO3  , \
   B_LO4  , B_LB5  , B_LB4  , B_LB3  , B_LB2  , B_LB1  , B_RB1  , B_RB2  , B_RB3  , B_RB4  , B_RB5  , B_RO4    \
 )
