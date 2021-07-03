@@ -20,7 +20,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 // Tapping term per key
-uint16_t get_tapping_term(uint16_t keycode) {
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 
   // Key-specific tapping terms
   uint16_t basic_keycode = (keycode & 0x00FF);
