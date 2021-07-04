@@ -26,7 +26,18 @@
  * The second converts the arguments into a two-dimensional array which
  * represents the switch matrix.
  */
-#define LAYOUT(\
-    k01, k02, k03, k04, k05, k06, k07, k08, k09, k10, k11, k12, k13, k14, k15, k16, k17, k18, k19, k20, k21, k22, k23, k24, k25, k26, k27, k28, k29, k30, k31, k32) { \
-    k19, k27, k28, k29, k01, k07, k13, k20, k02, k08, k14, k21, k03, k09, k15, k22, k04, k10, k16, k23, k05, k11, k17, k24, k06, k12, k18, k25, k26, k32, k31, k30    \
+#define LAYOUT_concat(                      \
+         k01, k02, k03, k04, k05, k06,      \
+         k07, k08, k09, k10, k11, k12,      \
+         k13, k14, k15, k16, k17, k18,      \
+    k19, k20, k21, k22, k23, k24, k25, k26, \
+    k27, k28, k29,           k30, k31, k32  \
+)                                           \
+{                                           \
+         k19, k27, k28, k29, k01, k07,      \
+         k13, k20, k02, k08, k14, k21,      \
+         k03, k09, k15, k22, k04, k10,      \
+    k16, k23, k05, k11, k17, k24, k06, k12, \
+    k18, k25, k26,           k32, k31, k30  \
 }
+

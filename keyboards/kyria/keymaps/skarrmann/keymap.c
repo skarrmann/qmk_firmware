@@ -1,57 +1,8 @@
 #include "skarrmann.h"
 
-#define LAYOUT_kyria_wrapper(...) LAYOUT(__VA_ARGS__)
+// See config.h for layout mapping to LAYOUT_skarrmann
+// See /users/skarrmann/skarrmann.c for LAYOUT_skarrmann layout mappings
 
-#define LAYOUT_kyria_base( \
-  K11, K12, K13, K14, K15, K16, K17, K18, K19, K1A, \
-  K21, K22, K23, K24, K25, K26, K27, K28, K29, K2A, \
-  K31, K32, K33, K34, K35, K36, K37, K38, K39, K3A  \
-) \
-LAYOUT_kyria_wrapper( \
-  B_LO1  , K11    , K12    , K13    , K14    , K15                                        , K16    , K17    , K18    , K19    , K1A    , B_RO1  , \
-  B_LO2  , K21    , K22    , K23    , K24    , K25                                        , K26    , K27    , K28    , K29    , K2A    , B_RO2  , \
-  B_LO3  , K31    , K32    , K33    , K34    , K35    , B_LI2  , B_LI3  , B_RI3  , B_RI2  , K36    , K37    , K38    , K39    , K3A    , B_RO3  , \
-			     B_LB4  , B_LB3  , B_LB2  , B_LB1  , B_LI4  , B_RI4  , B_RB1  , B_RB2  , B_RB3  , B_RB4                               \
-)
-
-#define LAYOUT_kyria_base_wrapper(...) LAYOUT_kyria_base(__VA_ARGS__)
-
-const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-
-[_QWERTY] = LAYOUT_kyria_base_wrapper( \
-  QWERTY_L1__________________________________, QWERTY_R1__________________________________, \
-  QWERTY_L2__________________________________, QWERTY_R2__________________________________, \
-  QWERTY_L3__________________________________, QWERTY_R3__________________________________  \
-),
-
-[_COLEMAK] = LAYOUT_kyria_base_wrapper( \
-  COLEMAK_L1_________________________________, COLEMAK_R1_________________________________, \
-  COLEMAK_L2_________________________________, COLEMAK_R2_________________________________, \
-  COLEMAK_L3_________________________________, COLEMAK_R3_________________________________  \
-),
-
-[_SYMBOL] = LAYOUT_kyria_wrapper( \
-  SYMBOL_L1___________________________________________,                                     SYMBOL_R1___________________________________________, \
-  SYMBOL_L2___________________________________________,                                     SYMBOL_R2___________________________________________, \
-  SYMBOL_L3___________________________________________, _______, _______, _______, _______, SYMBOL_R3___________________________________________, \
-                             _______, _______, _______, _______, _______, _______, KC_SPC , _______, _______, _______ \
-),
-
-[_FUNCTION] = LAYOUT_kyria_wrapper( \
-  FUNCTION_L1_________________________________________,                                     FUNCTION_R1_________________________________________, \
-  FUNCTION_L2_________________________________________,                                     FUNCTION_R2_________________________________________, \
-  FUNCTION_L3_________________________________________, _______, _______, _______, _______, FUNCTION_R3_________________________________________, \
-                             _______, _______, _______, KC_TAB , _______, _______, _______, _______, _______, _______ \
-),
-
-[_GAME] = LAYOUT_kyria_wrapper( \
-  GAME_L1_____________________________________________,                                     GAME_R1_____________________________________________, \
-  GAME_L2_____________________________________________,                                     GAME_R2_____________________________________________, \
-  GAME_L3_____________________________________________, KC_LCTL, KC_LALT, KC_RALT, KC_RCTL, GAME_R3_____________________________________________, \
-                             _______, _______, KC_TAB , KC_SPC , _______, _______, _______, _______, _______, _______ \
-),
-
-};
 
 #ifdef OLED_DRIVER_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
@@ -75,12 +26,9 @@ static void render_kyria_logo(void) {
 void render_base_layer_status(void) {
     oled_write_P(PSTR("Base: "), false);
     switch (get_highest_layer(default_layer_state)) {
-        case _QWERTY:
-            oled_write_P(PSTR("Qwerty\n"), false);
+        case DEF:
+            oled_write_P(PSTR("Default\n"), false);
             break;
-        case _COLEMAK:
-            oled_write_P(PSTR("Colemak\n"), false);
-	    break;
 	default:
             oled_write_P(PSTR("\n"), false);
 	    break;
@@ -90,13 +38,16 @@ void render_base_layer_status(void) {
 void render_custom_layer_status(void) {
     oled_write_P(PSTR("Layer: "), false);
     switch (get_highest_layer(layer_state)) {
-        case _SYMBOL:
+        case SYM:
             oled_write_P(PSTR("Symbol\n"), false);
             break;
-	case _FUNCTION:
+        case NAV:
+            oled_write_P(PSTR("Navigate\n"), false);
+            break;
+	case FUN:
             oled_write_P(PSTR("Function\n"), false);
 	    break;
-	case _GAME:
+	case GAM:
 	    oled_write_P(PSTR("Game\n"), false);
 	    break;
 	default:
@@ -140,7 +91,7 @@ void oled_task_user(void) {
 #endif
 
 #ifdef ENCODER_ENABLE
-void encoder_update_user(uint8_t index, bool clockwise) {
+bool encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) {
         // Volume control
         if (clockwise) {
@@ -157,5 +108,6 @@ void encoder_update_user(uint8_t index, bool clockwise) {
             tap_code(KC_PGUP);
         }
     }
+    return true;
 }
 #endif

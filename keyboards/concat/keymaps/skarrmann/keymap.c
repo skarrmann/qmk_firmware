@@ -16,103 +16,8 @@
 
 #include "skarrmann.h"
 
-#define LAYOUT_concat_wrapper(...) LAYOUT(__VA_ARGS__)
-
-#define LAYOUT_concat_base_left( \
-  K11, K12, K13, K14, K15, \
-  K21, K22, K23, K24, K25, \
-  K31, K32, K33, K34, K35  \
-) \
-LAYOUT_concat_wrapper( \
-           _______, NUMROW_L0__________________________________,          \
-           B_LO1  , K11    , K12    , K13    , K14    , K15    ,          \
-           B_LO2  , K21    , K22    , K23    , K24    , K25    ,          \
-  _______, B_LO3  , K31    , K32    , K33    , K34    , K35    , B_LI3  , \
-  _______, _______, _______,                   B_LB2  , B_LB1  , B_LI4    \
-)
-
-#define LAYOUT_concat_base_left_wrapper(...) LAYOUT_concat_base_left(__VA_ARGS__)
-
-#define LAYOUT_concat_base_right( \
-  K11, K12, K13, K14, K15, \
-  K21, K22, K23, K24, K25, \
-  K31, K32, K33, K34, K35  \
-) \
-LAYOUT_concat_wrapper( \
-           NUMROW_R0__________________________________, _______,          \
-           K11    , K12    , K13    , K14    , K15    , B_RO1  ,          \
-           K21    , K22    , K23    , K24    , K25    , B_RO2  ,          \
-  B_RI3  , K31    , K32    , K33    , K34    , K35    , B_RO3  , _______, \
-  B_RI4  , B_RB1  , B_RB2  ,                   _______, _______, _______  \
-)
-
-#define LAYOUT_concat_base_right_wrapper(...) LAYOUT_concat_base_right(__VA_ARGS__)
-
-const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    
-    [_QWERTY] = {
-        LAYOUT_concat_base_left_wrapper( \
-            QWERTY_L1__________________________________, \
-            QWERTY_L2__________________________________, \
-            QWERTY_L3__________________________________),
-        LAYOUT_concat_base_right_wrapper( \
-            QWERTY_R1__________________________________, \
-            QWERTY_R2__________________________________, \
-            QWERTY_R3__________________________________)
-    },
-    [_COLEMAK] = {
-        LAYOUT_concat_base_left_wrapper( \
-            COLEMAK_L1_________________________________, \
-            COLEMAK_L2_________________________________, \
-            COLEMAK_L3_________________________________),
-        LAYOUT_concat_base_right_wrapper( \
-            COLEMAK_R1_________________________________, \
-            COLEMAK_R2_________________________________, \
-            COLEMAK_R3_________________________________)
-    },
-    [_SYMBOL] = {
-	LAYOUT_concat_wrapper( \
-                 _______, _______, _______, _______, _______, _______,          \
-		 SYMBOL_L1___________________________________________,          \
-		 SYMBOL_L2___________________________________________,          \
-        _______, SYMBOL_L3___________________________________________, _______, \
-        _______, _______, _______,                   _______, _______, _______),
-	LAYOUT_concat_wrapper( \
-                 _______, _______, _______, _______, _______, _______,          \
-		 SYMBOL_R1___________________________________________,          \
-		 SYMBOL_R2___________________________________________,          \
-        _______, SYMBOL_R3___________________________________________, _______, \
-        _______, KC_SPC , _______,                   _______, _______, _______)
-    },
-    [_FUNCTION] = {
-        LAYOUT_concat_wrapper( \
-                 _______, _______, _______, _______, _______, _______,          \
-                 FUNCTION_L1_________________________________________,          \
-                 FUNCTION_L2_________________________________________,          \
-        _______, FUNCTION_L3_________________________________________, _______, \
-        _______, _______, _______,                   _______, KC_TAB , _______),
-        LAYOUT_concat_wrapper( \
-                 _______, _______, _______, _______, _______, _______,          \
-                 FUNCTION_R1_________________________________________,          \
-                 FUNCTION_R2_________________________________________,          \
-        _______, FUNCTION_R3_________________________________________, _______, \
-        _______, _______, _______,                   _______, _______, _______)
-    },
-    [_GAME] = {
-	LAYOUT_concat_wrapper( \
-                 _______, _______, _______, _______, _______, _______,          \
-		 GAME_L1_____________________________________________,          \
-		 GAME_L2_____________________________________________,          \
-        _______, GAME_L3_____________________________________________, _______, \
-        _______, _______, _______,                   KC_TAB , KC_SPC , _______),
-	LAYOUT_concat_wrapper( \
-                 _______, _______, _______, _______, _______, _______,          \
-		 GAME_R1_____________________________________________,          \
-		 GAME_R2_____________________________________________,          \
-	_______, GAME_R3_____________________________________________, _______, \
-        _______, _______, _______,                   _______, _______, _______)
-    }
-};
+// See config.h for layout mapping to LAYOUT_skarrmann
+// See /users/skarrmann/skarrmann.c for LAYOUT_skarrmann layout mappings
 
 #ifdef OLED_DRIVER_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
@@ -122,12 +27,9 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 void render_base_layer_status(void) {
     oled_write_P(PSTR("Base: "), false);
     switch (get_highest_layer(default_layer_state)) {
-        case _QWERTY:
-            oled_write_P(PSTR("Qwerty\n"), false);
+        case DEF:
+            oled_write_P(PSTR("Default\n"), false);
             break;
-        case _COLEMAK:
-            oled_write_P(PSTR("Colemak\n"), false);
-	    break;
 	default:
             oled_write_P(PSTR("\n"), false);
 	    break;
@@ -137,13 +39,16 @@ void render_base_layer_status(void) {
 void render_custom_layer_status(void) {
     oled_write_P(PSTR("Layer: "), false);
     switch (get_highest_layer(layer_state)) {
-        case _SYMBOL:
+        case SYM:
             oled_write_P(PSTR("Symbol\n"), false);
             break;
-	case _FUNCTION:
+	case NAV:
+            oled_write_P(PSTR("Navigate\n"), false);
+	    break;
+	case FUN:
             oled_write_P(PSTR("Function\n"), false);
 	    break;
-	case _GAME:
+	case GAM:
 	    oled_write_P(PSTR("Game\n"), false);
 	    break;
 	default:
