@@ -5,7 +5,7 @@
 #define SYM_TAB LT(SYM, KC_TAB)
 #define NAV_SPC LT(NAV, KC_SPC)
 #define ALT_MIN RALT_T(KC_MINS)
-#define SFT_QUO RALT_T(KC_QUOT)
+#define SFT_QUO RSFT_T(KC_QUOT)
 #define TG_SYM  TG(SYM)
 #define TG_FUN  TG(FUN)
 #define TG_NAV  TG(NAV)
@@ -16,7 +16,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [DEF] = LAYOUT_skarrmann(
     KC_LALT, KC_Q   , KC_W   , KC_F   , KC_P   , KC_G   ,                   KC_J   , KC_L   , KC_U   , KC_Y   , KC_SCLN, ALT_MIN,
     KC_LSFT, KC_A   , KC_R   , KC_S   , KC_T   , KC_D   ,                   KC_H   , KC_N   , KC_E   , KC_I   , KC_O   , SFT_QUO,
-    KC_LCTL, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   ,                   KC_K   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, KC_RALT,
+    KC_LCTL, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   ,                   KC_K   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, KC_RCTL,
                                         FUN_DEL, SYM_TAB, KC_ESC , KC_ENT , NAV_SPC, KC_BSPC
   ),
 
