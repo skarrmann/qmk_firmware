@@ -1,4 +1,5 @@
 SRC += skarrmann.c
 
-COMBO_ENABLE = no
+VPATH += keyboards/gboards
+COMBO_ENABLE = yes
 COMMAND_ENABLE = no

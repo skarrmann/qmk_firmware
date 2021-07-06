@@ -1,0 +1,4 @@
+COMB(sftaExlm, KC_EXLM,    KC_LSFT, KC_A)
+COMB(sftrAt  , KC_AT  ,    KC_LSFT, KC_R)
+COMB(sftsHash, KC_HASH,    KC_LSFT, KC_S)
+COMB(sfttDlr , KC_DLR ,    KC_LSFT, KC_T)

@@ -17,8 +17,8 @@
 #define ONESHOT_TIMEOUT 1000
 
 // Combo configuration
-#define COMBO_COUNT 0
-#define COMBO_TERM 50
+#define COMBO_VARIABLE_LEN
+#define COMBO_TERM 30
 
 // Mouse keys configuration
 #ifdef MOUSEKEY_ENABLE
