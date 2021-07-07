@@ -38,6 +38,9 @@ void render_base_layer_status(void) {
 void render_custom_layer_status(void) {
     oled_write_P(PSTR("Layer: "), false);
     switch (get_highest_layer(layer_state)) {
+	case HOM:
+	    oled_write_P(PSTR("Home mods\n"), false);
+	    break;
         case SYM:
             oled_write_P(PSTR("Symbol\n"), false);
             break;
