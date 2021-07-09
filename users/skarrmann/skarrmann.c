@@ -6,7 +6,7 @@
 #define NAV_SPC LT(NAV, KC_SPC)
 
 #define GUI_ESC LGUI_T(KC_ESC)
-#define GUI_ENT LGUI_T(KC_ENT)
+#define GUI_ENT RGUI_T(KC_ENT)
 
 #define TG_SYM  TG(SYM)
 #define TG_FUN  TG(FUN)
@@ -42,9 +42,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [SYM] = LAYOUT_skarrmann(
     KC_GRV , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   ,                   KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , KC_UNDS,
-    KC_HASH, KC_EXLM, KC_LPRN, KC_RPRN, KC_DLR , KC_AMPR,                   KC_PIPE, KC_EQL , KC_LCBR, KC_RCBR, KC_COLN, KC_DQUO,
+    KC_HASH, KC_EXLM, KC_LPRN, KC_RPRN, KC_DLR , KC_AMPR,                   KC_PIPE, KC_SCLN, KC_LCBR, KC_RCBR, KC_COLN, KC_DQUO,
     KC_TILD, KC_AT  , KC_LBRC, KC_RBRC, KC_PLUS, KC_PERC,                   KC_CIRC, KC_ASTR, KC_LABK, KC_RABK, KC_QUES, KC_BSLS,
-                                        _______, _______, _______, KC_SCLN, KC_MINS, _______
+                                        _______, _______, _______, _______, KC_MINS, KC_EQL 
   ),
 
   [NAV] = LAYOUT_skarrmann(
