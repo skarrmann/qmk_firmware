@@ -1,9 +1,8 @@
 #include "skarrmann.h"
 
 // Custom key names
-#define FUN_DEL LT(FUN, KC_DEL)
 #define SYM_TAB LT(SYM, KC_TAB)
-#define NAV_SPC LT(NAV, KC_SPC)
+#define FUN_SPC LT(FUN, KC_SPC)
 
 #define GUI_ESC LGUI_T(KC_ESC)
 #define GUI_ENT RGUI_T(KC_ENT)
@@ -30,7 +29,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LALT, KC_Q   , KC_W   , KC_F   , KC_P   , KC_G   ,                   KC_J   , KC_L   , KC_U   , KC_Y   , KC_QUOT, KC_RALT,
     KC_LSFT, KC_A   , KC_R   , KC_S   , KC_T   , KC_D   ,                   KC_H   , KC_N   , KC_E   , KC_I   , KC_O   , KC_RSFT,
     KC_LCTL, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   ,                   KC_K   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, KC_RCTL,
-                                        FUN_DEL, SYM_TAB, GUI_ESC, GUI_ENT, NAV_SPC, KC_BSPC
+                                        KC_DEL , SYM_TAB, GUI_ESC, GUI_ENT, FUN_SPC, KC_BSPC
   ),
 
   [HOM] = LAYOUT_skarrmann(
@@ -47,17 +46,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                         _______, _______, _______, _______, KC_MINS, KC_EQL 
   ),
 
-  [NAV] = LAYOUT_skarrmann(
-    _______, _______, _______, _______, _______, _______,                   _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END , _______,
-    _______, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, _______,                   _______, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, _______,
-    _______, _______, _______, _______, _______, _______,                   _______, KC_MUTE, KC_VOLD, KC_VOLU, KC_APP , _______,
-                                        _______, KC_TAB , _______, _______, _______, _______
-  ),
-
   [FUN] = LAYOUT_skarrmann(
-    _______, KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_PSCR,                   TG_HOM , _______, _______, _______, _______, _______,
-    _______, KC_F5  , KC_F6  , KC_F7  , KC_F8  , KC_INS ,                   EEP_RST, KC_RCTL, KC_RSFT, KC_RALT, KC_RGUI, _______,
-    _______, KC_F9  , KC_F10 , KC_F11 , KC_F12 , KC_CAPS,                   TG_GAM , _______, _______, _______, _______, _______,
+    _______, KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_PSCR,                   TG_HOM , KC_HOME, KC_PGDN, KC_PGUP, KC_END , _______,
+    _______, KC_F5  , KC_F6  , KC_F7  , KC_F8  , KC_INS ,                   EEP_RST, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, _______,
+    _______, KC_F9  , KC_F10 , KC_F11 , KC_F12 , KC_CAPS,                   TG_GAM , KC_MUTE, KC_VOLD, KC_VOLU, KC_APP , _______,
                                         _______, _______, _______, _______, _______, _______
   ),
 
@@ -70,6 +62,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 
+
+#ifdef ENCODER_ENABLE
+bool encoder_update_user(uint8_t index, bool clockwise) {
+    if (index == 0) {
+        // Volume control
+        if (clockwise) {
+            tap_code(KC_VOLD);
+        } else {
+            tap_code(KC_VOLU);
+        }
+    }
+    else if (index == 1) {
+        // Page up/Page down
+        if (clockwise) {
+            tap_code(KC_PGDN);
+        } else {
+            tap_code(KC_PGUP);
+        }
+    }
+    return true;
+}
+#endif
 
 // Tapping term per key
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
@@ -133,7 +147,7 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
     uint16_t layer = ((keycode & 0x0F00) >> 0x8);
     switch (layer) {
       case SYM:
-      case NAV:
+      case FUN:
         return true;
     }
   }

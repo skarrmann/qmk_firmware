@@ -7,7 +7,6 @@ enum userspace_layers {
   DEF = 0,
   HOM,
   SYM,
-  NAV,
   FUN,
   GAM,
 };
