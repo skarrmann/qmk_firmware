@@ -1,17 +1,10 @@
 #pragma once
 
 // Tap-hold configuration
-#define TAPPING_TERM_PER_KEY
-#define TAPPING_TERM 140
-#define TAPPING_TERM_K_SPC 180
-#define TAPPING_TERM_M_SFT 120
-#define TAPPING_TERM_M_CTL 150
-#define TAPPING_TERM_M_ALT 150
-#define TAPPING_TERM_M_GUI 160
-#define TAPPING_TERM_M_MLT 160
+#define TAPPING_TERM 150
 #undef PERMISSIVE_HOLD
 #define IGNORE_MOD_TAP_INTERRUPT
-#define TAPPING_FORCE_HOLD_PER_KEY
+#define TAPPING_FORCE_HOLD
 
 // One shot configuration
 #define ONESHOT_TIMEOUT 1000
