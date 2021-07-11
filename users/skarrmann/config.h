@@ -1,7 +1,7 @@
 #pragma once
 
 // Tap-hold configuration
-#define TAPPING_TERM 150
+#define TAPPING_TERM 200
 #undef PERMISSIVE_HOLD
 #define IGNORE_MOD_TAP_INTERRUPT
 #define TAPPING_FORCE_HOLD
