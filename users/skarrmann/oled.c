@@ -26,6 +26,9 @@ void render_custom_layer_status(void) {
         case SYM:
             oled_write_P(PSTR("Symbol\n"), false);
             break;
+	case NAV:
+            oled_write_P(PSTR("Navigate\n"), false);
+	    break;
 	case FUN:
             oled_write_P(PSTR("Function\n"), false);
 	    break;
