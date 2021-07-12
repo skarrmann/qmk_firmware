@@ -7,6 +7,11 @@
 #define MO_SYM  MO(SYM)
 #define MO_FUN  MO(FUN)
 
+#define ALT_MIN RALT_T(KC_MINS)
+#define SFT_QUO RSFT_T(KC_QUOT)
+#define GUI_ESC LGUI_T(KC_ESC)
+#define GUI_ENT RGUI_T(KC_ENT)
+
 #define TG_SYM  TG(SYM)
 #define TG_FUN  TG(FUN)
 #define TG_GAM  TG(GAM)
@@ -22,13 +27,12 @@
 #define HOME_I LALT_T(KC_I)
 #define HOME_O RGUI_T(KC_O)
 
-// Layer key mappings
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [DEF] = LAYOUT_skarrmann(
-    KC_LALT, KC_Q   , KC_W   , KC_F   , KC_P   , KC_G   ,                   KC_J   , KC_L   , KC_U   , KC_Y   , KC_SCLN, KC_MINS,
-    KC_LSFT, KC_A   , KC_R   , KC_S   , KC_T   , KC_D   ,                   KC_H   , KC_N   , KC_E   , KC_I   , KC_O   , KC_QUOT,
-    KC_LCTL, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   ,                   KC_K   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, KC_RGUI,
-                                        KC_DEL , SYM_TAB, KC_ESC , KC_ENT , FUN_SPC, KC_BSPC
+    KC_LALT, KC_Q   , KC_W   , KC_F   , KC_P   , KC_G   ,                   KC_J   , KC_L   , KC_U   , KC_Y   , KC_SCLN, ALT_MIN,
+    KC_LSFT, KC_A   , KC_R   , KC_S   , KC_T   , KC_D   ,                   KC_H   , KC_N   , KC_E   , KC_I   , KC_O   , SFT_QUO,
+    KC_LCTL, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   ,                   KC_K   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, KC_RCTL,
+                                        KC_DEL , SYM_TAB, GUI_ESC, GUI_ENT, FUN_SPC, KC_BSPC
   ),
 
   [HOM] = LAYOUT_skarrmann(
