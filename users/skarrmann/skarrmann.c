@@ -50,17 +50,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [FUN] = LAYOUT_skarrmann(
-    _______, KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_PSCR,                   TG_HOM , KC_HOME, KC_PGDN, KC_PGUP, KC_END , KC_RALT,
-    _______, KC_F5  , KC_F6  , KC_F7  , KC_F8  , KC_INS ,                   EEP_RST, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, KC_RSFT,
+    _______, KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_PSCR,                   TG_HOM , KC_HOME, KC_PGDN, KC_PGUP, KC_END , _______,
+    _______, KC_F5  , KC_F6  , KC_F7  , KC_F8  , KC_INS ,                   EEP_RST, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, _______,
     _______, KC_F9  , KC_F10 , KC_F11 , KC_F12 , KC_CAPS,                   TG_GAM , KC_MUTE, KC_VOLD, KC_VOLU, KC_APP , _______,
-                                        KC_RCTL, KC_TAB , KC_LGUI, _______, _______, _______
+                                        _______, KC_TAB , _______, _______, _______, _______
   ),
 
   [GAM] = LAYOUT_skarrmann(
     _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
-                                        KC_TAB , KC_SPC , _______, _______, _______, _______
+    _______, _______, _______, _______, _______, _______,                   TG_GAM , _______, _______, _______, _______, _______,
+                                        _______, KC_TAB , KC_ESC , KC_ENT , KC_SPC , _______
   ),
 
 };
@@ -68,6 +68,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+	case GUI_ESC:
+	case GUI_ENT:
         case FUN_SPC:
             return TAPPING_TERM + 50;
         default:
