@@ -27,12 +27,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT      horizon
 
 /* key matrix size */
-#define MATRIX_ROWS 7
-#define MATRIX_COLS 6
+#define MATRIX_ROWS 4
+#define MATRIX_COLS 14
 
-#define MATRIX_ROW_PINS { B2, D7, B6, E6, C6, B4, B5 }
-#define MATRIX_COL_PINS { F4, F5, F6, F7, B1, B3  }
-#define UNUSED_PINS { D2, D3 }
+#define MATRIX_ROW_PINS { D3, D2, D1, D4 }
+#define MATRIX_COL_PINS { F5, F6, F7, B1, B3, B2, B6, B5, B4, E6, D7, C6, D4, D0 }
+#define UNUSED_PINS { }
 
 #define DIODE_DIRECTION COL2ROW
 

@@ -1,12 +1,12 @@
-# horizon
+# Horizon
 
 ![horizon](imgur.com image replace me!)
 
-*A short description of the keyboard/project*
+A simple 52 key ortholinear keyboard.
 
-* Keyboard Maintainer: [Steven Karrmann](https://github.com/yourusername)
-* Hardware Supported: *The PCBs, controllers supported*
-* Hardware Availability: *Links to where you can find this hardware*
+* Keyboard Maintainer: [Steven Karrmann](https://github.com/skarrmann)
+* Hardware Supported: Horizon PCBs
+* Hardware Availability: [Horizon GitHub repository](https://github.com/skarrmann/horizon)
 
 Make example for this keyboard (after setting up your build environment):
 
