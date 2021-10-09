@@ -1,8 +1,8 @@
 # Horizon
 
-![horizon](imgur.com image replace me!)
+![horizon](https://i.imgur.com/zR0wnA6.jpg)
 
-A simple 52 key ortholinear keyboard.
+A simple 52 key ortholinear keyboard, powered by Arduino Pro Micro.
 
 * Keyboard Maintainer: [Steven Karrmann](https://github.com/skarrmann)
 * Hardware Supported: Horizon PCBs
