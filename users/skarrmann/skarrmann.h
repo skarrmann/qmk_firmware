@@ -5,7 +5,6 @@
 // Layer declarations
 enum userspace_layers {
   DEF = 0,
-  HOM,
   SYM,
   FUN,
   GAM,
