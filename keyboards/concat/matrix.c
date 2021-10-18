@@ -12,7 +12,7 @@ static matrix_row_t read_row(uint8_t row_index) {
         writePinLow(SR_CLK_PIN);
         writePinHigh(SR_CLK_PIN);
 
-	// Small delay to allow shift register to finish shifting
+        // Small delay to allow shift register to finish shifting
         wait_us(5);
 
         // Read matrix input pins B1, B2, B3, B4 and bit-shift them into position
