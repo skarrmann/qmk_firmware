@@ -8,14 +8,14 @@
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [DEF] = LAYOUT_skarrmann(
         KC_SCLN, KC_Q   , KC_W   , KC_F   , KC_P   , KC_G   ,                   KC_J   , KC_L   , KC_U   , KC_Y   , KC_QUOT, KC_MINS,
-        KC_LSFT, KC_A   , KC_R   , KC_S   , KC_T   , KC_D   ,                   KC_H   , KC_N   , KC_E   , KC_I   , KC_O   , KC_RSFT,
+        KC_LSFT, KC_A   , KC_R   , KC_S   , KC_T   , KC_D   ,                   KC_H   , KC_N   , KC_E   , KC_I   , KC_O   , KC_LSFT,
         KC_LCTL, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , TO_DEF , TG_GAM , KC_K   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, KC_RCTL,
         KC_LALT, KC_LGUI, TO_DEF , KC_ESC , KC_DEL , SYM_TAB, KC_ESC , KC_ENT , FUN_SPC, KC_BSPC, KC_ENT , TG_GAM , KC_RGUI, KC_RALT
     ),
 
     [SYM] = LAYOUT_skarrmann(
-        KC_GRV , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   ,                   KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , KC_UNDS,
-        KC_HASH, KC_EXLM, KC_LPRN, KC_RPRN, KC_DLR , KC_AMPR,                   KC_PIPE, KC_EQL , KC_LCBR, KC_RCBR, KC_COLN, KC_DQUO,
+        KC_COLN, KC_1   , KC_2   , KC_3   , KC_4   , KC_5   ,                   KC_6   , KC_7   , KC_8   , KC_9   , KC_DQUO, KC_UNDS,
+        KC_HASH, KC_EXLM, KC_LPRN, KC_RPRN, KC_DLR , KC_AMPR,                   KC_PIPE, KC_EQL , KC_LCBR, KC_RCBR, KC_0   , KC_GRV ,
         KC_TILD, KC_AT  , KC_LBRC, KC_RBRC, KC_PLUS, KC_PERC, _______, _______, KC_CIRC, KC_ASTR, KC_LABK, KC_RABK, KC_QUES, KC_BSLS,
         _______, _______, _______, _______, _______, _______, _______, _______, KC_SPC , _______, _______, _______, _______, _______
     ),
