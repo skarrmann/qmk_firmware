@@ -28,7 +28,6 @@ BLUETOOTH_ENABLE = no       # Enable Bluetooth
 AUDIO_ENABLE = no           # Audio output
 
 CUSTOM_MATRIX = lite
-OLED_DRIVER_ENABLE = yes
 
 # Debugging
 CONSOLE_ENABLE = yes

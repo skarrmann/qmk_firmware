@@ -24,16 +24,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT_ID   0x0000
 #define DEVICE_VER   0x0001
 #define MANUFACTURER Steven Karrmann
-#define PRODUCT      concat
+#define PRODUCT      Concat
 
 /* key matrix size */
-#define MATRIX_ROWS 2
-#define MATRIX_COLS 32
-#define MATRIX_PIN_COUNT 4
+#define MATRIX_ROWS 2 // Numer of shift registers
+#define MATRIX_COLS 16 // Number of keys per shift register
+#define MATRIX_PIN_COUNT 2 // Number of input pins on IC
 
-#define SR_CLK_PIN B5
-#define SR_DATA_PIN B6
-#define MATRIX_PINS { B1, B2, B3, B4 }
+#define SR_DATA_PIN E6
+#define SR_LATCH_PIN B4
+#define SR_CLOCK_PIN B5
+#define MATRIX_PINS { B1, B2 }
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
 #define LOCKING_SUPPORT_ENABLE
