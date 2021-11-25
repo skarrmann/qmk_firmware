@@ -2,15 +2,13 @@
 
 #define SYM_TAB LT(SYM, KC_TAB)
 #define FUN_SPC LT(FUN, KC_SPC)
-#define TO_DEF  TO(DEF)
-#define TG_GAM  TG(GAM)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [DEF] = LAYOUT_skarrmann(
         KC_SCLN, KC_Q   , KC_W   , KC_F   , KC_P   , KC_G   ,                   KC_J   , KC_L   , KC_U   , KC_Y   , KC_QUOT, KC_MINS,
-        KC_LSFT, KC_A   , KC_R   , KC_S   , KC_T   , KC_D   ,                   KC_H   , KC_N   , KC_E   , KC_I   , KC_O   , KC_LSFT,
-        KC_LCTL, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , TO_DEF , TG_GAM , KC_K   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, KC_RCTL,
-        KC_LALT, KC_LGUI, TO_DEF , KC_ESC , KC_DEL , SYM_TAB, KC_ESC , KC_ENT , FUN_SPC, KC_BSPC, KC_ENT , TG_GAM , KC_RGUI, KC_RALT
+        KC_LSFT, KC_A   , KC_R   , KC_S   , KC_T   , KC_D   ,                   KC_H   , KC_N   , KC_E   , KC_I   , KC_O   , KC_RSFT,
+        KC_LCTL, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , _______, _______, KC_K   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, KC_RCTL,
+        KC_LALT, KC_LGUI, _______, KC_ESC , KC_DEL , SYM_TAB, KC_ESC , KC_ENT , FUN_SPC, KC_BSPC, KC_ENT , _______, KC_RGUI, KC_RALT
     ),
 
     [SYM] = LAYOUT_skarrmann(
@@ -26,14 +24,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, KC_F9  , KC_F10 , KC_F11 , KC_F12 , _______, _______, _______, _______, KC_MUTE, KC_VOLD, KC_VOLU, KC_PAUS, _______,
         _______, _______, _______, _______, _______, KC_TAB , _______, _______, _______, _______, _______, _______, _______, _______
     ),
-
-    [GAM] = LAYOUT_skarrmann(
-        _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, KC_TAB , _______, _______, KC_SPC , _______, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT
-    ),
-
 };
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
