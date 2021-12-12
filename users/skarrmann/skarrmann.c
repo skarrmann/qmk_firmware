@@ -8,7 +8,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_SCLN, KC_Q   , KC_W   , KC_F   , KC_P   , KC_G   ,                   KC_J   , KC_L   , KC_U   , KC_Y   , KC_QUOT, KC_MINS,
         KC_LSFT, KC_A   , KC_R   , KC_S   , KC_T   , KC_D   ,                   KC_H   , KC_N   , KC_E   , KC_I   , KC_O   , KC_RSFT,
         KC_LCTL, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , _______, _______, KC_K   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, KC_RCTL,
-        KC_LALT, KC_LGUI, _______, KC_ESC , KC_DEL , SYM_TAB, KC_ESC , KC_ENT , FUN_SPC, KC_BSPC, KC_ENT , _______, KC_RGUI, KC_RALT
+        KC_LALT, KC_LGUI, _______, _______, KC_DEL , SYM_TAB, KC_ESC , KC_ENT , FUN_SPC, KC_BSPC, _______, _______, KC_RGUI, KC_RALT
     ),
 
     [SYM] = LAYOUT_skarrmann(
