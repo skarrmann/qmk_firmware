@@ -1,0 +1,6 @@
+git submodule sync
+git submodule update --init --recursive
+
+qmk flash -kb contra -km benc34
+qmk flash -kb ferris/sweep -km benc34
+qmk flash -kb planck/rev6_drop -km benc34

@@ -1,0 +1,14 @@
+#pragma once
+
+#define LAYOUT_34( \
+	L11, L12, L13, L14, L15,   R11, R12, R13, R14, R15, \
+	L21, L22, L23, L24, L25,   R21, R22, R23, R24, R25, \
+	L31, L32, L33, L34, L35,   R31, R32, R33, R34, R35, \
+	               L41, L42,   R41, R42 \
+	) \
+	LAYOUT_ortho_4x12( \
+	L11,     L12,     L13,     L14, L15, XXXXXXX, XXXXXXX, R11, R12, R13,     R14,     R15, \
+	L21,     L22,     L23,     L24, L25, XXXXXXX, XXXXXXX, R21, R22, R23,     R24,     R25, \
+	L31,     L32,     L33,     L34, L35, XXXXXXX, XXXXXXX, R31, R32, R33,     R34,     R35, \
+	XXXXXXX, XXXXXXX, XXXXXXX, L41, L42, XXXXXXX, XXXXXXX, R41, R42, XXXXXXX, XXXXXXX, XXXXXXX \
+	)
