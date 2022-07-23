@@ -1,7 +1,1 @@
-MOUSEKEY_ENABLE = no
-EXTRAKEY_ENABLE = no
-STENO_ENABLE = yes
-AUDIO_ENABLE = no
-MIDI_ENABLE = no
-
 SRC += skarrmann.c
