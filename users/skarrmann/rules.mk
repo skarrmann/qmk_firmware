@@ -1,1 +1,1 @@
-SRC += skarrmann.c
+INTROSPECTION_KEYMAP_C = skarrmann.c
