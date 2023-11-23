@@ -1,9 +1,9 @@
-// Copyright 2022 Steven Karrmann (@skarrmann)
+// Copyright 2023 Steven Karrmann (@skarrmann)
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #include QMK_KEYBOARD_H
 
-#include "oneshot.h"
+#include "../../../../users/skarrmann/oneshot.h"
 
 enum layer_names {
     _BASE,
@@ -78,19 +78,6 @@ bool is_oneshot_ignore(uint16_t keycode) {
     }
 }
 
-bool oneshot_active = false;
-uint16_t queued_oneshot_keycodes[ONESHOT_QUEUE_SIZE] = { 0 };
-
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if (!is_oneshot_ignore(keycode)) {
-        return update_oneshot(
-            get_oneshot_keycode(keycode),
-            &oneshot_active,
-            queued_oneshot_keycodes,
-            keycode,
-            record
-        );
-    }
-
-    return true;
+    return update_oneshot(keycode, record);
 }

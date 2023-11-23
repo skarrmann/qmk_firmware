@@ -1,1 +1,1 @@
-SRC += oneshot.c
+SRC += ../../../../users/skarrmann/oneshot.c
