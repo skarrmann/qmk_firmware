@@ -18,3 +18,31 @@
 
 // See config.h for layout mapping to LAYOUT_skarrmann
 // See /users/skarrmann/skarrmann.c for LAYOUT_skarrmann layout mappings
+
+
+const rgblight_segment_t PROGMEM rgb_scroll_lock[] = RGBLIGHT_LAYER_SEGMENTS(
+    {6, 3, HSV_BLUE}
+);
+const rgblight_segment_t PROGMEM rgb_caps_lock[] = RGBLIGHT_LAYER_SEGMENTS(
+    {11, 3, HSV_GREEN}
+);
+const rgblight_segment_t PROGMEM rgb_num_lock[] = RGBLIGHT_LAYER_SEGMENTS(
+    {16, 3, HSV_RED}
+);
+
+const rgblight_segment_t* const PROGMEM rgb_layers[] = RGBLIGHT_LAYERS_LIST(
+    rgb_scroll_lock,
+    rgb_caps_lock,
+    rgb_num_lock
+);
+
+void keyboard_post_init_user(void) {
+    rgblight_layers = rgb_layers;
+}
+
+bool led_update_user(led_t led_state) {
+    rgblight_set_layer_state(0, led_state.scroll_lock);
+    rgblight_set_layer_state(1, led_state.caps_lock);
+    rgblight_set_layer_state(2, led_state.num_lock);
+    return true;
+}
