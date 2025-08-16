@@ -13,14 +13,14 @@ enum layer_names {
 };
 
 enum keycodes {
-    OS_LCTL = SAFE_RANGE,
-    OS_LSFT,
-    OS_LALT,
-    OS_LGUI,
-    OS_RCTL,
-    OS_RSFT,
-    OS_RALT,
-    OS_RGUI
+    OSMLCTL = SAFE_RANGE,
+    OSMLSFT,
+    OSMLALT,
+    OSMLGUI,
+    OSMRCTL,
+    OSMRSFT,
+    OSMRALT,
+    OSMRGUI
 };
 
 #define MO_SYM MO(_SYMBOL)
@@ -37,40 +37,39 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_SYMBOL] = LAYOUT_split_3x5_2(
         KC_SCLN, KC_LBRC, KC_RBRC, KC_5   , XXXXXXX, XXXXXXX, KC_6   , KC_MINS, KC_EQL , KC_GRV ,
         KC_1   , KC_2   , KC_3   , KC_4   , KC_BSLS, XXXXXXX, KC_7   , KC_8   , KC_9   , KC_0   ,
-        OS_LGUI, OS_LALT, OS_LSFT, OS_LCTL, XXXXXXX, KC_SPC , OS_RCTL, OS_RSFT, OS_RALT, OS_RGUI,
+        OSMLGUI, OSMLALT, OSMLSFT, OSMLCTL, XXXXXXX, KC_SPC , OSMRCTL, OSMRSFT, OSMRALT, OSMRGUI,
                                    MO_FUN , _______, _______, _______
     ),
     [_NAVIGATION] = LAYOUT_split_3x5_2(
         KC_PSCR, KC_INS , KC_APP , KC_DEL , XXXXXXX, XXXXXXX, KC_HOME, KC_PGDN, KC_PGUP, KC_END ,
-        KC_ESC , KC_TAB , KC_ENT , KC_BSPC, XXXXXXX, XXXXXXX, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT,
-        OS_LGUI, OS_LALT, OS_LSFT, OS_LCTL, XXXXXXX, XXXXXXX, OS_RCTL, OS_RSFT, OS_RALT, OS_RGUI,
+        KC_ESC , KC_TAB , KC_ENT , KC_BSPC, XXXXXXX, KC_PAUS, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT,
+        OSMLGUI, OSMLALT, OSMLSFT, OSMLCTL, XXXXXXX, XXXXXXX, OSMRCTL, OSMRSFT, OSMRALT, OSMRGUI,
                                    _______, _______, _______, MO_FUN
     ),
     [_FUNCTION] = LAYOUT_split_3x5_2(
-        KC_F1  , KC_F2  , KC_F3  , KC_F4  , QK_BOOT, KC_SCRL, KC_F9  , KC_F10 , KC_F11 , KC_F12 ,
-        KC_F5  , KC_F6  , KC_F7  , KC_F8  , XXXXXXX, KC_CAPS, KC_MUTE, KC_VOLD, KC_VOLU, KC_PAUS,
-        OS_LGUI, OS_LALT, OS_LSFT, OS_LCTL, XXXXXXX, KC_NUM , OS_RCTL, OS_RSFT, OS_RALT, OS_RGUI,
+        KC_F1  , KC_F2  , KC_F3  , KC_F4  , QK_BOOT, KC_SCRL, KC_MPLY, KC_MPRV, KC_MNXT, KC_BRIU,
+        KC_F5  , KC_F6  , KC_F7  , KC_F8  , XXXXXXX, KC_CAPS, KC_MUTE, KC_VOLD, KC_VOLU, KC_BRID,
+        KC_F9  , KC_F10 , KC_F11 , KC_F12 , XXXXXXX, KC_NUM , OSMRCTL, OSMRSFT, OSMRALT, OSMRGUI,
                                    _______, _______, _______, _______
     ),
 };
 
 uint16_t get_oneshot_keycode(uint16_t keycode) {
     switch (keycode) {
-        case OS_LCTL: return KC_LCTL;
-        case OS_LSFT: return KC_LSFT;
-        case OS_LALT: return KC_LALT;
-        case OS_LGUI: return KC_LGUI;
-        case OS_RCTL: return KC_RCTL;
-        case OS_RSFT: return KC_RSFT;
-        case OS_RALT: return KC_RALT;
-        case OS_RGUI: return KC_RGUI;
+        case OSMLCTL: return KC_LCTL;
+        case OSMLSFT: return KC_LSFT;
+        case OSMLALT: return KC_LALT;
+        case OSMLGUI: return KC_LGUI;
+        case OSMRCTL: return KC_RCTL;
+        case OSMRSFT: return KC_RSFT;
+        case OSMRALT: return KC_RALT;
+        case OSMRGUI: return KC_RGUI;
         default: return 0;
     }
 }
 
 bool is_oneshot_ignore(uint16_t keycode) {
     switch (keycode) {
-        case KC_LSFT:
         case MO_FUN:
             return true;
         default:
